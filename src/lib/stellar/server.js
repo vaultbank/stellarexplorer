@@ -4,7 +4,7 @@ import networks from './networks'
 export const defaultNetworkAddresses = {
   public: 'https://horizon.stellar.org',
   test: 'https://horizon-testnet.stellar.org',
-  local: 'http://localhost:8000',
+  local: 'https://horizon-testnet.stellar.org',
 }
 
 /**

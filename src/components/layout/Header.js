@@ -10,7 +10,7 @@ import {FormattedMessage, injectIntl} from 'react-intl'
 
 import LanguageSelector from './LanguageSelector'
 import NetworkSelector from './NetworkSelector'
-import logoImg from '../../img/logo.png'
+import logoImg from '../../img/logo_white.png'
 
 class Header extends React.Component {
   render() {
@@ -25,7 +25,6 @@ class Header extends React.Component {
                 className="App-logo"
                 alt={formatMessage({id: 'logo'})}
               />
-              <span className="brand-text">explorer</span>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle />

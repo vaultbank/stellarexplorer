@@ -6,8 +6,8 @@ import Row from 'react-bootstrap/lib/Row'
 import Table from 'react-bootstrap/lib/Table'
 import Tab from 'react-bootstrap/lib/Tab'
 import Tabs from 'react-bootstrap/lib/Tabs'
-import {injectIntl, FormattedMessage} from 'react-intl'
-import {FederationServer, StrKey} from 'stellar-sdk'
+import { injectIntl, FormattedMessage } from 'react-intl'
+import { FederationServer, StrKey } from 'stellar-sdk'
 import has from 'lodash/has'
 
 import knownAccounts from '../data/known_accounts'
@@ -17,9 +17,9 @@ import {
   isPublicKey,
   isStellarAddress,
 } from '../lib/utils'
-import {withServer} from './shared/HOCs'
-import {withSpinner} from './shared/Spinner'
-import {titleWithJSONButton} from './shared/TitleWithJSONButton'
+import { withServer } from './shared/HOCs'
+import { withSpinner } from './shared/Spinner'
+import { titleWithJSONButton } from './shared/TitleWithJSONButton'
 
 import AccountLink from './shared/AccountLink'
 import Asset from './shared/Asset'
@@ -40,9 +40,9 @@ const stellarAddressFromURI = () => {
   return isStellarAddress(lastPath) ? lastPath : undefined
 }
 
-const NameValueTable = ({data, decodeValue = false}) => {
+const NameValueTable = ({ data, decodeValue = false }) => {
   if (!data || Object.keys(data).length === 0)
-    return <div style={{marginTop: 20, marginBottom: 20}}>No Data</div>
+    return <div style={{ marginTop: 20, marginBottom: 20 }}>No Data</div>
   return (
     <Table>
       <thead>
@@ -112,7 +112,7 @@ const Balances = props => (
   </Table>
 )
 
-const Thresholds = ({thresholds}) => (
+const Thresholds = ({ thresholds }) => (
   <Table>
     <thead>
       <tr>
@@ -172,8 +172,8 @@ const Signers = props => (
   </Table>
 )
 
-const Flags = ({flags}) => <NameValueTable data={flags} />
-const Data = ({data}) => <NameValueTable data={data} decodeValue />
+const Flags = ({ flags }) => <NameValueTable data={flags} />
+const Data = ({ data }) => <NameValueTable data={data} decodeValue />
 
 const AccountSummaryPanel = ({
   account: a,
@@ -182,13 +182,13 @@ const AccountSummaryPanel = ({
   knownAccounts,
 }) => {
   const header = titleWithJSONButton(
-    formatMessageFn({id: 'account'}),
+    formatMessageFn({ id: 'account' }),
     accountUrl
   )
   const stellarAddr = stellarAddressFromURI()
   return (
     <Panel header={header}>
-      <Grid style={{paddingLeft: 0}}>
+      <Grid style={{ paddingLeft: 0 }}>
         <Row>
           <Col md={10}>
             <Row>
@@ -238,7 +238,7 @@ const AccountSummaryPanel = ({
           {has(knownAccounts, a.id) &&
             knownAccounts[a.id].type !== 'inflation_pools' && (
               <Col md={2}>
-                <div style={{marginBottom: 10}}>
+                <div style={{ marginBottom: 10 }}>
                   <Logo
                     src={knownAccounts[a.id].logo}
                     name={knownAccounts[a.id].name}
@@ -274,7 +274,7 @@ class Account extends React.Component {
   }
 
   setNewState(tabKey) {
-    const newState = {key: tabKey}
+    const newState = { key: tabKey }
     if (tabKey === 'effects') newState.renderEffects = true
     this.setState(newState)
   }
@@ -292,10 +292,10 @@ class Account extends React.Component {
   }
 
   render() {
-    const {formatMessage} = this.props.intl
+    const { formatMessage } = this.props.intl
     const a = this.props.account
     return (
-      <Grid>
+      <div className="container-fluid">
         <Row>
           <AccountSummaryPanel
             account={a}
@@ -309,12 +309,12 @@ class Account extends React.Component {
             id="account-tabs"
             activeKey={this.state.key}
             onSelect={this.handleSelect}
-            style={{border: '1px solid #ddd', borderRadius: 4}}
+            style={{ border: '1px solid #ddd', borderRadius: 4 }}
           >
-            <Tab eventKey="balances" title={formatMessage({id: 'balances'})}>
+            <Tab eventKey="balances" title={formatMessage({ id: 'balances' })}>
               <Balances balances={a.balances} />
             </Tab>
-            <Tab eventKey="payments" title={formatMessage({id: 'payments'})}>
+            <Tab eventKey="payments" title={formatMessage({ id: 'payments' })}>
               <PaymentTable
                 key={a.id}
                 account={a.id}
@@ -323,7 +323,7 @@ class Account extends React.Component {
                 usePaging
               />
             </Tab>
-            <Tab eventKey="offers" title={formatMessage({id: 'offers'})}>
+            <Tab eventKey="offers" title={formatMessage({ id: 'offers' })}>
               <OfferTable
                 key={a.id}
                 account={a.id}
@@ -333,24 +333,24 @@ class Account extends React.Component {
                 usePaging
               />
             </Tab>
-            <Tab eventKey="trades" title={formatMessage({id: 'trades'})}>
+            <Tab eventKey="trades" title={formatMessage({ id: 'trades' })}>
               <TradeTable key={a.id} account={a.id} limit={20} usePaging />
             </Tab>
-            <Tab eventKey="effects" title={formatMessage({id: 'effects'})}>
+            <Tab eventKey="effects" title={formatMessage({ id: 'effects' })}>
               {// OPTIMISATION: render on focus only as it hits the server for every effect
-              this.state.renderEffects === true && (
-                <EffectTable
-                  key={a.id}
-                  account={a.id}
-                  limit={20}
-                  showAccount={false}
-                  usePaging
-                />
-              )}
+                this.state.renderEffects === true && (
+                  <EffectTable
+                    key={a.id}
+                    account={a.id}
+                    limit={20}
+                    showAccount={false}
+                    usePaging
+                  />
+                )}
             </Tab>
             <Tab
               eventKey="operations"
-              title={formatMessage({id: 'operations'})}
+              title={formatMessage({ id: 'operations' })}
             >
               <OperationTable
                 key={a.id}
@@ -362,7 +362,7 @@ class Account extends React.Component {
             </Tab>
             <Tab
               eventKey="transactions"
-              title={formatMessage({id: 'transactions'})}
+              title={formatMessage({ id: 'transactions' })}
             >
               <TransactionTable
                 key={a.id}
@@ -373,7 +373,7 @@ class Account extends React.Component {
                 usePaging
               />
             </Tab>
-            <Tab eventKey="signing" title={formatMessage({id: 'signing'})}>
+            <Tab eventKey="signing" title={formatMessage({ id: 'signing' })}>
               <Row>
                 <Col md={7}>
                   <Signers signers={a.signers} />
@@ -381,7 +381,7 @@ class Account extends React.Component {
                 <Col
                   md={3}
                   mdOffset={1}
-                  style={{border: '1px solid white', marginTop: 30}}
+                  style={{ border: '1px solid white', marginTop: 30 }}
                 >
                   <h4>
                     <FormattedMessage id="thresholds" />
@@ -390,15 +390,15 @@ class Account extends React.Component {
                 </Col>
               </Row>
             </Tab>
-            <Tab eventKey="flags" title={formatMessage({id: 'flags'})}>
+            <Tab eventKey="flags" title={formatMessage({ id: 'flags' })}>
               <Flags flags={a.flags} />
             </Tab>
-            <Tab eventKey="data" title={formatMessage({id: 'data'})}>
+            <Tab eventKey="data" title={formatMessage({ id: 'data' })}>
               <Data data={a.data_attr} />
             </Tab>
           </Tabs>
         </Row>
-      </Grid>
+      </div>
     )
   }
 }
@@ -442,7 +442,7 @@ class AccountContainer extends React.Component {
       .accountId(accountId)
       .call()
       .then(res => {
-        this.setState({account: res, isLoading: false})
+        this.setState({ account: res, isLoading: false })
         return null
       })
       .catch(handleFetchDataFailure(accountId))

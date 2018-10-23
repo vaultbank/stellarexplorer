@@ -9,13 +9,13 @@ class Operations extends React.Component {
   render() {
     const {formatMessage} = this.props.intl
     return (
-      <Grid>
+      <div className="container-fluid">
         <Row>
           <Panel header={formatMessage({id: 'operations'})}>
             <OperationTable compact={false} limit={50} usePaging />
           </Panel>
         </Row>
-      </Grid>
+      </div>
     )
   }
 }

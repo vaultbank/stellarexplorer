@@ -3,7 +3,7 @@ import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
 import Row from 'react-bootstrap/lib/Row'
 import Col from 'react-bootstrap/lib/Col'
-import {injectIntl} from 'react-intl'
+import { injectIntl } from 'react-intl'
 
 import LedgerTable from './LedgerTableContainer'
 import OperationTable from './OperationTable'
@@ -20,15 +20,15 @@ const panelHeader = (title, viewAllLabel, viewAllLink) => (
 
 class Home extends React.Component {
   render() {
-    const {formatMessage} = this.props.intl
-    const viewAllStr = formatMessage({id: 'view.all'})
+    const { formatMessage } = this.props.intl
+    const viewAllStr = formatMessage({ id: 'view.all' })
     return (
-      <Grid id="home">
+      <div id="home" className="container-fluid">
         <Row>
           <Col md={8}>
             <Panel
               header={panelHeader(
-                formatMessage({id: 'latest.operations'}),
+                formatMessage({ id: 'latest.operations' }),
                 viewAllStr,
                 '/operations'
               )}
@@ -39,7 +39,7 @@ class Home extends React.Component {
           <Col md={4}>
             <Panel
               header={panelHeader(
-                formatMessage({id: 'latest.txs'}),
+                formatMessage({ id: 'latest.txs' }),
                 viewAllStr,
                 '/txs'
               )}
@@ -56,7 +56,7 @@ class Home extends React.Component {
             </Panel>
             <Panel
               header={panelHeader(
-                formatMessage({id: 'latest.ledgers'}),
+                formatMessage({ id: 'latest.ledgers' }),
                 viewAllStr,
                 '/ledgers'
               )}
@@ -65,7 +65,7 @@ class Home extends React.Component {
             </Panel>
           </Col>
         </Row>
-      </Grid>
+      </div>
     )
   }
 }

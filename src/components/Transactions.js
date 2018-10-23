@@ -9,13 +9,13 @@ class Transactions extends React.Component {
   render() {
     const {formatMessage} = this.props.intl
     return (
-      <Grid>
+      <div className="container-fluid">
         <Row>
           <Panel header={formatMessage({id: 'transactions'})}>
             <TransactionTable usePaging showLedger compact={false} limit={20} />
           </Panel>
         </Row>
-      </Grid>
+      </div>
     )
   }
 }

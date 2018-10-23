@@ -3,8 +3,8 @@ import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
 import Row from 'react-bootstrap/lib/Row'
 import Table from 'react-bootstrap/lib/Table'
-import {FormattedMessage, injectIntl} from 'react-intl'
-import {Link} from 'react-router-dom'
+import { FormattedMessage, injectIntl } from 'react-intl'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import has from 'lodash/has'
 
@@ -13,15 +13,15 @@ import BackendResourceBadgeButton from './shared/BackendResourceBadgeButton'
 import ClipboardCopy from './shared/ClipboardCopy'
 import Logo from './shared/Logo'
 import NewWindowIcon from './shared/NewWindowIcon'
-import {titleWithJSONButton} from './shared/TitleWithJSONButton'
+import { titleWithJSONButton } from './shared/TitleWithJSONButton'
 
 import directory from '../data/directory'
-const {anchors, assets} = directory
+const { anchors, assets } = directory
 
 const METADATA_PATH =
   'https://raw.githubusercontent.com/irisli/stellarterm/master/directory/directory.json'
 
-const Asset = ({code, domain, issuer}) => {
+const Asset = ({ code, domain, issuer }) => {
   const anchor = anchors[domain]
   return (
     <tr className="directoryRow">
@@ -30,7 +30,7 @@ const Asset = ({code, domain, issuer}) => {
           <Logo name={domain} src={anchor.logo} />
         </a>
       </td>
-      <td style={{color: 'white'}}>{code}</td>
+      <td style={{ color: 'white' }}>{code}</td>
       <td>
         <AccountLink account={issuer} hideKnown />
         <ClipboardCopy text={issuer} />
@@ -63,9 +63,9 @@ Asset.propTypes = {
 
 class Assets extends React.Component {
   render() {
-    const {formatMessage} = this.props.intl
+    const { formatMessage } = this.props.intl
     const header = titleWithJSONButton(
-      formatMessage({id: 'assets'}),
+      formatMessage({ id: 'assets' }),
       METADATA_PATH
     )
 
@@ -74,12 +74,12 @@ class Assets extends React.Component {
     const allAssetKeys = Object.keys(assets)
     const assetKeys = has(this.props, 'match.params.id')
       ? allAssetKeys.filter(k =>
-          k.startsWith(this.props.match.params.id.toUpperCase())
-        )
+        k.startsWith(this.props.match.params.id.toUpperCase())
+      )
       : allAssetKeys
 
     return (
-      <Grid>
+      <div className="container-fluid">
         <Row>
           <Panel header={header}>
             <Table>
@@ -106,7 +106,7 @@ class Assets extends React.Component {
             </Table>
           </Panel>
         </Row>
-      </Grid>
+      </div>
     )
   }
 }

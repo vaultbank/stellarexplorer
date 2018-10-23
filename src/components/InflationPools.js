@@ -3,19 +3,19 @@ import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
 import Row from 'react-bootstrap/lib/Row'
 import Table from 'react-bootstrap/lib/Table'
-import {FormattedMessage, injectIntl} from 'react-intl'
+import { FormattedMessage, injectIntl } from 'react-intl'
 import PropTypes from 'prop-types'
 
 import AccountLink from './shared/AccountLink'
 import NewWindowIcon from './shared/NewWindowIcon'
-import {titleWithJSONButton} from './shared/TitleWithJSONButton'
+import { titleWithJSONButton } from './shared/TitleWithJSONButton'
 
 import pools from '../data/inflation_pools.json'
 
 const METADATA_PATH =
   'https://raw.githubusercontent.com/chatch/stellarexplorer/master/src/data/inflation_pools.json'
 
-const Pool = ({account, name, website}) => {
+const Pool = ({ account, name, website }) => {
   return (
     <tr className="directoryRow">
       <td>{name}</td>
@@ -40,13 +40,13 @@ Pool.propTypes = {
 
 class Pools extends React.Component {
   render() {
-    const {formatMessage} = this.props.intl
+    const { formatMessage } = this.props.intl
     const header = titleWithJSONButton(
-      formatMessage({id: 'inflation.pools'}),
+      formatMessage({ id: 'inflation.pools' }),
       METADATA_PATH
     )
     return (
-      <Grid>
+      <div className="container-fluid">
         <Row>
           <Panel header={header}>
             <Table>
@@ -72,7 +72,7 @@ class Pools extends React.Component {
             </Table>
           </Panel>
         </Row>
-      </Grid>
+      </div>
     )
   }
 }
