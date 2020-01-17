@@ -1,0 +1,77 @@
+:root {
+  --body-bg: #000;
+  --body-color: #ccc;
+  --loading-color: #07a2cc;
+  --hr-border-color: #000;
+  --footer-border-color: #333;
+  --btn-default-bg: #08b5e5;
+  --pre-border-color: #666;
+
+  --modal-body-bg: #333;
+  --modal-header-bg: #333;
+  --modal-header-border-color: #666;
+
+  --panel-bg: #333;
+  --panel-color: #ccc;
+  --panel-heading-bg: #333;
+  --panel-heading-color: #ccc;
+  --panel-heading-color1: #ccc;
+  --panel-default-heading-bg: #333;
+  --panel-default-heading-color: #fff;
+
+  --secondary-heading-color: #96a2b4;
+
+  --table-thead-color: #e2e2e2;
+  --table-tbody-color: #ccc;
+  --table-td-color: #333;
+  --filter-color: rgb(3, 169, 243);
+  --table-striped-bg: #333;
+  --table-hover-bg: rgba(0, 0, 0, 0.2);
+
+  --navbar-bg: #000;
+  --navbar-nav-color: #fff;
+  --navbar-nav-focus-color: #fff;
+  --navbar-nav-active-bg: #00A1DA;
+  --navbar-nav-active-color: #fff;
+  --navbar-nav-dropdown-toggle-bg: #222;
+  --navbar-nav-hover-color: #e2e2e2;
+  --navbar-nav-dropdown-toggle-color: ##fff;
+  --navbar-dropdown-menu-bg: #666;
+  --navbar-dropdown-menu-color: #e2e2e2;
+  --navbar-dropdown-menu-hover-color: rgba(0, 0, 0, 0.1);
+
+  --divider-vertical-border: #e2e2e2;
+
+
+  --navbar-default-collapse-border: rgba(120, 130, 140, 0.28);
+  --navbar-default-form-border: rgba(120, 130, 140, 0.28);
+
+  --close-color: #fff;
+  --close-hover-color: #fff;
+
+  --navbar-collapse-box-shadow: rgba(255, 255, 255, 0.1);
+
+  --glyphicon-info-sign-color: rgba(255, 255, 255, 0.9);
+
+  --language-selector-color: #e2e2e2;
+  --search-container-bg: #333;
+  --search-container-color: #4c5667;
+  --search-container-bg: rgba(255, 255, 255, 0.9);
+  --search-container-addon-color: #4c5667;
+  --glyphicon-search-bg: #edeef0;
+  --glyphicon-search-color-hover: #99a3b4;
+
+  --network-selector-bg: #08b5e5;
+  --network-selector-border: #08b5e5;
+  --network-selector-color: #fff;
+  --network-selector-inactive-hover-bg: #08b5e5;
+  --network-selector-inactive-color: #fff;
+  --network-selector-inactive-hover-color: #fff;
+
+  --stellar-toml-bg: #fec107;
+  --stellar-toml-color: #fff;
+
+  --directory-row-border: #4c5667;
+
+  --anchor-link-col-bg: #fece3a;
+}
