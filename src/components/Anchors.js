@@ -3,8 +3,8 @@ import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
 import Row from 'react-bootstrap/lib/Row'
 import Table from 'react-bootstrap/lib/Table'
-import { FormattedMessage, injectIntl } from 'react-intl'
-import { Link } from 'react-router-dom'
+import {FormattedMessage, injectIntl} from 'react-intl'
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import AccountLink from './shared/AccountLink'
@@ -12,12 +12,12 @@ import ClipboardCopy from './shared/ClipboardCopy'
 import Logo from './shared/Logo'
 import NewWindowIcon from './shared/NewWindowIcon'
 import StellarTomlBadge from './shared/StellarTomlBadge'
-import { titleWithJSONButton } from './shared/TitleWithJSONButton'
+import {titleWithJSONButton} from './shared/TitleWithJSONButton'
 
-import { assetKeyToIssuer } from '../lib/utils'
+import {assetKeyToIssuer} from '../lib/utils'
 
 import directory from '../data/directory'
-const { anchors } = directory
+const {anchors} = directory
 
 const METADATA_PATH =
   'https://raw.githubusercontent.com/irisli/stellarterm/master/directory/directory.json'
@@ -26,11 +26,11 @@ const tradeURL = (assetCode, issuerDomain) =>
   `https://stellarterm.com/#exchange/XLM-native/${assetCode}-${issuerDomain}`
 
 // render list of asset codes, each code on a new line
-const AssetCodeColumn = ({ assets }) => (
+const AssetCodeColumn = ({assets}) => (
   <span>{Object.keys(assets).map(code => <div key={code}>{code}</div>)}</span>
 )
 
-const IssuerColumn = ({ assets }) => (
+const IssuerColumn = ({assets}) => (
   <span>
     {Object.keys(assets).map(code => {
       const issuer = assetKeyToIssuer(assets[code])
@@ -44,7 +44,7 @@ const IssuerColumn = ({ assets }) => (
   </span>
 )
 
-const TradeColumn = ({ assets, domain }) => (
+const TradeColumn = ({assets, domain}) => (
   <span>
     {Object.keys(assets).map(code => (
       <div key={code}>
@@ -56,7 +56,7 @@ const TradeColumn = ({ assets, domain }) => (
   </span>
 )
 
-const Anchor = ({ assets, domain, displayName, logo, website }) => {
+const Anchor = ({assets, domain, displayName, logo, website}) => {
   return (
     <tr className="directoryRow">
       <td>
@@ -101,9 +101,9 @@ Anchor.propTypes = {
 class Anchors extends React.Component {
   render() {
     if (!anchors) return null
-    const { formatMessage } = this.props.intl
+    const {formatMessage} = this.props.intl
     const header = titleWithJSONButton(
-      formatMessage({ id: 'anchors' }),
+      formatMessage({id: 'anchors'}),
       METADATA_PATH
     )
     return (
