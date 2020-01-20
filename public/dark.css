@@ -1,124 +1,155 @@
 :root {
-  --body-bg: #000;
-  --body-color: #ccc;
+  --c-00: hsl(var(--c-h), var(--c-s), 0%); /* #000000; */
+  --c-cc: hsl(var(--c-h), var(--c-s), 80%); /* #cccccc; */
+  --body-bg: var(--c-00);
+  --body-color: var(--c-cc);
 
+  --c-h: 0;
+  --c-s: 0%;
+  --c-green-h: 182;
+  --c-green-s: 100%;
+  --c-blue-h: 192;
+  --c-blue-s: 93%;
+  --c-yellow-h: 45;
+  --c-yellow-s: 100%;
 
-  --anchor-color: #fff;
-  --anchor-hover-color: #e2e2e2;
+  --c-33: hsl(var(--c-h), var(--c-s), 20%); /* #333333; */
+  --c-66: hsl(var(--c-h), var(--c-s), 40%); /* #666666; */
 
-  --loading-color: #07a2cc;
-  --hr-border-color: #000;
-  --footer-border-color: #333;
-  --btn-default-bg: #08b5e5;
-  --pre-border-color: #666;
+  --c-gray: hsl(var(--c-h), var(--c-s), 35%);
+  --c-gray-light: hsl(var(--c-h), var(--c-s), 55%);
+  --c-gray-lighter: hsl(var(--c-h), var(--c-s), 65%);
+  --c-gray-lightest: hsl(var(--c-h), var(--c-s), 90%);
 
-  --modal-body-bg: #333;
-  --modal-header-bg: #333;
-  --modal-header-border-color: #666;
+  --c-primary: hsl(var(--c-blue-h), var(--c-blue-s), 45%);
+  --c-primary-dark: hsl(var(--c-blue-h), var(--c-blue-s), 40%);
+  --loading-color: hsl(var(--c-blue-h), var(--c-blue-s), 42%);
+  --filter-color: hsl(var(--c-blue-h), var(--c-blue-s), 50%);
 
-  --panel-bg: #333;
-  --panel-color: #ccc;
-  --panel-heading-bg: #333;
-  --panel-heading-color: #ccc;
-  --panel-heading-color1: #ccc;
-  --panel-default-heading-bg: #333;
-  --panel-default-heading-color: #fff;
+  --c-warning:  hsl(var(--c-yellow-h), var(--c-yellow-s), 50%);
+  --c-warning-hover:  hsl(var(--c-yellow-h), var(--c-yellow-s), 40%);
 
-  --secondary-heading-color: #96a2b4;
+  --c-tertiary: hsl(var(--c-green-h), var(--c-green-s), 40%);
+  --c-tertiary-hover: hsl(var(--c-green-h), var(--c-green-s), 30%);
+  --c-tertiary-active: hsl(var(--c-green-h), var(--c-green-s), 50%);
+  --navbar-collapse-box-shadow: hsla(var(--c-h), var(--c-s), 100%, 0.1);
+  --glyphicon-info-sign-color: hsla(var(--c-h), var(--c-s), 100%, 0.9);
+  --search-container-bg: hsla(var(--c-h), var(--c-s), 100%, 0.9);
 
-  --table-thead-color: #e2e2e2;
-  --table-tbody-color: #ccc;
-  --table-td-color: #333;
-  --filter-color: rgb(3, 169, 243);
-  --table-striped-bg: #333;
-  --table-hover-bg: rgba(0, 0, 0, 0.2);
+  --navbar-default-form-border: hsla(var(--c-h), var(--c-s), 55%, 0.28);
+  --navbar-default-collapse-border: hsla(var(--c-h), var(--c-s), 55%, 0.28);
+  --navbar-dropdown-menu-hover-color: hsla(var(--c-h), var(--c-s), 0%, 0.1);
+  --pager-link-border: hsla(var(--c-h), var(--c-s), 0%, 0.28);
 
-  --navbar-bg: #000;
-  --navbar-nav-color: #fff;
-  --navbar-nav-focus-color: #fff;
-  --navbar-nav-active-bg: #00A1DA;
+  --table-hover-bg: hsla(var(--c-h), var(--c-s), 0%, 0.2);
+  --secondary-heading-color: var(--c-gray-lightest);
+
+  --anchor-color: currentColor;
+  --btn-default-bg: var(--c-primary);
+
+  --anchor-hover-color: var(--c-gray-lightest);
+  --hr-border-color: var(--c-00);
+  --pre-border-color: var(--c-66);
+  --footer-border-color: var(--c-33);
+
+  --modal-body-bg: var(--c-33);
+  --modal-header-bg: var(--c-33);
+  --modal-header-border-color: var(--c-66);
+
+  --panel-bg: var(--c-33);
+  --panel-color: var(--c-cc);
+  --panel-heading-bg: var(--c-33);
+  --panel-heading-color: var(--c-cc);
+  --panel-heading-color1: var(--c-cc);
+  --panel-default-heading-bg: var(--c-33);
+  --panel-default-heading-color: currentColor;
+
+  --table-td-color: var(--c-33);
+  --table-striped-bg: var(--c-33);
+  --table-tbody-color: var(--c-cc);
+
+  --navbar-bg: var(--c-00);
+  --table-thead-color: var(--c-gray-lightest);
+
+  --navbar-nav-color: currentColor;
+  --navbar-nav-focus-color: currentColor;
   --navbar-nav-active-color: #fff;
-  --navbar-nav-dropdown-toggle-bg: #222;
-  --navbar-nav-hover-color: #e2e2e2;
-  --navbar-nav-dropdown-toggle-color: ##fff;
-  --navbar-dropdown-menu-bg: #666;
-  --navbar-dropdown-menu-color: #e2e2e2;
-  --navbar-dropdown-menu-hover-color: rgba(0, 0, 0, 0.1);
+  --navbar-nav-hover-color: var(--c-gray-lightest);
+  --navbar-nav-dropdown-toggle-bg: var(--c-22);
+  --navbar-nav-active-bg: var(--c-primary-dark);
+  --navbar-nav-dropdown-toggle-color: currentColor;
 
-  --divider-vertical-border: #e2e2e2;
+  --navbar-dropdown-menu-bg: var(--c-66);
 
+  --navbar-dropdown-menu-color: var(--c-gray-lightest);
 
-  --navbar-default-collapse-border: rgba(120, 130, 140, 0.28);
-  --navbar-default-form-border: rgba(120, 130, 140, 0.28);
+  --divider-vertical-border: var(--c-gray-lightest);
 
-  --close-color: #fff;
-  --close-hover-color: #fff;
+  --close-color: currentColor;
+  --close-hover-color: currentColor;
 
-  --navbar-collapse-box-shadow: rgba(255, 255, 255, 0.1);
+  --language-selector-color: var(--c-gray-lightest);
+  --search-container-color: var(--c-gray);
+  --search-container-addon-color: var(--c-gray);
 
-  --glyphicon-info-sign-color: rgba(255, 255, 255, 0.9);
+  --glyphicon-search-bg: #fff;
+  --glyphicon-search-color-hover: var(--c-gray-lighter);
 
-  --language-selector-color: #e2e2e2;
-  --search-container-bg: #333;
-  --search-container-color: #4c5667;
-  --search-container-bg: rgba(255, 255, 255, 0.9);
-  --search-container-addon-color: #4c5667;
-  --glyphicon-search-bg: #edeef0;
-  --glyphicon-search-color-hover: #99a3b4;
-
-  --network-selector-bg: #08b5e5;
-  --network-selector-border: #08b5e5;
-  --network-selector-color: #fff;
-  --network-selector-inactive-hover-bg: #08b5e5;
+  --network-selector-bg: var(--c-primary);
+  --network-selector-color: currentColor;
+  --network-selector-border: var(--c-primary);
   --network-selector-inactive-color: #fff;
+  --network-selector-inactive-hover-bg: var(--c-primary);
   --network-selector-inactive-hover-color: #fff;
 
-  --stellar-toml-bg: #fec107;
   --stellar-toml-color: #fff;
+  --stellar-toml-bg: var(--c-warning);
+  --stellar-toml-hover-bg: var(--c-warning-hover);
 
-  --directory-row-border: #4c5667;
+  --directory-row-border: var(--c-gray);
 
-  --anchor-link-col-bg: #fece3a;
+  --anchor-link-col-bg: var(--c-warning-hover);
 
-  --nav-tabs-active-color: #666;
-  --nav-tabs-active-hover-bg: #fff;
-  --nav-tabs-active-hover-color: #666;
+  --nav-tabs-active-color: var(--c-66);
+  --nav-tabs-active-hover-bg: currentColor;
+  --nav-tabs-active-hover-color: var(--c-66);
 
-  --account-tabs-border: #333;
-  --account-tabs-bg: #333;
-  --account-tabs-nav-tabs-border: #333;
-  --account-tabs-nav-tabs-color: #e2e2e2;
-  --account-tabs-nav-tabs-active-border: #000;
-  --account-tabs-table-border: #000;
-  --account-tabs-nav-tabs-active-color: #d2f7f8;
+  --account-tabs-bg: var(--c-33);
+  --account-tabs-border: var(--c-33);
+  --account-tabs-nav-tabs-color: var(--c-33);
+  --account-tabs-nav-tabs-border: var(--c-33);
+  --account-tabs-nav-tabs-active-color: #fff;
+  --account-tabs-nav-tabs-active-border: #fff;
+  --account-tabs-nav-tabs-active-bg: var(--c-tertiary-active);
 
-  --account-tabs-tab-color: #ccc;
-  --account-tabs-tab-selected-color: #01c0c8;
-  --account-tabs-tab-hover-color: #01c0c8;
-  --account-tabs-tab-hover-bg: #666;
-  --account-tabs-tab-hover-border: #000;
+  --account-tabs-table-border: var(--c-00);
 
-  --account-badge-bg: #00A1DA;
+  --account-tabs-tab-color: var(--c-cc);
+  --account-tabs-tab-hover-bg: var(--c-66);
+  --account-tabs-tab-hover-border: var(--c-00);
+  --account-tabs-tab-hover-color: var(--c-tertiary);
+  --account-tabs-tab-selected-color: var(--c-tertiary);
+
   --account-badge-color: #fff;
   --account-badge-hover-color: #fff;
+  --account-badge-bg: var(--c-primary-dark);
 
-  --pager-border: #4c5667;
-  --pager-link-bg: #ccc;
-  --pager-link-color: #000;
-  --pager-link-border: rgba(0, 0, 0, 0.28);
-  --pager-link-hover-bg: #ccc;
+  --pager-link-bg: var(--c-cc);
+  --pager-border: var(--c-gray);
+  --pager-link-color: var(--c-00);
+  --pager-link-hover-bg: var(--c-cc);
 
-  --anchor-span-color: #fff;
-  --anchor-span-bg: #01c0c8;
-  --anchor-span-hover-bg: #01a8af;
+  --anchor-span-color: currentColor;
+  --anchor-span-bg: var(--c-tertiary);
+  --anchor-span-hover-bg: var(--c-tertiary-hover);
 
-  --green-blue-button-color: #fff;
-  --green-blue-button-bg: #01c0c8;
-  --green-blue-button-hover-bg: #01a8af;
+  --green-blue-button-color: currentColor;
+  --green-blue-button-bg: var(--c-tertiary);
+  --green-blue-button-hover-bg: var(--c-tertiary-hover);
 
-  --badge-button-color: #000;
-  --badge-button-bg: #89E0E5;
-  --badge-button-hover-color: #666;
+  --badge-button-color: #fff;
+  --badge-button-bg: var(--c-tertiary-active);
+  --badge-button-hover-bg: var(--c-tertiary-hover);
 
-  --brand-text-color: #fff;
+  --brand-text-color: currentColor;
 }

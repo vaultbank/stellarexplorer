@@ -424,7 +424,6 @@ ul.navbar-nav .divider-vertical {
 }
 
 .Network-Selector .is-inactive:hover {
-  opacity: 0.8;
   transition: all 0.18s ease-in-out;
   color: var(--network-selector-inactive-hover-color);
   background: var(--network-selector-inactive-hover-bg);
@@ -434,12 +433,16 @@ ul.navbar-nav .divider-vertical {
   font-weight: 500;
   text-decoration: none;
   letter-spacing: 0.05em;
-  font-size: 14px !important;
-  border-radius: 60px !important;
-  padding: 4px 12px 4px !important;
+  font-size: 14px;
+  border-radius: 60px;
+  padding: 4px 12px 4px;
   transition: all 0.18s ease-in-out;
-  color: var(--stellar-toml-color) !important;
-  background-color: var(--stellar-toml-bg) !important;
+  color: var(--stellar-toml-color);
+  background-color: var(--stellar-toml-bg);
+}
+
+.stellarToml a:hover {
+  background-color: var(--stellar-toml-hover-bg);
 }
 
 .directoryRow {
@@ -483,8 +486,10 @@ ul.navbar-nav .divider-vertical {
   border-bottom: 2px solid;
 }
 
-#account-tabs .nav-tabs > li.active > a {
+#account-tabs .nav-tabs > li.active > a,
+#account-tabs .nav-tabs > li.active > a:hover {
   color: var(--account-tabs-nav-tabs-active-color);
+  background: var(--account-tabs-nav-tabs-active-bg);
   border-bottom: 2px solid var(--account-tabs-nav-tabs-active-border);
 }
 
@@ -620,7 +625,7 @@ a[id|='account-tabs-tab'][aria-selected='true'] {
 }
 
 .backend-resource-badge-button:hover{
-  color: var(--badge-button-hover-color);
+  background-color: var(--badge-button-hover-bg);
 }
 
 /*
