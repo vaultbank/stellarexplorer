@@ -1,6 +1,11 @@
 :root {
   --body-bg: #000;
   --body-color: #ccc;
+
+
+  --anchor-color: #fff;
+  --anchor-hover-color: #e2e2e2;
+
   --loading-color: #07a2cc;
   --hr-border-color: #000;
   --footer-border-color: #333;
@@ -74,4 +79,46 @@
   --directory-row-border: #4c5667;
 
   --anchor-link-col-bg: #fece3a;
+
+  --nav-tabs-active-color: #666;
+  --nav-tabs-active-hover-bg: #fff;
+  --nav-tabs-active-hover-color: #666;
+
+  --account-tabs-border: #333;
+  --account-tabs-bg: #333;
+  --account-tabs-nav-tabs-border: #333;
+  --account-tabs-nav-tabs-color: #e2e2e2;
+  --account-tabs-nav-tabs-active-border: #000;
+  --account-tabs-table-border: #000;
+  --account-tabs-nav-tabs-active-color: #d2f7f8;
+
+  --account-tabs-tab-color: #ccc;
+  --account-tabs-tab-selected-color: #01c0c8;
+  --account-tabs-tab-hover-color: #01c0c8;
+  --account-tabs-tab-hover-bg: #666;
+  --account-tabs-tab-hover-border: #000;
+
+  --account-badge-bg: #00A1DA;
+  --account-badge-color: #fff;
+  --account-badge-hover-color: #fff;
+
+  --pager-border: #4c5667;
+  --pager-link-bg: #ccc;
+  --pager-link-color: #000;
+  --pager-link-border: rgba(0, 0, 0, 0.28);
+  --pager-link-hover-bg: #ccc;
+
+  --anchor-span-color: #fff;
+  --anchor-span-bg: #01c0c8;
+  --anchor-span-hover-bg: #01a8af;
+
+  --green-blue-button-color: #fff;
+  --green-blue-button-bg: #01c0c8;
+  --green-blue-button-hover-bg: #01a8af;
+
+  --badge-button-color: #000;
+  --badge-button-bg: #89E0E5;
+  --badge-button-hover-color: #666;
+
+  --brand-text-color: #fff;
 }
