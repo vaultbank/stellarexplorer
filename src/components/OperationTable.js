@@ -23,16 +23,16 @@ const filterFn = (event) => {
 const OperationTable = props => (
   <div>
     {props.compact === false && (
-      <div className="filter">
-        <FormattedMessage id="filter.for-operation-type" />: 
-        <select onChange={filterFn} defaultValue={getOperationTypeFilter()}>
+      <div className="filter form-inline">
+        <FormattedMessage id="filter.for-operation-type" />:{' '}
+        <select className="form-control w-25 d-inline-block" onChange={filterFn} defaultValue={getOperationTypeFilter()}>
           <option></option>
           {opTypes.map(type => ( <option>{type}</option> ))}
         </select>
         <br/>
 
         {getOperationTypeFilter() && this.possiblyMoreDataAvailable && (
-           <span className="disclaimer"><FormattedMessage id="filter.more-data-possibly-available" /></span>
+           <p className="disclaimer"><FormattedMessage id="filter.more-data-possibly-available" /></p>
         )}
       </div>
     )}

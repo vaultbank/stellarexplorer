@@ -12,11 +12,11 @@ import {isSecretKey} from '../../lib/utils'
 const HelpModal = props => (
   <Modal id="help-modal" show={props.show} onHide={props.handleCloseFn}>
     <Modal.Header closeButton>
-      <Modal.Title id="contained-modal-title-lg" style={{color: '#dce2ec'}}>
+      <Modal.Title id="contained-modal-title-lg">
         Search Help
       </Modal.Title>
     </Modal.Header>
-    <Modal.Body style={{color: '#96a2b4'}}>
+    <Modal.Body>
       <h4>Search By:</h4>
       <br />
       <div>
@@ -63,7 +63,7 @@ const HelpModal = props => (
             alt="search by anchor full name"
           />
         </div>
-        <div style={{marginTop: 20}}>
+        <div className="mt-20">
           Partial name:<br />
           <img
             src={`${
@@ -154,8 +154,9 @@ class SearchBox extends React.Component {
   render() {
     const {formatMessage} = this.props.intl
     return (
-      <div id="Search-Container">
-        <form onSubmit={this.searchHandler}>
+      <div className="container-fluid" id="Search-Container">
+        <div className="mb-20">
+        <form className="form-inline" onSubmit={this.searchHandler}>
           <InputGroup>
             <FormControl
               type="text"
@@ -175,6 +176,7 @@ class SearchBox extends React.Component {
             </InputGroup.Addon>
           </InputGroup>
         </form>
+        </div>
         {this.state.show && (
           <HelpModal handleCloseFn={this.handleClose} show={this.state.show} />
         )}

@@ -11,15 +11,13 @@ const AccountLink = ({account, label, hideKnown = false}) => {
   if (!accLabel) {
     accLabel =
       has(knownAccounts, account) && !hideKnown ? (
-        <span style={{fontStyle: 'italic'}}>{knownAccounts[account].name}</span>
+        <span>{knownAccounts[account].name}</span>
       ) : (
         account.substring(0, 4)
       )
   }
   return (
-    <span title={account}>
-      <Link to={`/account/${account}`}>{accLabel}</Link>
-    </span>
+    <Link title={account} to={`/account/${account}`}>{accLabel}</Link>
   )
 }
 

@@ -46,12 +46,14 @@ const Operation = ({compact, op, opURLFn, parentRenderTimestamp}) => {
     op.type !== 'account_merge' ? (
       <AccountLink account={op.sourceAccount} />
     ) : (
-      <span title={op.sourceAccount}>{op.sourceAccount.substring(0, 4)}</span>
+        <span title={op.sourceAccount}>{op.sourceAccount.substring(0, 4)}</span>
     )
 
   return (
     <tr key={op.id} className="operation">
-      <td className="account-badge">{acc}</td>
+      <td className="add-badge-primary">
+        {acc}
+      </td>
       <td>
         <SubOperation op={op} />
       </td>
