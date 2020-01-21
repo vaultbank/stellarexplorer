@@ -1,15 +1,34 @@
 :root {
-  --c-00: hsl(var(--c-h), var(--c-s), 0%); /* #000000; */
-  --c-cc: hsl(var(--c-h), var(--c-s), 80%); /* #cccccc; */
-  --body-bg: var(--c-00);
-  --body-color: var(--c-cc);
+  /* Light theme */
+  /* --body-bg: #ffffff;
+  --body-color: #333; */
+
+  /* Dark theme */
+  --body-bg: #1e1e2f;
+  --body-color: #b1b1b5;
+  --search-bg: #27293d;
+  --search-border:#313452;
+
+
+
+
+
+
+  /* --table-striped-odd-bg: #f9f9f9;
+  --table-striped-odd-bg: #f9f9f9; */
 
   --c-h: 0;
   --c-s: 0%;
-  --c-green-h: 182;
-  --c-green-s: 100%;
-  --c-blue-h: 192;
-  --c-blue-s: 93%;
+  /* blue */
+  /* #39BAC6 */
+  /* hsl(185, 55%, 50%) */
+  --c-green-h: 185;
+  --c-green-s: 55%;
+  /* blue */
+  /* #0080FF */
+  /* hsl(210, 100%, 50%) */
+  --c-blue-h: 210;
+  --c-blue-s: 100%;
   --c-yellow-h: 45;
   --c-yellow-s: 100%;
 
@@ -21,19 +40,19 @@
   --c-gray-lighter: hsl(var(--c-h), var(--c-s), 65%);
   --c-gray-lightest: hsl(var(--c-h), var(--c-s), 90%);
 
-  --c-primary: hsl(var(--c-blue-h), var(--c-blue-s), 45%);
+  --c-primary: hsl(var(--c-blue-h), var(--c-blue-s), 50%);
   --c-primary-dark: hsl(var(--c-blue-h), var(--c-blue-s), 40%);
-  --loading-color: hsl(var(--c-blue-h), var(--c-blue-s), 42%);
-  --filter-color: hsl(var(--c-blue-h), var(--c-blue-s), 50%);
+  --loading-color: var(--loading-color);
+  --filter-color: var(--loading-color);
 
   --c-warning:  hsl(var(--c-yellow-h), var(--c-yellow-s), 50%);
   --c-warning-hover:  hsl(var(--c-yellow-h), var(--c-yellow-s), 40%);
 
-  --c-tertiary: hsl(var(--c-green-h), var(--c-green-s), 40%);
-  --c-tertiary-hover: hsl(var(--c-green-h), var(--c-green-s), 30%);
-  --c-tertiary-active: hsl(var(--c-green-h), var(--c-green-s), 50%);
+  --c-tertiary: hsl(var(--c-green-h), var(--c-green-s), 50%);
+  --c-tertiary-hover: hsl(var(--c-green-h), var(--c-green-s), 60%);
+  --c-tertiary-active: hsl(var(--c-green-h), var(--c-green-s), 40%);
   --navbar-collapse-box-shadow: hsla(var(--c-h), var(--c-s), 100%, 0.1);
-  --glyphicon-info-sign-color: hsla(var(--c-h), var(--c-s), 100%, 0.9);
+  --glyphicon-info-sign-color: var(--c-gray);
   --search-container-bg: hsla(var(--c-h), var(--c-s), 100%, 0.9);
 
   --navbar-default-form-border: hsla(var(--c-h), var(--c-s), 55%, 0.28);
@@ -56,25 +75,15 @@
   --modal-header-bg: var(--c-33);
   --modal-header-border-color: var(--c-66);
 
-  --panel-bg: var(--c-33);
-  --panel-color: var(--c-cc);
-  --panel-heading-bg: var(--c-33);
-  --panel-heading-color: var(--c-cc);
-  --panel-heading-color1: var(--c-cc);
-  --panel-default-heading-bg: var(--c-33);
-  --panel-default-heading-color: currentColor;
-
   --table-td-color: var(--c-33);
   --table-striped-bg: var(--c-33);
-  --table-tbody-color: var(--c-cc);
 
   --navbar-bg: var(--c-00);
-  --table-thead-color: var(--c-gray-lightest);
-
   --navbar-nav-color: currentColor;
   --navbar-nav-focus-color: currentColor;
   --navbar-nav-active-color: #fff;
-  --navbar-nav-hover-color: var(--c-gray-lightest);
+  --navbar-nav-hover-color: var(--c-gray);
+  --navbar-nav-hover-bg: var(--c-gray-lightest);
   --navbar-nav-dropdown-toggle-bg: var(--c-22);
   --navbar-nav-active-bg: var(--c-primary-dark);
   --navbar-nav-dropdown-toggle-color: currentColor;
@@ -98,7 +107,7 @@
   --network-selector-bg: var(--c-primary);
   --network-selector-color: currentColor;
   --network-selector-border: var(--c-primary);
-  --network-selector-inactive-color: #fff;
+  --network-selector-inactive-color: var(--c-primary);
   --network-selector-inactive-hover-bg: var(--c-primary);
   --network-selector-inactive-hover-color: #fff;
 
@@ -148,8 +157,8 @@
   --green-blue-button-hover-bg: var(--c-tertiary-hover);
 
   --badge-button-color: #fff;
-  --badge-button-bg: var(--c-tertiary-active);
-  --badge-button-hover-bg: var(--c-tertiary-hover);
+  --badge-button-bg: var(--c-tertiary-hover);
+  --badge-button-hover-bg: var(--c-tertiary-active);
 
   --brand-text-color: currentColor;
 }

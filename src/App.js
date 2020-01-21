@@ -18,13 +18,13 @@ import viMessages from './languages/vi'
 import zhMessages from './languages/zh'
 
 import Header from './components/layout/Header'
-import Footer from './components/layout/Footer'
+// import Footer from './components/layout/Footer'
 import Home from './components/Home'
 import SearchBox from './components/layout/SearchBox'
 import NoMatchError from './components/shared/NoMatchError'
 import InsecureNetworkError from './components/shared/InsecureNetworkError'
 import Error from './components/shared/Error'
-import SponsoredLink from './components/shared/SponsoredLink'
+// import SponsoredLink from './components/shared/SponsoredLink'
 
 import Ledger from './components/Ledger'
 import Ledgers from './components/Ledgers'
@@ -138,7 +138,7 @@ class App extends Component {
             />
             <SearchBox />
             <div id="main-content">
-              <SponsoredLink />
+              {/* <SponsoredLink /> */}
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/accounts" component={Accounts} />
@@ -170,7 +170,7 @@ class App extends Component {
                 <Route component={Error} />
               </Switch>
             </div>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </Router>
       </IntlProvider>

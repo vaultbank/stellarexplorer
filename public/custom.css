@@ -26,10 +26,8 @@ a:hover {
 
 .navbar {
   background-color: var(--navbar-bg);
-}
-
-.navbar-fixed-top {
-  border: 0
+  border-bottom: solid 1px var(--c-gray-lightest);
+  box-shadow: 0 0 2rem 0 rgba(53, 64, 82, 0.1);
 }
 
 hr {
@@ -42,12 +40,12 @@ table {
 
 .App-logo {
   float: left;
-  height: 30px;
   margin-right: 6px;
+  color: currentColor;
+  padding: 12px 15px 0 15px;
 }
-
-#main-content {
-  margin: 10px 15px;
+.App-logo:hover {
+  color: currentColor;
 }
 
 #footer {
@@ -159,7 +157,7 @@ pre {
   overflow-wrap: break-word;
   color: var(--secondary-heading-color);
 }
-
+/*
 [id*='-table'] {
   font-size: 14px !important;
 }
@@ -178,7 +176,11 @@ pre {
   color: var(--table-tbody-color);
   border-top: 1px solid var(--table-td-color);
 }
-
+*/
+[id*='-table'] > tbody > tr > td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 .filter {
   margin: 5px 0 5px 0;
 }
@@ -194,7 +196,7 @@ pre {
 .form-control {
   font-size: 13px;
 }
-
+/*
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: var(--table-striped-bg);
 }
@@ -202,6 +204,7 @@ pre {
 .table > tbody > tr:hover {
   background-color: var(--table-hover-bg);
 }
+*/
 
 /* For language dropdown */
 
@@ -223,8 +226,10 @@ pre {
   color: var(--navbar-nav-color);
 }
 
-.navbar-default .navbar-nav > li > a:focus {
-  color: var(--navbar-nav-focus-color);
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+  color: var(--navbar-nav-hover-color);
+  background: var(--navbar-nav-hover-bg);
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -269,6 +274,9 @@ ul.navbar-nav .divider-vertical {
 
 .close{
   opacity: 0.7;
+  font-size: 30px;
+  font-weight: 400;
+  text-shadow: none;
   color: var(--close-color);
 }
 .close:hover{
@@ -351,13 +359,12 @@ ul.navbar-nav .divider-vertical {
 
 #Search-Container {
   margin-bottom: 30px;
+  background: #f2f1f1;
   padding: 65px 15px 25px 15px;
-  background-color: var(--search-container-bg);
 }
 
 #Search-Container input {
   height: 30px;
-  border: none;
   width: 370px;
   font-size: 13px;
   box-shadow: none;
