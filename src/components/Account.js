@@ -42,9 +42,9 @@ const stellarAddressFromURI = () => {
 
 const NameValueTable = ({data, decodeValue = false}) => {
   if (!data || Object.keys(data).length === 0)
-    return <div style={{marginTop: 20, marginBottom: 20}}>No Data</div>
+    return <div>No Data</div>
   return (
-    <Table>
+    <Table className="table-striped table-hover">
       <thead>
         <tr>
           <th>
@@ -94,7 +94,7 @@ const balanceRow = bal => (
 )
 
 const Balances = props => (
-  <Table>
+  <Table className="table-striped table-hover">
     <thead>
       <tr>
         <th>
@@ -113,7 +113,7 @@ const Balances = props => (
 )
 
 const Thresholds = ({thresholds}) => (
-  <Table>
+  <Table className="table-striped table-hover">
     <thead>
       <tr>
         <th>
@@ -138,7 +138,7 @@ const Thresholds = ({thresholds}) => (
 )
 
 const Signers = props => (
-  <Table>
+  <Table className="table-striped table-hover">
     <thead>
       <tr>
         <th>
@@ -188,7 +188,7 @@ const AccountSummaryPanel = ({
   const stellarAddr = stellarAddressFromURI()
   return (
     <Panel header={header}>
-      <Grid style={{paddingLeft: 0}}>
+      <Grid>
         <Row>
           <Col md={10}>
             <Row>
@@ -238,12 +238,10 @@ const AccountSummaryPanel = ({
           {has(knownAccounts, a.id) &&
             knownAccounts[a.id].type !== 'inflation_pools' && (
               <Col md={2}>
-                <div style={{marginBottom: 10}}>
-                  <Logo
-                    src={knownAccounts[a.id].logo}
-                    name={knownAccounts[a.id].name}
-                  />
-                </div>
+                <Logo
+                  src={knownAccounts[a.id].logo}
+                  name={knownAccounts[a.id].name}
+                />
               </Col>
             )}
         </Row>
@@ -309,7 +307,6 @@ class Account extends React.Component {
             id="account-tabs"
             activeKey={this.state.key}
             onSelect={this.handleSelect}
-            style={{border: '1px solid #ddd', borderRadius: 4}}
           >
             <Tab eventKey="balances" title={formatMessage({id: 'balances'})}>
               <Balances balances={a.balances} />
@@ -381,7 +378,6 @@ class Account extends React.Component {
                 <Col
                   md={3}
                   mdOffset={1}
-                  style={{border: '1px solid white', marginTop: 30}}
                 >
                   <h4>
                     <FormattedMessage id="thresholds" />
