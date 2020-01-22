@@ -136,8 +136,8 @@ class App extends Component {
               language={this.state.language}
               languageSwitcher={this.languageSwitcher}
             />
-            <SearchBox />
             <div id="main-content">
+              <SearchBox />
               {/* <SponsoredLink /> */}
               <Switch>
                 <Route exact path="/" component={Home} />

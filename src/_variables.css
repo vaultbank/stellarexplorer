@@ -1,0 +1,38 @@
+:root {
+  /* Light theme */
+  /* --body-bg: #ffffff;
+  --body-color: #333; */
+
+  /* Dark theme */
+  --body-bg: #1e1e2f;
+  --body-color: #b1b1b5;
+  --search-bg: #27293d;
+  --search-border:#313452;
+
+
+  /* #39BAC6 */ /* hsl(185, 55%, 50%) */
+  --c-green-h: 185;
+  --c-green-s: 55%;
+
+  /* #0080FF */ /* hsl(210, 100%, 50%) */
+  --c-blue-h: 210;
+  --c-blue-s: 100%;
+
+  /* yellow */
+  /* #FFBF00 */
+  /* hsl(45, 100%, 50%) */
+  --c-yellow-h: 45;
+  --c-yellow-s: 100%;
+
+  --c-primary: hsl(var(--c-blue-h), var(--c-blue-s), 50%);
+  --c-primary-hover: hsl(var(--c-blue-h), var(--c-blue-s), 40%);
+  --c-primary-active: hsl(var(--c-blue-h), var(--c-blue-s), 60%);
+
+  --c-secondary: hsl(var(--c-green-h), var(--c-green-s), 50%);
+  --c-secondary-hover: hsl(var(--c-green-h), var(--c-green-s), 40%);
+  --c-secondary-active: hsl(var(--c-green-h), var(--c-green-s), 60%);
+
+  --c-warning:  hsl(var(--c-yellow-h), var(--c-yellow-s), 50%);
+  --c-warning-hover:  hsl(var(--c-yellow-h), var(--c-yellow-s), 40%);
+  --c-warning-active:  hsl(var(--c-yellow-h), var(--c-yellow-s), 60%);
+}
