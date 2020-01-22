@@ -79,9 +79,9 @@ class Assets extends React.Component {
 
     return (
       <div className="container-fluid">
-        <Row>
+
           <Panel header={header}>
-            <Table>
+            <Table className="table-striped table-hover">
               <thead>
                 <tr>
                   <th />
@@ -104,7 +104,7 @@ class Assets extends React.Component {
               </tbody>
             </Table>
           </Panel>
-        </Row>
+
       </div>
     )
   }
