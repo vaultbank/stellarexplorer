@@ -106,7 +106,7 @@ class TradeTable extends React.Component {
     const {server, parentRenderTimestamp, account, records} = this.props
 
     if (records.length === 0)
-      return <div style={{marginTop: 20, marginBottom: 20}}>No Trades</div>
+      return <div className="m-5 text-center text-muted">No Trades</div>
 
     const singleAccountView = isPublicKey(account)
 
@@ -114,7 +114,7 @@ class TradeTable extends React.Component {
       <div>
         <Table
           id="trade-table"
-          className="table-striped table-hover table-condensed"
+          className="table-striped table-hover"
         >
           <thead>
             <tr>
@@ -149,7 +149,7 @@ class TradeTable extends React.Component {
             ))}
           </tbody>
         </Table>
-        <div className="text-center" id="csv-export">
+        <div className="text-center mt-20" id="csv-export">
           <ExportToCSVComponent account={account} server={server} />
         </div>
       </div>

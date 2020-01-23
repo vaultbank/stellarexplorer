@@ -35,9 +35,7 @@ class CSVExport extends React.Component {
                   values={{count: has(this.props, 'fetchedRecords') && this.props.fetchedRecords.length}} />
               )
             ) : (
-              <div>
-                <FormattedMessage id="csv-export.fetching" /> | <FormattedMessage id="csv-export.fetched" values={{count: this.props.fetchedRecords.length}} />
-              </div>
+              <FormattedMessage id="csv-export.fetching" /> | <FormattedMessage id="csv-export.fetched" values={{count: this.props.fetchedRecords.length}} />
             )}
           </div>
       )
