@@ -18,7 +18,7 @@ const PaymentTable = ({compact, server, parentRenderTimestamp, records, account}
   <div>
   <Table
     id="payment-table"
-    className="table-striped table-hover table-condensed"
+    className="table-striped table-hover"
   >
     <thead>
       <tr>
@@ -31,6 +31,11 @@ const PaymentTable = ({compact, server, parentRenderTimestamp, records, account}
         {compact === false && (
           <th>
             <FormattedMessage id="transaction" />
+          </th>
+        )}
+        {compact === false && (
+          <th>
+            <FormattedMessage id="type" />
           </th>
         )}
         <th>
@@ -51,7 +56,7 @@ const PaymentTable = ({compact, server, parentRenderTimestamp, records, account}
       ))}
     </tbody>
   </Table>
-  <div className="text-center" id="csv-export">
+  <div className="text-center mt-20" id="csv-export">
     <ExportToCSVComponent server={server} account={account} />
   </div>
   </div>
