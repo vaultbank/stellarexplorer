@@ -19,6 +19,11 @@ import ClipboardCopy from './shared/ClipboardCopy'
 import {withServer} from './shared/HOCs'
 import TransactionTable from './TransactionTableContainer'
 import {titleWithJSONButton} from './shared/TitleWithJSONButton'
+import OnlyTitle from './shared/OnlyTitle'
+
+const panelHeader = (title) => (
+  <OnlyTitle title={title} />
+)
 
 const ledgerHash = hash => shortHash(hash, 20)
 
@@ -78,20 +83,20 @@ class Ledger extends React.Component {
     const {formatMessage} = this.props.intl
 
     return (
-      <Grid>
-        <Row>
+      <Grid fluid>
           <Panel
             header={titleWithJSONButton(
-              <span>
+              <div className="panel-title">
                 {formatMessage({id: 'ledger'})}{' '}
                 <span className="secondary-heading">{seq}</span>
                 <ClipboardCopy text={String(seq)} />
-              </span>,
+              </div>,
               urlFn(seq)
             )}
           >
+            <Row>
             <Col md={6}>
-              <Table>
+              <Table className="table-striped table-hover">
                 <tbody>
                   <DetailRow label="time">
                     <FormattedDate value={time} />{' '}
@@ -113,7 +118,7 @@ class Ledger extends React.Component {
               </Table>
             </Col>
             <Col md={6}>
-              <Table>
+              <Table className="table-striped table-hover">
                 <tbody>
                   <DetailRow label="base.fee">
                     <FormattedNumber value={baseFee} /> stroops
@@ -137,14 +142,10 @@ class Ledger extends React.Component {
                 </tbody>
               </Table>
             </Col>
+            </Row>
           </Panel>
-        </Row>
         {opCount > 0 && (
-          <Row>
-            <h3>
-              <a id="txs-table" aria-hidden="true" />
-              <FormattedMessage id="transactions" />&nbsp;({txCount})
-            </h3>
+          <Panel header={panelHeader(formatMessage({id:'transactions'}))}>
             <TransactionTable
               compact={false}
               ledger={seq}
@@ -152,7 +153,7 @@ class Ledger extends React.Component {
               refresh={false}
               showLedger={false}
             />
-          </Row>
+          </Panel>
         )}
       </Grid>
     )

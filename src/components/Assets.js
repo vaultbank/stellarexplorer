@@ -1,6 +1,5 @@
 import React from 'react'
 import Panel from 'react-bootstrap/lib/Panel'
-import Row from 'react-bootstrap/lib/Row'
 import Table from 'react-bootstrap/lib/Table'
 import {FormattedMessage, injectIntl} from 'react-intl'
 import {Link} from 'react-router-dom'
@@ -79,7 +78,6 @@ class Assets extends React.Component {
 
     return (
       <div className="container-fluid">
-
           <Panel header={header}>
             <Table className="table-striped table-hover">
               <thead>
@@ -104,7 +102,6 @@ class Assets extends React.Component {
               </tbody>
             </Table>
           </Panel>
-
       </div>
     )
   }

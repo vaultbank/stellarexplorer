@@ -48,7 +48,7 @@ import {defaultNetworkAddresses} from './lib/stellar/server'
 import {storageInit} from './lib/utils'
 import {searchStrToPath} from './lib/search'
 
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import 'react-json-pretty/src/JSONPretty.1337.css'
 import './App.css'
 

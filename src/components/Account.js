@@ -1,6 +1,5 @@
 import React from 'react'
 import Col from 'react-bootstrap/lib/Col'
-import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
 import Row from 'react-bootstrap/lib/Row'
 import Table from 'react-bootstrap/lib/Table'
@@ -42,7 +41,7 @@ const stellarAddressFromURI = () => {
 
 const NameValueTable = ({data, decodeValue = false}) => {
   if (!data || Object.keys(data).length === 0)
-    return <div>No Data</div>
+    return <div className="m-5 text-center text-muted">No Data</div>
   return (
     <Table className="table-striped table-hover">
       <thead>
@@ -188,64 +187,67 @@ const AccountSummaryPanel = ({
   const stellarAddr = stellarAddressFromURI()
   return (
     <Panel header={header}>
-      <Grid>
-        <Row>
-          <Col md={10}>
-            <Row>
-              <Col md={3}>
-                <FormattedMessage id="key.public" />:
-              </Col>
-              <Col md={9}>
-                <span className="break">{a.id}</span>
-                <ClipboardCopy text={a.id} />
-              </Col>
-            </Row>
-            {stellarAddr && (
-              <Row>
-                <Col md={3}>
-                  <FormattedMessage id="stellar.address" />:
-                </Col>
-                <Col md={9}>{stellarAddr}</Col>
-              </Row>
-            )}
-            <Row>
-              <Col md={3}>
-                <FormattedMessage id="home.domain" />:
-              </Col>
-              <Col md={9}>
-                <a href={`https://${a.home_domain}`} target="_blank">
-                  {a.home_domain}
-                </a>
-              </Col>
-            </Row>
-            <Row>
-              <Col md={3}>
-                <FormattedMessage id="inflation" />:
-              </Col>
-              <Col md={9}>
-                {a.inflation_destination && (
-                  <AccountLink account={a.inflation_destination} />
-                )}
-              </Col>
-            </Row>
-            <Row>
-              <Col md={3}>
-                <FormattedMessage id="subentry.count" />:
-              </Col>
-              <Col md={9}>{a.subentry_count}</Col>
-            </Row>
-          </Col>
-          {has(knownAccounts, a.id) &&
-            knownAccounts[a.id].type !== 'inflation_pools' && (
-              <Col md={2}>
+      <Table className="table-striped table-hover" id="Account-table">
+        <tbody>
+          <tr>
+            <th>
+              <FormattedMessage id="key.public" />:
+            </th>
+            <td>
+              <span className="break">{a.id}</span>
+              <ClipboardCopy text={a.id} />
+            </td>
+          </tr>
+          {stellarAddr && (
+            <tr>
+              <th>
+                <FormattedMessage id="stellar.address" />:
+              </th>
+              <td>
+                {stellarAddr}
+              </td>
+            </tr>
+          )}
+          <tr>
+            <th>
+              <FormattedMessage id="home.domain" />:
+            </th>
+            <td>
+              <a href={`https://${a.home_domain}`} target="_blank">
+                {a.home_domain}
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <FormattedMessage id="inflation" />:
+            </th>
+            <td>
+              {a.inflation_destination && (
+                <AccountLink account={a.inflation_destination} />
+              )}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <FormattedMessage id="subentry.count" />:
+            </th>
+            <td>
+              {a.subentry_count}
+            </td>
+          </tr>
+          {has(knownAccounts, a.id) && knownAccounts[a.id].type !== 'inflation_pools' && (
+            <tr>
+              <td colSpan="2">
                 <Logo
                   src={knownAccounts[a.id].logo}
                   name={knownAccounts[a.id].name}
                 />
-              </Col>
-            )}
-        </Row>
-      </Grid>
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </Table>
     </Panel>
   )
 }
@@ -293,25 +295,25 @@ class Account extends React.Component {
     const {formatMessage} = this.props.intl
     const a = this.props.account
     return (
-      <div className="container-fluid">
-        <Row>
+        <div className="container-fluid">
           <AccountSummaryPanel
             account={a}
             accountUrl={this.props.urlFn(a.id)}
             formatMessageFn={formatMessage}
             knownAccounts={knownAccounts}
           />
-        </Row>
-        <Row>
           <Tabs
             id="account-tabs"
             activeKey={this.state.key}
             onSelect={this.handleSelect}
           >
             <Tab eventKey="balances" title={formatMessage({id: 'balances'})}>
+              <Panel className="top-border-radius-0">
               <Balances balances={a.balances} />
+              </Panel>
             </Tab>
             <Tab eventKey="payments" title={formatMessage({id: 'payments'})}>
+              <Panel className="top-border-radius-0">
               <PaymentTable
                 key={a.id}
                 account={a.id}
@@ -319,8 +321,10 @@ class Account extends React.Component {
                 limit={20}
                 usePaging
               />
+              </Panel>
             </Tab>
             <Tab eventKey="offers" title={formatMessage({id: 'offers'})}>
+              <Panel className="top-border-radius-0">
               <OfferTable
                 key={a.id}
                 account={a.id}
@@ -329,11 +333,15 @@ class Account extends React.Component {
                 showSeller={false}
                 usePaging
               />
+              </Panel>
             </Tab>
             <Tab eventKey="trades" title={formatMessage({id: 'trades'})}>
+              <Panel className="top-border-radius-0">
               <TradeTable key={a.id} account={a.id} limit={20} usePaging />
+              </Panel>
             </Tab>
             <Tab eventKey="effects" title={formatMessage({id: 'effects'})}>
+              <Panel className="top-border-radius-0">
               {// OPTIMISATION: render on focus only as it hits the server for every effect
                 this.state.renderEffects === true && (
                   <EffectTable
@@ -343,12 +351,14 @@ class Account extends React.Component {
                     showAccount={false}
                     usePaging
                   />
-                )}
+              )}
+              </Panel>
             </Tab>
             <Tab
               eventKey="operations"
               title={formatMessage({id: 'operations'})}
             >
+              <Panel className="top-border-radius-0">
               <OperationTable
                 key={a.id}
                 account={a.id}
@@ -356,11 +366,13 @@ class Account extends React.Component {
                 limit={20}
                 usePaging
               />
+              </Panel>
             </Tab>
             <Tab
               eventKey="transactions"
               title={formatMessage({id: 'transactions'})}
             >
+              <Panel className="top-border-radius-0">
               <TransactionTable
                 key={a.id}
                 account={a.id}
@@ -369,32 +381,36 @@ class Account extends React.Component {
                 showSource={false}
                 usePaging
               />
+              </Panel>
             </Tab>
             <Tab eventKey="signing" title={formatMessage({id: 'signing'})}>
-              <Row>
-                <Col md={7}>
+              <Panel className="top-border-radius-0">
+              <Row className="m-0">
+                <Col className="p-0 border-right" md={8}>
+                  <h4 className="mx-20">&nbsp;</h4>
                   <Signers signers={a.signers} />
                 </Col>
-                <Col
-                  md={3}
-                  mdOffset={1}
-                >
-                  <h4>
+                <Col className="p-0" md={4}>
+                  <h4 className="mx-20">
                     <FormattedMessage id="thresholds" />
                   </h4>
                   <Thresholds thresholds={a.thresholds} />
                 </Col>
               </Row>
+              </Panel>
             </Tab>
             <Tab eventKey="flags" title={formatMessage({id: 'flags'})}>
+              <Panel className="top-border-radius-0">
               <Flags flags={a.flags} />
+              </Panel>
             </Tab>
             <Tab eventKey="data" title={formatMessage({id: 'data'})}>
+              <Panel className="top-border-radius-0">
               <Data data={a.data_attr} />
+              </Panel>
             </Tab>
           </Tabs>
-        </Row>
-      </div>
+        </div>
     )
   }
 }

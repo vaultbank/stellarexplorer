@@ -41,7 +41,7 @@ class LedgerTable extends React.PureComponent {
     return (
       <Table
         id="ledger-table"
-        className="table-striped table-hover table-condensed"
+        className="table-striped table-hover"
       >
         <thead>
           <tr>

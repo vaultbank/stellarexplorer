@@ -1,6 +1,5 @@
 import React from 'react'
 import Panel from 'react-bootstrap/lib/Panel'
-import Row from 'react-bootstrap/lib/Row'
 import {injectIntl} from 'react-intl'
 import EffectTable from './EffectTable'
 import OnlyTitle from './shared/OnlyTitle'
@@ -14,11 +13,9 @@ class Effects extends React.Component {
     const {formatMessage} = this.props.intl
     return (
       <div className="container-fluid">
-
-          <Panel header={panelHeader(formatMessage({ id: 'effects' }))}>
+          <Panel header={panelHeader(formatMessage({id: 'effects'}))}>
             <EffectTable limit={50} usePaging showAccount />
           </Panel>
-
       </div>
     )
   }

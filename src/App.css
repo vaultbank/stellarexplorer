@@ -60,6 +60,9 @@ nav .container-fluid {
 .m-0 {
   margin: 0;
 }
+.m-5 {
+  margin: 3rem;
+}
 .m-20 {
   margin: 20px;
 }
@@ -199,7 +202,7 @@ nav .container-fluid {
 }
 
 .panel .table {
-  margin-bottom: 2px;
+  margin-bottom: 0;
 }
 
 .panel-default > .panel-heading {
@@ -246,7 +249,7 @@ ul.navbar-nav .divider-vertical {
 
 
 
-.panel-body > div {
+.panel-body > div:not(.row) {
   display: flex;
   flex-direction: column;
 }
@@ -257,5 +260,16 @@ ul.navbar-nav .divider-vertical {
 .order-1 {
   order: 1;
 }
+.panel.top-border-radius-0 {
+  border-color: #ddd;
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
 
-
+.border-right {
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #ddd;
+}
