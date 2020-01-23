@@ -15,72 +15,79 @@ import {withSpinner} from './shared/Spinner'
 import {default as Operation, opTypes} from './operations/Operation'
 import {filterFor} from './shared/OperationType'
 import CSVExport from './shared/CSVExport'
+// import Operations from './Operations';
 
 const filterFn = (event) => {
   filterFor(event.target.value)
 }
 
 const OperationTable = props => (
-  <div>
+  <div className="order-1">
     {props.compact === false && (
-      <div className="filter form-inline">
-        <FormattedMessage id="filter.for-operation-type" />:{' '}
-        <select className="form-control w-25 d-inline-block" onChange={filterFn} defaultValue={getOperationTypeFilter()}>
-          <option></option>
-          {opTypes.map(type => ( <option>{type}</option> ))}
-        </select>
-        <br/>
+      <div className="m-20">
+        <div className="form-inline">
+          <div className="form-group">
+            <label><FormattedMessage id="filter.for-operation-type" />:</label>
+            {' '}
+            <select className="form-control w-25 d-inline-block" onChange={filterFn} defaultValue={getOperationTypeFilter()}>
+              <option></option>
+              {opTypes.map(type => (<option>{type}</option>))}
+            </select>
+          </div>
 
-        {getOperationTypeFilter() && this.possiblyMoreDataAvailable && (
-           <p className="disclaimer"><FormattedMessage id="filter.more-data-possibly-available" /></p>
-        )}
+          {getOperationTypeFilter() && this.possiblyMoreDataAvailable && (
+            <p className="alert alert-info mt-20" role="alert">
+              <FormattedMessage id="filter.more-data-possibly-available" />
+            </p>
+          )}
+        </div>
       </div>
     )}
-  <Table
-    id="operation-table"
-    className="table-striped table-hover table-condensed"
-  >
-    <thead>
-      <tr>
-        <th>
-          <FormattedMessage id="account" />
-        </th>
-        <th>
-          <FormattedMessage id="operation" />
-        </th>
-        {props.compact === false && (
+    <Table
+      id="operation-table"
+      className="table-striped table-hover"
+    >
+      <thead>
+        <tr>
           <th>
-            <FormattedMessage id="transaction" />
+            <FormattedMessage id="account" />
           </th>
-        )}
-        {props.compact === false && (
           <th>
-            <FormattedMessage id="type" />
+            <FormattedMessage id="operation" />
           </th>
-        )}
-        <th>
-          <FormattedMessage id="time" />
-        </th>
-        <th />
-      </tr>
-    </thead>
-    <tbody>
-      {props.records.map(op => (
-        <Operation
-          key={op.id}
-          compact={props.compact}
-          op={op}
-          opURLFn={props.server.opURL}
-          parentRenderTimestamp={props.parentRenderTimestamp}
-        />
-      ))}
-    </tbody>
-  </Table>
-  { !props.noCSVExport && (
-    <div className="text-center" id="csv-export">
-      <ExportToCSVComponent {...props} />
-    </div>
-    ) }
+          {props.compact === false && (
+            <th>
+              <FormattedMessage id="transaction" />
+            </th>
+          )}
+          {props.compact === false && (
+            <th>
+              <FormattedMessage id="type" />
+            </th>
+          )}
+          <th>
+            <FormattedMessage id="time" />
+          </th>
+          <th />
+        </tr>
+      </thead>
+      <tbody>
+        {props.records.map(op => (
+          <Operation
+            key={op.id}
+            compact={props.compact}
+            op={op}
+            opURLFn={props.server.opURL}
+            parentRenderTimestamp={props.parentRenderTimestamp}
+          />
+        ))}
+      </tbody>
+    </Table>
+    {!props.noCSVExport && (
+      <div className="text-center m-20" id="csv-export">
+        <ExportToCSVComponent {...props} />
+      </div>
+    )}
   </div>
 )
 
