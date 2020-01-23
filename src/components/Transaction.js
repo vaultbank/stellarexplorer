@@ -38,8 +38,7 @@ class Transaction extends React.Component {
 
     if (!id) return null
     return (
-      <Grid>
-        <Row>
+        <Grid fluid>
           <Panel
             header={titleWithJSONButton(
               <span>
@@ -50,7 +49,7 @@ class Transaction extends React.Component {
               urlFn(id)
             )}
           >
-            <Table>
+            <Table className="table-striped table-hover">
               <tbody>
                 <tr>
                   <td>
@@ -91,18 +90,19 @@ class Transaction extends React.Component {
               </tbody>
             </Table>
           </Panel>
-        </Row>
-        <Row>
-          <h3>
-            <a id="operations-table" aria-hidden="true" />
-            <FormattedMessage id="operations" />
-            {` (${opCount})`}
-          </h3>
-          <Grid>
+          <Panel
+            header={
+              <h5 id="operations-table">
+                <FormattedMessage id="operations" />
+                <small>
+                  {` (${opCount})`}
+                </small>
+              </h5>
+            }
+          >
             <OperationTable limit={opCount} tx={id} />
-          </Grid>
-        </Row>
-      </Grid>
+          </Panel>
+        </Grid>
     )
   }
 }

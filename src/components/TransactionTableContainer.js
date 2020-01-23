@@ -39,7 +39,7 @@ const wrapHOC = (Component) => (props) => (
   <div>
     <div><Component {...props}/></div>
     { !props.noCSVExport && (
-      <div className="text-center" id="csv-export">
+      <div className="text-center mt-20" id="csv-export">
         <ExportToCSVComponent {...props} />
       </div>
     ) }
