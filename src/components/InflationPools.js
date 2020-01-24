@@ -19,7 +19,7 @@ const Pool = ({account, name, website}) => {
       <td>{name}</td>
       <td>
         <a href={website} target="_blank">
-          {website}
+          {website} {' '}
           <NewWindowIcon />
         </a>
       </td>
@@ -44,7 +44,7 @@ class Pools extends React.Component {
       METADATA_PATH
     )
     return (
-      <div className="container-fluid">
+        <div className="container-fluid">
           <Panel header={header}>
             <Table className="table-striped table-hover">
               <thead>
@@ -68,7 +68,7 @@ class Pools extends React.Component {
               </tbody>
             </Table>
           </Panel>
-      </div>
+        </div>
     )
   }
 }
