@@ -28,27 +28,25 @@ const Asset = ({code, domain, issuer}) => {
           <Logo name={domain} src={anchor.logo} />
         </a>
       </td>
-      <td style={{color: 'white'}}>{code}</td>
+      <td>{code}</td>
       <td>
-        <AccountLink account={issuer} hideKnown />
+        <AccountLink account={issuer} hideKnown /> {' '}
         <ClipboardCopy text={issuer} />
       </td>
       <td>
-        <div>
-          <Link to={`/anchor/${domain}`}>{anchor.name}</Link>
-        </div>
-        <div>
-          <a href={anchor.website} target="_blank">
-            {anchor.website}
-            <NewWindowIcon />
-          </a>
-        </div>
-        <div className="stellarToml">
-          <BackendResourceBadgeButton
-            label="server.toml"
-            url={`https://${domain}/.well-known/stellar.toml`}
-          />
-        </div>
+        <Link to={`/anchor/${domain}`}>{anchor.name}</Link>
+      </td>
+      <td>
+        <a href={anchor.website} target="_blank">
+          {anchor.website} {' '}
+          <NewWindowIcon />
+        </a>
+      </td>
+      <td>
+        <BackendResourceBadgeButton
+          label="server.toml"
+          url={`https://${domain}/.well-known/stellar.toml`}
+        />
       </td>
     </tr>
   )
@@ -77,9 +75,12 @@ class Assets extends React.Component {
       : allAssetKeys
 
     return (
-      <div className="container-fluid">
+        <div className="container-fluid">
           <Panel header={header}>
             <Table className="table-striped table-hover">
+              <colgroup>
+                <col width="60" />
+              </colgroup>
               <thead>
                 <tr>
                   <th />
@@ -89,7 +90,7 @@ class Assets extends React.Component {
                   <th>
                     <FormattedMessage id="issuer" />
                   </th>
-                  <th>
+                  <th colSpan="3">
                     <FormattedMessage id="anchor" />
                   </th>
                 </tr>
@@ -102,7 +103,7 @@ class Assets extends React.Component {
               </tbody>
             </Table>
           </Panel>
-      </div>
+        </div>
     )
   }
 }

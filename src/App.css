@@ -92,6 +92,15 @@ nav .container-fluid {
   margin-bottom: 20px;
 }
 
+.mx-5 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
 #Search-Container input {
   width: 370px;
   padding-left: 20px;
@@ -210,7 +219,7 @@ nav .container-fluid {
   padding: 15px;
 }
 
-.panel-default > .panel-heading h5 {
+h5 {
   font-weight: 500;
   font-size: 16px;
 }
@@ -226,10 +235,15 @@ nav .container-fluid {
 .table-hover tbody tr:hover {
   background-color: #e0f3ff;
 }
-.table > tbody > tr > td, .table > tbody > tr > th {
+.table > tbody > tr > td,
+.table > tbody > tr > th {
   border: 0;
 }
 
+.table > thead > tr > th,
+.table > tbody > tr > th {
+  font-weight: 500
+}
 
 
 ul.navbar-nav .divider-vertical {
@@ -272,4 +286,21 @@ ul.navbar-nav .divider-vertical {
   border-right-width: 1px;
   border-right-style: solid;
   border-right-color: #ddd;
+}
+.border-left {
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #ddd;
+}
+
+.spinner {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.center-block {
+  text-align: center;
+}
+
+.word-break {
+  word-wrap: break-word;
 }

@@ -29,13 +29,13 @@ const ResourceModalBody = ({networkAddress, inputValue, dropdownValue, networkTy
   return (
     <form onSubmit={handleSubmitFn}>
       <div>
-        <h4><FormattedMessage id="network.current" /></h4>
+        <h5><FormattedMessage id="network.current" /></h5>
         <FormattedMessage id={'network.' + networkType} /><br />
         <pre style={{marginTop: 5}}>{networkAddress}</pre><br />
       </div>
 
       <div>
-        <h4><FormattedMessage id="network.change-here" /></h4>
+        <h5><FormattedMessage id="network.change-here" /></h5>
         <FormattedMessage id="network.choose" /><br />
         <select id="networkDropdown" onChange={handleDropdownChangeFn} value={dropdownValue}>
           <option></option>

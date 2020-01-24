@@ -17,7 +17,7 @@ const HelpModal = props => (
       </Modal.Title>
     </Modal.Header>
     <Modal.Body>
-      <h4>Search By:</h4>
+      <h5>Search By:</h5>
       <br />
       <div>
         <h5>Stellar Address</h5>
@@ -96,7 +96,7 @@ const HelpModal = props => (
         />
       </div>
       <hr />
-      <h4>OpenSearch:</h4>
+      <h5>OpenSearch:</h5>
       <div>
         Stellar Explorer supports{' '}
         <a

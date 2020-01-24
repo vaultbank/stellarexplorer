@@ -24,7 +24,7 @@ const Exchange = ({accounts, home, name, logo, decentralized = false}) => {
       </td>
       <td>
         <a href={homeLink} target="_blank">
-          {home}
+          {home} {' '}
           <NewWindowIcon />
         </a>
       </td>
@@ -63,10 +63,10 @@ class Exchanges extends React.Component {
       METADATA_PATH
     )
     return (
-      <div className="container-fluid">
+        <div className="container-fluid">
           <Panel header={header}>
             <div className="m-20">
-            <h4>Decentralized</h4>
+            <h5>Decentralized</h5>
             <div className="bordered">
             <Table className="table-striped table-hover">
               <TableHeader />
@@ -84,7 +84,7 @@ class Exchanges extends React.Component {
             </div>
             </div>
             <div className="m-20">
-            <h4>Centralized</h4>
+            <h5>Centralized</h5>
             <div className="bordered">
             <Table className="table-striped table-hover">
               <TableHeader />
@@ -97,7 +97,7 @@ class Exchanges extends React.Component {
             </div>
             </div>
           </Panel>
-      </div>
+        </div>
     )
   }
 }

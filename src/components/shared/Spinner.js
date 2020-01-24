@@ -5,7 +5,7 @@ import {withEither} from './HOCs'
 const Spinner = () => (
   <div className="spinner center-block">
     <MDSpinner
-      size="80"
+      size="40"
       duration={3000}
       color1="#07a2cc"
       color2="#057b9b"

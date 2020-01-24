@@ -6,7 +6,7 @@ import Tooltip from 'react-bootstrap/lib/Tooltip'
 import CopyToClipboard from 'react-copy-to-clipboard'
 
 const CopyIcon = (
-  <Glyphicon glyph="copy" style={{fontSize: 'small', marginLeft: 5}} />
+  <Glyphicon glyph="copy" />
 )
 const TooltipCopy = <Tooltip id="tooltip-copy">Copy to Clipboard</Tooltip>
 const TooltipCopied = (

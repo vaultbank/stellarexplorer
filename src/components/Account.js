@@ -82,12 +82,10 @@ const balanceRow = bal => (
       />
     </td>
     <td>
-      <span className="break">
-        <FormattedAmount amount={bal.balance} />
-      </span>
+      <FormattedAmount amount={bal.balance} />
     </td>
     <td>
-      <span className="break">{bal.limit}</span>
+      {bal.limit}
     </td>
   </tr>
 )
@@ -154,7 +152,7 @@ const Signers = props => (
     <tbody>
       {props.signers.map(signer => (
         <tr key={signer.public_key}>
-          <td>
+          <td className="add-badge-primary">
             {signer.type === 'ed25519_public_key' && (
               <AccountLink account={signer.key} />
             )}
@@ -188,13 +186,16 @@ const AccountSummaryPanel = ({
   return (
     <Panel header={header}>
       <Table className="table-striped table-hover" id="Account-table">
+        <colgroup>
+          <col width="175" />
+        </colgroup>
         <tbody>
           <tr>
             <th>
               <FormattedMessage id="key.public" />:
             </th>
             <td>
-              <span className="break">{a.id}</span>
+              <span className="mr-5">{a.id}</span> {' '}
               <ClipboardCopy text={a.id} />
             </td>
           </tr>
@@ -222,7 +223,7 @@ const AccountSummaryPanel = ({
             <th>
               <FormattedMessage id="inflation" />:
             </th>
-            <td>
+            <td className="add-badge-primary">
               {a.inflation_destination && (
                 <AccountLink account={a.inflation_destination} />
               )}
@@ -387,13 +388,13 @@ class Account extends React.Component {
               <Panel className="top-border-radius-0">
               <Row className="m-0">
                 <Col className="p-0 border-right" md={8}>
-                  <h4 className="mx-20">&nbsp;</h4>
+                  <h5 className="mx-20">&nbsp;</h5>
                   <Signers signers={a.signers} />
                 </Col>
                 <Col className="p-0" md={4}>
-                  <h4 className="mx-20">
+                  <h5 className="mx-20">
                     <FormattedMessage id="thresholds" />
-                  </h4>
+                  </h5>
                   <Thresholds thresholds={a.thresholds} />
                 </Col>
               </Row>
