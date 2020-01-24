@@ -149,7 +149,7 @@ class TradeTable extends React.Component {
             ))}
           </tbody>
         </Table>
-        <div className="text-center mt-20" id="csv-export">
+        <div className="text-center m-20" id="csv-export">
           <ExportToCSVComponent account={account} server={server} />
         </div>
       </div>

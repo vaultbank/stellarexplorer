@@ -12,13 +12,11 @@ class Trades extends React.Component {
   render() {
     const {formatMessage} = this.props.intl
     return (
-      <div className="container-fluid">
-        <Row>
+        <div className="container-fluid">
           <Panel header={panelHeader(formatMessage({id: 'trades'}))}>
             <TradeTable limit={50} usePaging />
           </Panel>
-        </Row>
-      </div>
+        </div>
     )
   }
 }
