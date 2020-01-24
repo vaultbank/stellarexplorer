@@ -12,11 +12,11 @@ class Ledgers extends React.Component {
   render() {
     const {formatMessage} = this.props.intl
     return (
-      <div className="container-fluid">
+        <div className="container-fluid">
           <Panel header={panelHeader(formatMessage({id: 'ledgers'}))}>
             <LedgerTable usePaging limit={20} />
           </Panel>
-      </div>
+        </div>
     )
   }
 }

@@ -53,9 +53,9 @@ const responseToState = rsp => {
 
 const DetailRow = ({label, children}) => (
   <tr>
-    <td>
+    <th>
       <FormattedMessage id={label} />
-    </td>
+    </th>
     <td>{children}</td>
   </tr>
 )
@@ -83,20 +83,25 @@ class Ledger extends React.Component {
     const {formatMessage} = this.props.intl
 
     return (
-      <Grid fluid>
+        <Grid fluid>
           <Panel
             header={titleWithJSONButton(
               <div className="panel-title">
-                {formatMessage({id: 'ledger'})}{' '}
-                <span className="secondary-heading">{seq}</span>
+                {formatMessage({id: 'ledger'})}
+                <span className="text-muted mx-5">
+                  ({seq})
+                </span>
                 <ClipboardCopy text={String(seq)} />
               </div>,
               urlFn(seq)
             )}
           >
-            <Row>
-            <Col md={6}>
+          <Row className="m-0">
+            <Col className="p-0" md={6}>
               <Table className="table-striped table-hover">
+                <colgroup>
+                  <col width="150"/>
+                </colgroup>
                 <tbody>
                   <DetailRow label="time">
                     <FormattedDate value={time} />{' '}
@@ -117,8 +122,11 @@ class Ledger extends React.Component {
                 </tbody>
               </Table>
             </Col>
-            <Col md={6}>
+            <Col className="p-0 border-left" md={6}>
               <Table className="table-striped table-hover">
+                <colgroup>
+                  <col width="150" />
+                </colgroup>
                 <tbody>
                   <DetailRow label="base.fee">
                     <FormattedNumber value={baseFee} /> stroops
@@ -155,7 +163,7 @@ class Ledger extends React.Component {
             />
           </Panel>
         )}
-      </Grid>
+        </Grid>
     )
   }
 }
