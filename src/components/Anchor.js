@@ -28,12 +28,12 @@ class Anchor extends React.Component {
     if (!anchor || anchor == null) return null
 
     return (
-      <Grid>
+        <Grid>
           <Panel
             header={
               <span>
-                {formatMessage({id: 'anchor'})}{' '}
-                <span className="secondary-heading">{name}</span>
+                { formatMessage({id: 'anchor'}) }{' '}
+                <small>{name}</small>
               </span>
             }
           >
@@ -46,14 +46,12 @@ class Anchor extends React.Component {
                     </a>
                   </td>
                   <td>
-                    <p>
                       {has(anchor, 'displayName')
                         ? anchor.displayName
                         : anchor.name}
-                    </p>
                     <p>
                       <a href={anchor.website} target="_blank">
-                        {anchor.website}
+                        {anchor.website} {' '}
                         <NewWindowIcon />
                       </a>
                     </p>
@@ -95,7 +93,7 @@ class Anchor extends React.Component {
                 })}
             </tbody>
           </Table>
-      </Grid>
+        </Grid>
     )
   }
 }

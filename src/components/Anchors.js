@@ -25,33 +25,33 @@ const tradeURL = (assetCode, issuerDomain) =>
 
 // render list of asset codes, each code on a new line
 const AssetCodeColumn = ({assets}) => (
-  <span>{Object.keys(assets).map(code => <div key={code}>{code}</div>)}</span>
+  <td>{Object.keys(assets).map(code => <p key={code}>{code}</p>)}</td>
 )
 
 const IssuerColumn = ({assets}) => (
-  <span>
+  <td>
     {Object.keys(assets).map(code => {
       const issuer = assetKeyToIssuer(assets[code])
       return (
-        <div key={code}>
-          <AccountLink account={issuer} hideKnown />
+        <p key={code}>
+          <AccountLink account={issuer} hideKnown /> {' '}
           <ClipboardCopy text={issuer} />
-        </div>
+        </p>
       )
     })}
-  </span>
+  </td>
 )
 
 const TradeColumn = ({assets, domain}) => (
-  <span>
+  <td>
     {Object.keys(assets).map(code => (
-      <div key={code}>
+      <p key={code}>
         <a href={tradeURL(code, domain)} target="_blank">
           Trade
         </a>
-      </div>
+      </p>
     ))}
-  </span>
+  </td>
 )
 
 const Anchor = ({assets, domain, displayName, logo, website}) => {
@@ -63,28 +63,18 @@ const Anchor = ({assets, domain, displayName, logo, website}) => {
         </Link>
       </td>
       <td className="anchorLinkCol">
-        <div>
-          <Link to={`/anchor/${domain}`}>{displayName}</Link>
-        </div>
-        <div>
+        <Link to={`/anchor/${domain}`}>{displayName}</Link>
+        <p>
           <a href={website} target="_blank">
-            {website}
+            {website} {' '}
             <NewWindowIcon />
           </a>
-        </div>
-        <div>
-          <StellarTomlBadge domain={domain} />
-        </div>
+        </p>
+        <StellarTomlBadge domain={domain} />
       </td>
-      <td>
-        <AssetCodeColumn assets={assets} />
-      </td>
-      <td>
-        <IssuerColumn assets={assets} />
-      </td>
-      <td>
-        <TradeColumn assets={assets} domain={domain} />
-      </td>
+      <AssetCodeColumn assets={assets} />
+      <IssuerColumn assets={assets} />
+      <TradeColumn assets={assets} domain={domain} />
     </tr>
   )
 }
@@ -105,9 +95,12 @@ class Anchors extends React.Component {
       METADATA_PATH
     )
     return (
-      <div className="container-fluid">
+        <div className="container-fluid">
           <Panel header={header}>
-            <Table className="table-striped table-hover">
+          <Table className="table-striped table-hover">
+              <colgroup>
+                <col width="50" />
+              </colgroup>
               <thead>
                 <tr>
                   <th />
@@ -138,7 +131,7 @@ class Anchors extends React.Component {
               </tbody>
             </Table>
           </Panel>
-      </div>
+        </div>
     )
   }
 }
