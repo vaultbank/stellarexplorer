@@ -14,8 +14,8 @@ class Transactions extends React.Component {
     return (
       <div className="container-fluid">
         <Panel header={panelHeader(formatMessage({id: 'transactions'}))}>
-            <TransactionTable usePaging showLedger compact={false} limit={20} />
-          </Panel>
+          <TransactionTable usePaging showLedger compact={false} limit={20} />
+        </Panel>
       </div>
     )
   }

@@ -1,7 +1,6 @@
 import React from 'react'
 import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
-import Row from 'react-bootstrap/lib/Row'
 import Table from 'react-bootstrap/lib/Table'
 import {Link} from 'react-router-dom'
 import {
@@ -42,49 +41,60 @@ class Transaction extends React.Component {
           <Panel
             header={titleWithJSONButton(
               <span>
-                {formatMessage({id: 'transaction'})}{' '}
-                <span className="secondary-heading">{id}</span>
+                {formatMessage({id: 'transaction'})}
+                <span className="text-muted mx-5">
+                  ({id})
+                </span>
                 <ClipboardCopy text={id} />
               </span>,
               urlFn(id)
             )}
           >
             <Table className="table-striped table-hover">
+              <colgroup>
+                <col width="150" />
+                <col width="20" />
+              </colgroup>
               <tbody>
                 <tr>
-                  <td>
+                  <th>
                     <FormattedMessage id="time" />
-                  </td>
+                  </th>
+                  <td>:</td>
                   <td>
                     <FormattedDate value={time} />&nbsp;
                     <FormattedTime value={time} />
                   </td>
                 </tr>
                 <tr>
-                  <td>
+                  <th>
                     <FormattedMessage id="fee" />
-                  </td>
+                  </th>
+                  <td>:</td>
                   <td>{fee} stroops</td>
                 </tr>
                 <tr>
-                  <td>
+                  <th>
                     <FormattedMessage id="ledger" />
-                  </td>
+                  </th>
+                  <td>:</td>
                   <td>
                     <Link to={`/ledger/${ledger}`}>{ledger}</Link>
                   </td>
                 </tr>
                 <tr>
-                  <td>
+                  <th>
                     <FormattedMessage id="memo" />{' '}
-                    <span className="secondary-heading">
+                    <span className="text-muted">
                       ({memoTypeToLabel[memoType]})
                     </span>
-                  </td>
+                  </th>
+                  <td>:</td>
                   <td>
                     {memoType === MemoHash || memoType === MemoReturn
                       ? base64DecodeToHex(memo)
-                      : memo}
+                      : memo
+                    }
                   </td>
                 </tr>
               </tbody>
@@ -94,9 +104,9 @@ class Transaction extends React.Component {
             header={
               <h5 id="operations-table">
                 <FormattedMessage id="operations" />
-                <small>
+                <span className="text-muted">
                   {` (${opCount})`}
-                </small>
+                </span>
               </h5>
             }
           >
