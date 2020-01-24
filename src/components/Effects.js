@@ -12,11 +12,11 @@ class Effects extends React.Component {
   render() {
     const {formatMessage} = this.props.intl
     return (
-      <div className="container-fluid">
+        <div className="container-fluid">
           <Panel header={panelHeader(formatMessage({id: 'effects'}))}>
             <EffectTable limit={50} usePaging showAccount />
           </Panel>
-      </div>
+        </div>
     )
   }
 }
