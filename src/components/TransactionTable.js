@@ -28,7 +28,7 @@ class TransactionRow extends React.Component {
           <TransactionHash hash={hash} compact={compact} />
         </td>
         {showSource === true && (
-          <td className="account-badge">
+          <td className="add-badge-primary">
             <AccountLink account={sourceAccount} />
           </td>
         )}

@@ -249,7 +249,7 @@ class Effect extends React.Component {
     return (
       <tr key={effect.id} id={effect.id} className="effect">
         {showAccount && (
-          <td className="account-badge">
+          <td className="add-badge-primary">
             <AccountLink account={effect.account} />
           </td>
         )}
