@@ -58,25 +58,19 @@ const Trade = ({account, singleAccountView, trade, parentRenderTimestamp}) => {
 
   return (
     <tr key={trade.id} className="trade">
-      <td>
-        <span className="account-badge">
-          <AccountLink account={account1} />
-        </span>
+      <td className="add-badge-primary">
+        <AccountLink account={account1} />
       </td>
       <td>{baseFirst ? Base : Counter}</td>
-      <td>
-        <span className="account-badge">
-          <AccountLink account={account2} />
-        </span>
+      <td className="add-badge-primary">
+        <AccountLink account={account2} />
       </td>
       <td>{baseFirst ? Counter : Base}</td>
-      <td>
-        <span title={trade.time}>
-          <TimeSynchronisedFormattedRelative
-            initialNow={parentRenderTimestamp}
-            value={trade.time}
-          />
-        </span>
+      <td title={trade.time}>
+        <TimeSynchronisedFormattedRelative
+          initialNow={parentRenderTimestamp}
+          value={trade.time}
+        />
       </td>
     </tr>
   )

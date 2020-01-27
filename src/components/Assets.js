@@ -22,10 +22,10 @@ const METADATA_PATH =
 const Asset = ({code, domain, issuer}) => {
   const anchor = anchors[domain]
   return (
-    <tr className="directoryRow">
+    <tr>
       <td>
         <a href={anchor.website} target="_blank">
-          <Logo name={domain} src={anchor.logo} />
+          <Logo name={domain} src={anchor.logo} width={70} />
         </a>
       </td>
       <td>{code}</td>
@@ -35,14 +35,12 @@ const Asset = ({code, domain, issuer}) => {
       </td>
       <td>
         <Link to={`/anchor/${domain}`}>{anchor.name}</Link>
-      </td>
-      <td>
-        <a href={anchor.website} target="_blank">
-          {anchor.website} {' '}
-          <NewWindowIcon />
-        </a>
-      </td>
-      <td>
+        <p>
+          <a href={anchor.website} target="_blank">
+            {anchor.website} {' '}
+            <NewWindowIcon />
+          </a>
+        </p>
         <BackendResourceBadgeButton
           label="server.toml"
           url={`https://${domain}/.well-known/stellar.toml`}
@@ -90,7 +88,7 @@ class Assets extends React.Component {
                   <th>
                     <FormattedMessage id="issuer" />
                   </th>
-                  <th colSpan="3">
+                  <th>
                     <FormattedMessage id="anchor" />
                   </th>
                 </tr>

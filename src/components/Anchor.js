@@ -85,7 +85,7 @@ class Anchor extends React.Component {
                     <tr key={code}>
                       <td>{code}</td>
                       <td>
-                        <AccountLink account={issuer} hideKnown />
+                        <AccountLink account={issuer} hideKnown /> {' '}
                         <ClipboardCopy text={issuer} />
                       </td>
                     </tr>

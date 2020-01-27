@@ -56,10 +56,10 @@ const TradeColumn = ({assets, domain}) => (
 
 const Anchor = ({assets, domain, displayName, logo, website}) => {
   return (
-    <tr className="directoryRow">
+    <tr>
       <td>
         <Link to={`/anchor/${domain}`}>
-          <Logo name={domain} src={logo} />
+          <Logo name={domain} src={logo} width={70} />
         </Link>
       </td>
       <td className="anchorLinkCol">
@@ -99,7 +99,7 @@ class Anchors extends React.Component {
           <Panel header={header}>
           <Table className="table-striped table-hover">
               <colgroup>
-                <col width="50" />
+                <col width="100" />
               </colgroup>
               <thead>
                 <tr>

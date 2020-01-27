@@ -16,10 +16,10 @@ const METADATA_PATH =
 const Exchange = ({accounts, home, name, logo, decentralized = false}) => {
   const homeLink = `https://${home}`
   return (
-    <tr className="directoryRow">
+    <tr>
       <td>
         <a href={homeLink} target="_blank">
-          <Logo name={name} src={logo} />
+          <Logo name={name} src={logo} width={150} />
         </a>
       </td>
       <td>

@@ -1,6 +1,5 @@
 import React from 'react'
 import Panel from 'react-bootstrap/lib/Panel'
-import Row from 'react-bootstrap/lib/Row'
 import {injectIntl} from 'react-intl'
 import TradeTable from './TradeTable'
 import OnlyTitle from './shared/OnlyTitle'
