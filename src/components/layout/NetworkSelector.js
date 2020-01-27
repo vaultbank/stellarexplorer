@@ -4,7 +4,7 @@ import CustomNetworkButton from '../shared/CustomNetworkButton'
 
 const NetworkButton = ({networkType, selectedNetworkType, switchNetworkType}) =>
   <button
-    className={networkType === selectedNetworkType ? 'is-active' : 'is-inactive'}
+    className={networkType === selectedNetworkType ? 'btn btn-rounded btn-primary' : 'btn btn-rounded btn-primary disabled'}
     onClick={e => switchNetworkType(networkType)}
   >
     {networkType.toUpperCase()}
