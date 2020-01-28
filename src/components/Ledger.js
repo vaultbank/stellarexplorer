@@ -56,6 +56,7 @@ const DetailRow = ({label, children}) => (
     <th>
       <FormattedMessage id={label} />
     </th>
+    <td>:</td>
     <td>{children}</td>
   </tr>
 )
@@ -101,6 +102,7 @@ class Ledger extends React.Component {
               <Table className="table-striped table-hover">
                 <colgroup>
                   <col width="150"/>
+                  <col width="10"/>
                 </colgroup>
                 <tbody>
                   <DetailRow label="time">
@@ -126,6 +128,7 @@ class Ledger extends React.Component {
               <Table className="table-striped table-hover">
                 <colgroup>
                   <col width="150" />
+                  <col width="10"/>
                 </colgroup>
                 <tbody>
                   <DetailRow label="base.fee">
