@@ -188,12 +188,14 @@ const AccountSummaryPanel = ({
       <Table className="table-striped table-hover" id="Account-table">
         <colgroup>
           <col width="175" />
+          <col width="10" />
         </colgroup>
         <tbody>
           <tr>
             <th>
-              <FormattedMessage id="key.public" />:
+              <FormattedMessage id="key.public" />
             </th>
+            <td>:</td>
             <td>
               <span className="mr-5">{a.id}</span> {' '}
               <ClipboardCopy text={a.id} />
@@ -204,6 +206,7 @@ const AccountSummaryPanel = ({
               <th>
                 <FormattedMessage id="stellar.address" />:
               </th>
+              <td>:</td>
               <td>
                 {stellarAddr}
               </td>
@@ -213,6 +216,7 @@ const AccountSummaryPanel = ({
             <th>
               <FormattedMessage id="home.domain" />:
             </th>
+            <td>:</td>
             <td>
               <a href={`https://${a.home_domain}`} target="_blank">
                 {a.home_domain}
@@ -223,6 +227,7 @@ const AccountSummaryPanel = ({
             <th>
               <FormattedMessage id="inflation" />:
             </th>
+            <td>:</td>
             <td className="add-badge-primary">
               {a.inflation_destination && (
                 <AccountLink account={a.inflation_destination} />
@@ -233,13 +238,14 @@ const AccountSummaryPanel = ({
             <th>
               <FormattedMessage id="subentry.count" />:
             </th>
+            <td>:</td>
             <td>
               {a.subentry_count}
             </td>
           </tr>
           {has(knownAccounts, a.id) && knownAccounts[a.id].type !== 'inflation_pools' && (
             <tr>
-              <td colSpan="2">
+              <td colSpan="3">
                 <Logo
                   src={knownAccounts[a.id].logo}
                   name={knownAccounts[a.id].name}
@@ -387,15 +393,16 @@ class Account extends React.Component {
             <Tab eventKey="signing" title={formatMessage({id: 'signing'})}>
               <Panel className="top-border-radius-0">
               <Row className="m-0">
-                <Col className="p-0 border-right" md={8}>
-                  <h5 className="mx-20">&nbsp;</h5>
+                <Col md={8}>
                   <Signers signers={a.signers} />
                 </Col>
                 <Col className="p-0" md={4}>
-                  <h5 className="mx-20">
-                    <FormattedMessage id="thresholds" />
-                  </h5>
-                  <Thresholds thresholds={a.thresholds} />
+                  <div className="bordered m-20">
+                    <h5 className="mx-15">
+                      <FormattedMessage id="thresholds" />
+                    </h5>
+                    <Thresholds thresholds={a.thresholds} />
+                  </div>
                 </Col>
               </Row>
               </Panel>
