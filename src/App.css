@@ -1,8 +1,21 @@
 @import "_variables.css";
 
-body {
-  color: var(--body-color);
+body,
+.modal-content {
   background: var(--body-bg);
+}
+body,
+.close {
+  color: var(--body-color);
+}
+.close {
+  opacity: 1;
+  font-size: 26px;
+  font-weight: 300;
+  text-shadow: none;
+}
+.close:hover {
+  color: var(--shade);
 }
 .navbar-default .navbar-brand,
 .navbar-default .navbar-brand:hover,
@@ -34,9 +47,6 @@ ul.navbar-nav .divider-vertical {
 .border-left {
   border-left-color: var(--border-color);
 }
-.panel.top-border-radius-0 {
-  border-color: var(--border-color);
-}
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: var(--table-striped-odd);
 }
@@ -45,17 +55,19 @@ ul.navbar-nav .divider-vertical {
 }
 .panel {
   background: var(--panel-bg);
-  background: none;
+  /* background: none; */
 }
 .panel-default > .panel-heading {
   background: none;
-  border-bottom-color: var(--table-thead-border-bottom-color)
+  border-bottom-color: var(--table-thead-border-bottom-color);
 }
-a, a:focus, a:hover {
+a,
+a:focus,
+a:hover {
   color: var(--a-color);
 }
 .table > thead > tr > th {
-  border-bottom-color: var(--table-thead-border-bottom-color)
+  border-bottom-color: var(--table-thead-border-bottom-color);
 }
 .navbar-default .navbar-nav > li > a {
   color: var(--navbar-nav-link-color);
@@ -69,19 +81,28 @@ a, a:focus, a:hover {
   background-color: var(--form-control-bg);
 }
 .nav-tabs {
-  border-bottom-color: var(--border-color);
+  border: none;
+}
+.nav-tabs > li {
+  margin-bottom: 0;
+}
+.nav-tabs > li > a {
+  border-radius: 0;
+  border: none;
+  color: var(--nav-tabs-color);
 }
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:focus,
 .nav-tabs > li.active > a:hover {
+  border: none;
+  box-shadow: inset 0 2px 0 0 var(--nav-tabs-active-border);
   color: var(--nav-tabs-active-color);
   background-color: var(--nav-tabs-active-bg);
-  border-top-color: var(--nav-tabs-active-border);
-  border-left-color: var(--nav-tabs-active-border);
-  border-right-color: var(--nav-tabs-active-border);
 }
 .nav-tabs > li > a:hover {
-  border-color: var(--nav-tabs-active-border) var(--nav-tabs-active-border) var(--nav-tabs-active-border);
+  color: var(--nav-tabs-hover-color);
+  background-color: var(--nav-tabs-hover-bg);
+  border-color: transparent;
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:focus,
@@ -91,17 +112,24 @@ a, a:focus, a:hover {
 .dropdown-menu {
   border-color: var(--dropdown-menu-border);
 }
-
-
-
-
-
+.table > thead > tr > th {
+  background: var(--thead-bg);
+  border-bottom-width: 1px;
+}
+hr,
+.modal-header {
+  border-color: var(--border-color);
+}
 
 body {
   padding-top: 50px;
 }
-.btn.active.focus, .btn.active:focus, .btn.focus,
-.btn:active.focus, .btn:active:focus, .btn:focus {
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus {
   outline: none;
 }
 nav .container-fluid {
@@ -137,14 +165,25 @@ nav .container-fluid {
   margin-left: 20px;
   margin-right: 20px;
 }
+.my-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.mx-15 {
+  margin-left: 15px;
+  margin-right: 15px;
+}
 .mb-20 {
   margin-bottom: 20px;
 }
 .p-0 {
-  padding: 0
+  padding: 0;
 }
 .p-10 {
-  padding: 10px
+  padding: 10px;
+}
+.pl-0 {
+  padding-left: 0;
 }
 
 .mt-20 {
@@ -206,9 +245,6 @@ nav .container-fluid {
   padding-top: 0;
 }
 
-
-
-
 .badge-primary,
 .badge-secondary,
 .add-badge-primary a,
@@ -227,37 +263,54 @@ nav .container-fluid {
   vertical-align: middle;
 }
 
-.badge-primary, .add-badge-primary a,
-.badge-primary:hover, .add-badge-primary a:hover,
-.badge-primary:active, .add-badge-primary a:active,
-.badge-secondary, .add-badge-secondary a,
-.badge-secondary:hover, .add-badge-secondary a:hover,
-.badge-secondary:active, .add-badge-secondary a:active {
+.badge-primary,
+.add-badge-primary a,
+.badge-primary:hover,
+.add-badge-primary a:hover,
+.badge-primary:active,
+.add-badge-primary a:active,
+.badge-secondary,
+.add-badge-secondary a,
+.badge-secondary:hover,
+.add-badge-secondary a:hover,
+.badge-secondary:active,
+.add-badge-secondary a:active {
   color: #fff;
   text-decoration: none;
 }
 
 .btn {
-  border: none
+  border: none;
 }
 
-.badge-primary, .add-badge-primary a, .btn-primary,
-.btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:active {
+.badge-primary,
+.add-badge-primary a,
+.btn-primary,
+.btn-primary.disabled,
+.btn-primary.disabled:hover,
+.btn-primary.disabled:active {
   background: var(--c-primary);
 }
-.badge-primary:hover, .add-badge-primary a:hover, .btn-primary:hover {
+.badge-primary:hover,
+.add-badge-primary a:hover,
+.btn-primary:hover {
   background: var(--c-primary-hover);
 }
-.badge-primary:active, .add-badge-primary a:active, .btn-primary:active {
+.badge-primary:active,
+.add-badge-primary a:active,
+.btn-primary:active {
   background: var(--c-primary-active);
 }
-.badge-secondary, .add-badge-secondary a {
+.badge-secondary,
+.add-badge-secondary a {
   background: var(--c-secondary);
 }
-.badge-secondary:hover, .add-badge-secondary a:hover {
+.badge-secondary:hover,
+.add-badge-secondary a:hover {
   background: var(--c-secondary-hover);
 }
-.badge-secondary:active, .add-badge-secondary a:active {
+.badge-secondary:active,
+.add-badge-secondary a:active {
   background: var(--c-secondary-active);
 }
 
@@ -299,7 +352,7 @@ h5 {
 
 .table > thead > tr > th,
 .table > tbody > tr > th {
-  font-weight: 500
+  font-weight: 500;
 }
 
 ul.navbar-nav .divider-vertical {
@@ -310,14 +363,21 @@ ul.navbar-nav .divider-vertical {
   border-right-style: solid;
 }
 .network-selector .btn {
-  border-radius: 50px
+  border-radius: 50px;
 }
 .pager {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 15px 15px 0 15px;
+  border-top: 1px solid var(--pager-border);
 }
-
-
+.pager li > a {
+  background-color: var(--pager-link-bg);
+  border: 1px solid var(--pager-link-border);
+}
+.pager li > a:hover,
+.pager li > a:focus {
+  color: var(--pager-link-hover-color);
+  background-color: var(--pager-link-hover-bg);
+}
 
 .panel-body > div:not(.row) {
   display: flex;
@@ -331,12 +391,10 @@ ul.navbar-nav .divider-vertical {
   order: 1;
 }
 .panel.top-border-radius-0 {
-  border-style: solid;
-  border-width: 0 1px 1px 1px;
+  border: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
 
 .bordered {
   border-width: 1px;
@@ -372,13 +430,6 @@ ul.navbar-nav .divider-vertical {
   margin-left: 5px;
 }
 
-
-
-
-
-
-
-
-
-
-
+a:focus {
+  outline: none;
+}

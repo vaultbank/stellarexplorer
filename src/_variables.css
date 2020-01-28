@@ -1,66 +1,22 @@
 :root {
-
-/* Light theme */
-
-  /* --shade: 0%;
-  --shade-inverse: 100%;
-
-  --a-color: #2196F3;
-  --body-bg: #f1f4f6;
-  --bg-color: #e0f3ff;
-  --body-color: #495057;
-  --table-hover: var(--bg-color);
-  --panel-bg: hsl(0,0%,var(--shade-inverse));
-  --panel-heading-color: hsla(223, 65%, 15%, 0.7);
-  --border-color: hsla(0,0%,var(--shade),0.15);
-  --box-shadow: 0 0.46875rem 2.1875rem hsla(0,0%,var(--shade),0.03),
-                0 0.9375rem 1.40625rem hsla(0,0%,var(--shade),0.03),
-                0 0.25rem 0.53125rem hsla(0,0%,var(--shade),0.05),
-                0 0.125rem 0.1875rem hsla(0,0%,var(--shade),0.03);
-  --navbar-bg: hsl(0,0%,var(--shade-inverse));
-  */
-
-
-
-  /* Dark theme */
-
-  --shade: 100%;
-  --shade-inverse: 0%;
-
-  --a-color: #3498DB;
-  --bg-color: #e0f3ff;
-  --body-bg: #171D2E;
-  --body-color: #ccc;
-  --table-hover: hsla(0,0%,var(--shade),.15);
-  --panel-bg: #272F40;
-  --panel-heading-color: hsl(0,0%,var(--shade));
-  --border-color: hsla(0,0%,var(--shade),0.25);
-  --box-shadow: 0 1px 20px 0 rgba(0,0,0,.1);
-  --navbar-bg: var(--panel-bg);
-  --thead-bg: #3A4151;
-
-
-
-  --form-control-bg: hsl(0,0%,var(--shade-inverse));
   --form-control-border: var(--border-color);
   --form-control-color: var(--body-color);
-  --glyphicon-color: hsla(0,0%,var(--shade),0.3);
-  --glyphicon-hover-color: hsla(0,0%,var(--shade),1);
-  --navbar-brand-color: hsl(0,0%,var(--shade));
-  --navbar-nav-link-color: hsl(0,0%,var(--shade),0.4);
-  --navbar-nav-link-hover-color: hsl(0,0%,var(--shade));
+  --glyphicon-color: hsla(0, 0%, var(--shade), 0.3);
+  --glyphicon-hover-color: hsla(0, 0%, var(--shade), 1);
+  --navbar-brand-color: hsl(0, 0%, var(--shade));
+  --navbar-nav-link-color: hsl(0, 0%, var(--shade), 0.4);
+  --navbar-nav-link-hover-color: hsl(0, 0%, var(--shade));
   --panel-heading-border-bottom-color: var(--border-color);
-  --table-striped-odd: hsla(0,0%,var(--shade),0.05);
+  --table-striped-odd: hsla(0, 0%, var(--shade), 0.05);
   --table-thead-border-bottom-color: var(--border-color);
 
+  --nav-tabs-color: hsla(0, 0%, var(--shade), 0.5);
+  --nav-tabs-hover-color: hsl(0, 0%, var(--shade));
   --nav-tabs-border-bottom: var(--border-color);
-  --nav-tabs-active-color: hsl(0,0%,var(--shade));
-  --nav-tabs-active-bg: hsl(0,0%,var(--shade-inverse));
-  --nav-tabs-active-border: var(--border-color);
+  --nav-tabs-active-color: hsl(0, 0%, var(--shade));
+  --nav-tabs-active-border: var(--c-primary);
   --dropdown-menu-active-bg: var(--c-primary);
   --dropdown-menu-border: var(--border-color);
-
-  /* --table-hover: hsla(223, 65%, 15%, 0.8); */
 
   /* #39BAC6 */ /* hsl(185, 55%, 50%) */
   --c-green-h: 185;
@@ -84,8 +40,14 @@
   --c-secondary-hover: hsl(var(--c-green-h), var(--c-green-s), 40%);
   --c-secondary-active: hsl(var(--c-green-h), var(--c-green-s), 60%);
 
-  --c-warning:  hsl(var(--c-yellow-h), var(--c-yellow-s), 50%);
-  --c-warning-hover:  hsl(var(--c-yellow-h), var(--c-yellow-s), 40%);
-  --c-warning-active:  hsl(var(--c-yellow-h), var(--c-yellow-s), 60%);
+  --c-warning: hsl(var(--c-yellow-h), var(--c-yellow-s), 50%);
+  --c-warning-hover: hsl(var(--c-yellow-h), var(--c-yellow-s), 40%);
+  --c-warning-active: hsl(var(--c-yellow-h), var(--c-yellow-s), 60%);
 
+  --pager-border: var(--border-color);
+  --pager-link-bg: none;
+  --pager-link-border: var(--c-primary);
+  --pager-link-hover-bg: var(--c-primary-hover);
+  --pager-link-hover-color: #fff;
+  --a-color: var(--c-primary);
 }

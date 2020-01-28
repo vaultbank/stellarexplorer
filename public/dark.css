@@ -1,164 +1,17 @@
 :root {
-  /* Light theme */
-  /* --body-bg: #ffffff;
-  --body-color: #333; */
+  --shade: 100%;
+  --shade-inverse: 0%;
 
-  /* Dark theme */
-  --body-bg: #1e1e2f;
-  --body-color: #b1b1b5;
-  --search-bg: #27293d;
-  --search-border:#313452;
-
-
-
-
-
-
-  /* --table-striped-odd-bg: #f9f9f9;
-  --table-striped-odd-bg: #f9f9f9; */
-
-  --c-h: 0;
-  --c-s: 0%;
-  /* blue */
-  /* #39BAC6 */
-  /* hsl(185, 55%, 50%) */
-  --c-green-h: 185;
-  --c-green-s: 55%;
-  /* blue */
-  /* #0080FF */
-  /* hsl(210, 100%, 50%) */
-  --c-blue-h: 210;
-  --c-blue-s: 100%;
-  --c-yellow-h: 45;
-  --c-yellow-s: 100%;
-
-  --c-33: hsl(var(--c-h), var(--c-s), 20%); /* #333333; */
-  --c-66: hsl(var(--c-h), var(--c-s), 40%); /* #666666; */
-
-  --c-gray: hsl(var(--c-h), var(--c-s), 35%);
-  --c-gray-light: hsl(var(--c-h), var(--c-s), 55%);
-  --c-gray-lighter: hsl(var(--c-h), var(--c-s), 65%);
-  --c-gray-lightest: hsl(var(--c-h), var(--c-s), 90%);
-
-  --c-primary: hsl(var(--c-blue-h), var(--c-blue-s), 50%);
-  --c-primary-dark: hsl(var(--c-blue-h), var(--c-blue-s), 40%);
-  --loading-color: var(--loading-color);
-  --filter-color: var(--loading-color);
-
-  --c-warning:  hsl(var(--c-yellow-h), var(--c-yellow-s), 50%);
-  --c-warning-hover:  hsl(var(--c-yellow-h), var(--c-yellow-s), 40%);
-
-  --c-tertiary: hsl(var(--c-green-h), var(--c-green-s), 50%);
-  --c-tertiary-hover: hsl(var(--c-green-h), var(--c-green-s), 60%);
-  --c-tertiary-active: hsl(var(--c-green-h), var(--c-green-s), 40%);
-  --navbar-collapse-box-shadow: hsla(var(--c-h), var(--c-s), 100%, 0.1);
-  --glyphicon-info-sign-color: var(--c-gray);
-  --search-container-bg: hsla(var(--c-h), var(--c-s), 100%, 0.9);
-
-  --navbar-default-form-border: hsla(var(--c-h), var(--c-s), 55%, 0.28);
-  --navbar-default-collapse-border: hsla(var(--c-h), var(--c-s), 55%, 0.28);
-  --navbar-dropdown-menu-hover-color: hsla(var(--c-h), var(--c-s), 0%, 0.1);
-  --pager-link-border: hsla(var(--c-h), var(--c-s), 0%, 0.28);
-
-  --table-hover-bg: hsla(var(--c-h), var(--c-s), 0%, 0.2);
-  --secondary-heading-color: var(--c-gray-lightest);
-
-  --anchor-color: currentColor;
-  --btn-default-bg: var(--c-primary);
-
-  --anchor-hover-color: var(--c-gray-lightest);
-  --hr-border-color: var(--c-00);
-  --pre-border-color: var(--c-66);
-  --footer-border-color: var(--c-33);
-
-  --modal-body-bg: var(--c-33);
-  --modal-header-bg: var(--c-33);
-  --modal-header-border-color: var(--c-66);
-
-  --table-td-color: var(--c-33);
-  --table-striped-bg: var(--c-33);
-
-  --navbar-bg: var(--c-00);
-  --navbar-nav-color: currentColor;
-  --navbar-nav-focus-color: currentColor;
-  --navbar-nav-active-color: #fff;
-  --navbar-nav-hover-color: var(--c-gray);
-  --navbar-nav-hover-bg: var(--c-gray-lightest);
-  --navbar-nav-dropdown-toggle-bg: var(--c-22);
-  --navbar-nav-active-bg: var(--c-primary-dark);
-  --navbar-nav-dropdown-toggle-color: currentColor;
-
-  --navbar-dropdown-menu-bg: var(--c-66);
-
-  --navbar-dropdown-menu-color: var(--c-gray-lightest);
-
-  --divider-vertical-border: var(--c-gray-lightest);
-
-  --close-color: currentColor;
-  --close-hover-color: currentColor;
-
-  --language-selector-color: var(--c-gray-lightest);
-  --search-container-color: var(--c-gray);
-  --search-container-addon-color: var(--c-gray);
-
-  --glyphicon-search-bg: #fff;
-  --glyphicon-search-color-hover: var(--c-gray-lighter);
-
-  --network-selector-bg: var(--c-primary);
-  --network-selector-color: currentColor;
-  --network-selector-border: var(--c-primary);
-  --network-selector-inactive-color: var(--c-primary);
-  --network-selector-inactive-hover-bg: var(--c-primary);
-  --network-selector-inactive-hover-color: #fff;
-
-  --stellar-toml-color: #fff;
-  --stellar-toml-bg: var(--c-warning);
-  --stellar-toml-hover-bg: var(--c-warning-hover);
-
-  --directory-row-border: var(--c-gray);
-
-  --anchor-link-col-bg: var(--c-warning-hover);
-
-  --nav-tabs-active-color: var(--c-66);
-  --nav-tabs-active-hover-bg: currentColor;
-  --nav-tabs-active-hover-color: var(--c-66);
-
-  --account-tabs-bg: var(--c-33);
-  --account-tabs-border: var(--c-33);
-  --account-tabs-nav-tabs-color: var(--c-33);
-  --account-tabs-nav-tabs-border: var(--c-33);
-  --account-tabs-nav-tabs-active-color: #fff;
-  --account-tabs-nav-tabs-active-border: #fff;
-  --account-tabs-nav-tabs-active-bg: var(--c-tertiary-active);
-
-  --account-tabs-table-border: var(--c-00);
-
-  --account-tabs-tab-color: var(--c-cc);
-  --account-tabs-tab-hover-bg: var(--c-66);
-  --account-tabs-tab-hover-border: var(--c-00);
-  --account-tabs-tab-hover-color: var(--c-tertiary);
-  --account-tabs-tab-selected-color: var(--c-tertiary);
-
-  --account-badge-color: #fff;
-  --account-badge-hover-color: #fff;
-  --account-badge-bg: var(--c-primary-dark);
-
-  --pager-link-bg: var(--c-cc);
-  --pager-border: var(--c-gray);
-  --pager-link-color: var(--c-00);
-  --pager-link-hover-bg: var(--c-cc);
-
-  --anchor-span-color: currentColor;
-  --anchor-span-bg: var(--c-tertiary);
-  --anchor-span-hover-bg: var(--c-tertiary-hover);
-
-  --green-blue-button-color: currentColor;
-  --green-blue-button-bg: var(--c-tertiary);
-  --green-blue-button-hover-bg: var(--c-tertiary-hover);
-
-  --badge-button-color: #fff;
-  --badge-button-bg: var(--c-tertiary-hover);
-  --badge-button-hover-bg: var(--c-tertiary-active);
-
-  --brand-text-color: currentColor;
+  --bg-color: #e0f3ff;
+  --body-bg: #171d2e;
+  --body-color: #ccc;
+  --border-color: hsla(0, 0%, var(--shade), 0.25);
+  --box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.25);
+  --form-control-bg: hsla(0, 0%, var(--shade), 0.1);
+  --nav-tabs-active-bg: #272f40;
+  --navbar-bg: var(--panel-bg);
+  --panel-bg: #272f40;
+  --panel-heading-color: hsl(0, 0%, var(--shade));
+  --table-hover: hsla(0, 0%, var(--shade), 0.2);
+  --thead-bg: #272f40;
 }
