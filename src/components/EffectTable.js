@@ -26,6 +26,16 @@ const EffectTable = ({
     id="effect-table"
     className="table-striped table-hover"
   >
+    <colgroup>
+      {showAccount && (
+        <col width="100" />
+      )}
+      <col width="200" />
+      <col />
+      <col width="200" />
+      <col width="150" />
+      <col width="50" />
+    </colgroup>
     <thead>
       <tr>
         {showAccount && (
