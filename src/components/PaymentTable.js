@@ -20,6 +20,18 @@ const PaymentTable = ({compact, server, parentRenderTimestamp, records, account}
     id="payment-table"
     className="table-striped table-hover"
   >
+    <colgroup>
+      <col width="100" />
+      <col />
+      {compact === false && (
+        <col width="150" />
+      )}
+      {compact === false && (
+        <col width="150" />
+      )}
+      <col width="150" />
+      <col width="50" />
+    </colgroup>
     <thead>
       <tr>
         <th>
@@ -56,7 +68,7 @@ const PaymentTable = ({compact, server, parentRenderTimestamp, records, account}
       ))}
     </tbody>
   </Table>
-  <div className="text-center mt-20" id="csv-export">
+  <div className="text-center m-20" id="csv-export">
     <ExportToCSVComponent server={server} account={account} />
   </div>
   </div>
