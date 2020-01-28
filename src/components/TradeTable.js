@@ -110,6 +110,13 @@ class TradeTable extends React.Component {
           id="trade-table"
           className="table-striped table-hover"
         >
+          <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col width="150" />
+          </colgroup>
           <thead>
             <tr>
               <th>
