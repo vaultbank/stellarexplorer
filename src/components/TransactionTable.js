@@ -79,6 +79,17 @@ class TransactionTable extends React.Component {
         id="transaction-table"
         className="table-striped table-hover"
       >
+        <colgroup>
+          <col />
+          {showSource === true && (
+            <col width="100" />
+          )}
+          {showLedger === true && (
+            <col width="100" />
+          )}
+          <col width="100" />
+          <col width="150" />
+        </colgroup>
         <thead>
           <tr>
             <th>#</th>

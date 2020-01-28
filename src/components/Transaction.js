@@ -53,7 +53,7 @@ class Transaction extends React.Component {
             <Table className="table-striped table-hover">
               <colgroup>
                 <col width="150" />
-                <col width="20" />
+                <col width="10" />
               </colgroup>
               <tbody>
                 <tr>
