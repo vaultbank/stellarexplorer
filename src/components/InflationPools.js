@@ -47,6 +47,11 @@ class Pools extends React.Component {
         <div className="container-fluid">
           <Panel header={header}>
             <Table className="table-striped table-hover">
+              <colgroup>
+                <col width="200" />
+                <col />
+                <col width="150" />
+              </colgroup>
               <thead>
                 <tr>
                   <th>
