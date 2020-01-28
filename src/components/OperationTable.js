@@ -47,6 +47,18 @@ const OperationTable = props => (
       id="operation-table"
       className="table-striped table-hover"
     >
+      <colgroup>
+        <col width="100" />
+        <col />
+        <col width="150" />
+        {props.compact === false && (
+          <col width="150" />
+        )}
+        {props.compact === false && (
+          <col width="150" />
+        )}
+        <col width="50" />
+      </colgroup>
       <thead>
         <tr>
           <th>
