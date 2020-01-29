@@ -111,6 +111,9 @@ const Balances = props => (
 
 const Thresholds = ({thresholds}) => (
   <Table className="table-striped table-hover">
+    <colgroup>
+      <col width="33%" span="3" />
+    </colgroup>
     <thead>
       <tr>
         <th>

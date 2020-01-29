@@ -433,3 +433,33 @@ ul.navbar-nav .divider-vertical {
 a:focus {
   outline: none;
 }
+
+.navbar-default .navbar-form,
+.navbar-default .navbar-collapse {
+  border-color: var(--border-color);
+}
+
+@media (max-width: 600px) {
+  .table {
+    table-layout: fixed;
+  }
+  col {
+    width: auto;
+  }
+  #main-content {
+    margin: 15px 10px;
+  }
+  .container-fluid,
+  nav .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  ul.navbar-nav .divider-vertical {
+    width: auto;
+    height: 0;
+    margin: 5px 15px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: var(--border-color);
+  }
+}
