@@ -34,7 +34,7 @@ const ResourceModalBody = ({networkAddress, inputValue, dropdownValue, networkTy
 
         <h5><FormattedMessage id="network.change-here" /></h5>
         <FormattedMessage id="network.choose" />
-        <div class="form-group">
+        <div className="form-group">
           <select className="form-control" id="networkDropdown" onChange={handleDropdownChangeFn} value={dropdownValue}>
             <option></option>
             {networkAddresses.map(address => address !== networkAddress && (
@@ -45,7 +45,7 @@ const ResourceModalBody = ({networkAddress, inputValue, dropdownValue, networkTy
         </div>
 
         <FormattedMessage id="network.or-custom" />
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="text"
             onChange={handleInputChangeFn}
