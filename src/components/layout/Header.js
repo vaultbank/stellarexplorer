@@ -36,7 +36,6 @@ class Header extends React.Component {
               switcher={this.props.languageSwitcher}
             />
           </Navbar.Form>
-          */}
           <Navbar.Form pullRight>
             <NetworkSelector
               networkAddress={this.props.networkAddress}
@@ -45,6 +44,7 @@ class Header extends React.Component {
               setNetworkAddress={this.props.setNetworkAddress}
             />
           </Navbar.Form>
+          */}
           <Nav>
             <LinkContainer to="/operations">
               <NavItem>
