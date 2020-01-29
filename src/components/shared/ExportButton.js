@@ -7,7 +7,7 @@ import {FormattedMessage} from 'react-intl'
  */
 const ExportButton = ({onClick, label}) => (
   <button
-    className="backend-resource-badge-button"
+    className="btn btn-primary"
     onClick={onClick}
   >
     <FormattedMessage id="csv-export" />

@@ -1,21 +1,22 @@
 import React from 'react'
-import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
-import Row from 'react-bootstrap/lib/Row'
-import { injectIntl } from 'react-intl'
+import {injectIntl} from 'react-intl'
 import LedgerTable from './LedgerTableContainer'
+import OnlyTitle from './shared/OnlyTitle'
+
+const panelHeader = (title) => (
+  <OnlyTitle title={title} />
+)
 
 class Ledgers extends React.Component {
   render() {
-    const { formatMessage } = this.props.intl
+    const {formatMessage} = this.props.intl
     return (
-      <div className="container-fluid">
-        <Row>
-          <Panel header={formatMessage({ id: 'ledgers' })}>
+        <div className="container-fluid">
+          <Panel header={panelHeader(formatMessage({id: 'ledgers'}))}>
             <LedgerTable usePaging limit={20} />
           </Panel>
-        </Row>
-      </div>
+        </div>
     )
   }
 }

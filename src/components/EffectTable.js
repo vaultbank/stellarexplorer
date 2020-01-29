@@ -24,8 +24,18 @@ const EffectTable = ({
   <div>
   <Table
     id="effect-table"
-    className="table-striped table-hover table-condensed"
+    className="table-striped table-hover"
   >
+    <colgroup>
+      {showAccount && (
+        <col width="100" />
+      )}
+      <col width="200" />
+      <col />
+      <col width="200" />
+      <col width="150" />
+      <col width="50" />
+    </colgroup>
     <thead>
       <tr>
         {showAccount && (
@@ -62,7 +72,7 @@ const EffectTable = ({
       })}
     </tbody>
   </Table>
-  <div className="text-center" id="csv-export">
+  <div className="text-center m-20" id="csv-export">
     <ExportToCSVComponent server={server} account={account} />
   </div>
   </div>

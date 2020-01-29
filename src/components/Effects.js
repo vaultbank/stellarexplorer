@@ -1,21 +1,22 @@
 import React from 'react'
-import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
-import Row from 'react-bootstrap/lib/Row'
-import { injectIntl } from 'react-intl'
+import {injectIntl} from 'react-intl'
 import EffectTable from './EffectTable'
+import OnlyTitle from './shared/OnlyTitle'
+
+const panelHeader = (title) => (
+  <OnlyTitle title={title} />
+)
 
 class Effects extends React.Component {
   render() {
-    const { formatMessage } = this.props.intl
+    const {formatMessage} = this.props.intl
     return (
-      <div className="container-fluid">
-        <Row>
-          <Panel header={formatMessage({ id: 'effects' })}>
+        <div className="container-fluid">
+          <Panel header={panelHeader(formatMessage({id: 'effects'}))}>
             <EffectTable limit={50} usePaging showAccount />
           </Panel>
-        </Row>
-      </div>
+        </div>
     )
   }
 }

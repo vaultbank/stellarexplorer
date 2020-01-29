@@ -53,7 +53,7 @@ const Offer = props => {
 const OfferRow = props => (
   <tr key={props.id} className="trade">
     {props.showSeller === true && (
-      <td className="account-badge">
+      <td className="add-badge-primary">
         <AccountLink account={props.seller} />
       </td>
     )}

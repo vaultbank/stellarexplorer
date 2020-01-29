@@ -15,7 +15,7 @@ const networkAddresses = [
  */
 const CustomNetworkButton = ({handleClickFn}) =>
   <button
-    className="is-inactive"
+    className="btn btn-rounded btn-primary disabled"
     onClick={handleClickFn}>
     <FormattedMessage id="network.set-custom" />
   </button>
@@ -28,35 +28,36 @@ const ResourceModalBody = ({networkAddress, inputValue, dropdownValue, networkTy
                             handleSubmitFn, handleInputChangeFn, handleDropdownChangeFn}) => {
   return (
     <form onSubmit={handleSubmitFn}>
-      <div>
-        <h4><FormattedMessage id="network.current" /></h4>
-        <FormattedMessage id={'network.' + networkType} /><br />
-        <pre style={{marginTop: 5}}>{networkAddress}</pre><br />
-      </div>
+        <h5 className="mt-0"><FormattedMessage id="network.current" /></h5>
+        <FormattedMessage id={'network.' + networkType} />
+        <pre className="mb-20">{networkAddress}</pre>
 
-      <div>
-        <h4><FormattedMessage id="network.change-here" /></h4>
-        <FormattedMessage id="network.choose" /><br />
-        <select id="networkDropdown" onChange={handleDropdownChangeFn} value={dropdownValue}>
-          <option></option>
-          {networkAddresses.map(address => address !== networkAddress && (
-            <option>{address}</option>
-            ))
-          }
-        </select><br/><br/>
+        <h5><FormattedMessage id="network.change-here" /></h5>
+        <FormattedMessage id="network.choose" />
+        <div className="form-group">
+          <select className="form-control" id="networkDropdown" onChange={handleDropdownChangeFn} value={dropdownValue}>
+            <option></option>
+            {networkAddresses.map(address => address !== networkAddress && (
+              <option>{address}</option>
+              ))
+            }
+          </select>
+        </div>
 
-        <FormattedMessage id="network.or-custom" /><br />
-        <input
-          style={{marginTop: 5}}
-          type="text"
-          onChange={handleInputChangeFn}
-          value={inputValue}
-          /><br/>
+        <FormattedMessage id="network.or-custom" />
+        <div className="form-group">
+          <input
+            type="text"
+            onChange={handleInputChangeFn}
+            value={inputValue}
+            className="form-control"
+          />
+        </div>
 
         <FormattedMessage id="save">
-          {msg => (<input type="submit" value={msg} />)}
+          {msg => (<input type="submit" className="btn btn-primary btn-block" value={msg} />)}
         </FormattedMessage>
-      </div>
+
     </form>
   )
 }
@@ -64,7 +65,7 @@ const ResourceModalBody = ({networkAddress, inputValue, dropdownValue, networkTy
 const ResourceModal = props => (
   <Modal id="networkModal" show={props.show} onHide={props.handleCloseFn}>
     <Modal.Header closeButton>
-      <Modal.Title id="contained-modal-title-lg" style={{color: '#dce2ec'}}>
+      <Modal.Title id="contained-modal-title-lg">
         <FormattedMessage id="network.address" />
       </Modal.Title>
     </Modal.Header>

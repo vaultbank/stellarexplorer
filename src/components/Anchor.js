@@ -1,7 +1,6 @@
 import React from 'react'
 import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
-import Row from 'react-bootstrap/lib/Row'
 import Table from 'react-bootstrap/lib/Table'
 import {injectIntl, FormattedMessage} from 'react-intl'
 import has from 'lodash/has'
@@ -29,17 +28,16 @@ class Anchor extends React.Component {
     if (!anchor || anchor == null) return null
 
     return (
-      <Grid>
-        <Row>
+        <Grid>
           <Panel
             header={
               <span>
-                {formatMessage({id: 'anchor'})}{' '}
-                <span className="secondary-heading">{name}</span>
+                { formatMessage({id: 'anchor'}) }{' '}
+                <small>{name}</small>
               </span>
             }
           >
-            <Table>
+            <Table className="table-striped table-hover">
               <tbody>
                 <tr>
                   <td>
@@ -48,32 +46,26 @@ class Anchor extends React.Component {
                     </a>
                   </td>
                   <td>
-                    <div>
                       {has(anchor, 'displayName')
                         ? anchor.displayName
                         : anchor.name}
-                    </div>
-                    <div style={{marginTop: 10}}>
+                    <p>
                       <a href={anchor.website} target="_blank">
-                        {anchor.website}
+                        {anchor.website} {' '}
                         <NewWindowIcon />
                       </a>
-                    </div>
-                    <div style={{marginTop: 15}}>
-                      <StellarTomlBadge domain={domain} />
-                    </div>
+                    </p>
+                    <StellarTomlBadge domain={domain} />
                   </td>
                 </tr>
               </tbody>
             </Table>
           </Panel>
-        </Row>
 
-        <Row style={{marginLeft: 10, marginRight: 10}}>
           <h3>
             <FormattedMessage id="assets" />
           </h3>
-          <Table>
+          <Table className="table-striped table-hover">
             <thead>
               <tr>
                 <th>
@@ -93,7 +85,7 @@ class Anchor extends React.Component {
                     <tr key={code}>
                       <td>{code}</td>
                       <td>
-                        <AccountLink account={issuer} hideKnown />
+                        <AccountLink account={issuer} hideKnown /> {' '}
                         <ClipboardCopy text={issuer} />
                       </td>
                     </tr>
@@ -101,8 +93,7 @@ class Anchor extends React.Component {
                 })}
             </tbody>
           </Table>
-        </Row>
-      </Grid>
+        </Grid>
     )
   }
 }

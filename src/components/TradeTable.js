@@ -58,25 +58,19 @@ const Trade = ({account, singleAccountView, trade, parentRenderTimestamp}) => {
 
   return (
     <tr key={trade.id} className="trade">
-      <td>
-        <span className="account-badge">
-          <AccountLink account={account1} />
-        </span>
+      <td className="add-badge-primary">
+        <AccountLink account={account1} />
       </td>
       <td>{baseFirst ? Base : Counter}</td>
-      <td>
-        <span className="account-badge">
-          <AccountLink account={account2} />
-        </span>
+      <td className="add-badge-primary">
+        <AccountLink account={account2} />
       </td>
       <td>{baseFirst ? Counter : Base}</td>
-      <td>
-        <span title={trade.time}>
-          <TimeSynchronisedFormattedRelative
-            initialNow={parentRenderTimestamp}
-            value={trade.time}
-          />
-        </span>
+      <td title={trade.time}>
+        <TimeSynchronisedFormattedRelative
+          initialNow={parentRenderTimestamp}
+          value={trade.time}
+        />
       </td>
     </tr>
   )
@@ -106,7 +100,7 @@ class TradeTable extends React.Component {
     const {server, parentRenderTimestamp, account, records} = this.props
 
     if (records.length === 0)
-      return <div style={{marginTop: 20, marginBottom: 20}}>No Trades</div>
+      return <div className="m-5 text-center text-muted">No Trades</div>
 
     const singleAccountView = isPublicKey(account)
 
@@ -114,8 +108,15 @@ class TradeTable extends React.Component {
       <div>
         <Table
           id="trade-table"
-          className="table-striped table-hover table-condensed"
+          className="table-striped table-hover"
         >
+          <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col width="150" />
+          </colgroup>
           <thead>
             <tr>
               <th>
@@ -149,7 +150,7 @@ class TradeTable extends React.Component {
             ))}
           </tbody>
         </Table>
-        <div className="text-center" id="csv-export">
+        <div className="text-center m-20" id="csv-export">
           <ExportToCSVComponent account={account} server={server} />
         </div>
       </div>

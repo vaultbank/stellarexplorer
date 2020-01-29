@@ -1,10 +1,8 @@
 import React from 'react'
-import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
-import Row from 'react-bootstrap/lib/Row'
 import Table from 'react-bootstrap/lib/Table'
-import { FormattedMessage, injectIntl } from 'react-intl'
-import { Link } from 'react-router-dom'
+import {FormattedMessage, injectIntl} from 'react-intl'
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import AccountLink from './shared/AccountLink'
@@ -12,12 +10,12 @@ import ClipboardCopy from './shared/ClipboardCopy'
 import Logo from './shared/Logo'
 import NewWindowIcon from './shared/NewWindowIcon'
 import StellarTomlBadge from './shared/StellarTomlBadge'
-import { titleWithJSONButton } from './shared/TitleWithJSONButton'
+import {titleWithJSONButton} from './shared/TitleWithJSONButton'
 
-import { assetKeyToIssuer } from '../lib/utils'
+import {assetKeyToIssuer} from '../lib/utils'
 
 import directory from '../data/directory'
-const { anchors } = directory
+const {anchors} = directory
 
 const METADATA_PATH =
   'https://raw.githubusercontent.com/irisli/stellarterm/master/directory/directory.json'
@@ -26,67 +24,57 @@ const tradeURL = (assetCode, issuerDomain) =>
   `https://stellarterm.com/#exchange/XLM-native/${assetCode}-${issuerDomain}`
 
 // render list of asset codes, each code on a new line
-const AssetCodeColumn = ({ assets }) => (
-  <span>{Object.keys(assets).map(code => <div key={code}>{code}</div>)}</span>
+const AssetCodeColumn = ({assets}) => (
+  <td>{Object.keys(assets).map(code => <p key={code}>{code}</p>)}</td>
 )
 
-const IssuerColumn = ({ assets }) => (
-  <span>
+const IssuerColumn = ({assets}) => (
+  <td>
     {Object.keys(assets).map(code => {
       const issuer = assetKeyToIssuer(assets[code])
       return (
-        <div key={code}>
-          <AccountLink account={issuer} hideKnown />
+        <p key={code}>
+          <AccountLink account={issuer} hideKnown /> {' '}
           <ClipboardCopy text={issuer} />
-        </div>
+        </p>
       )
     })}
-  </span>
+  </td>
 )
 
-const TradeColumn = ({ assets, domain }) => (
-  <span>
+const TradeColumn = ({assets, domain}) => (
+  <td>
     {Object.keys(assets).map(code => (
-      <div key={code}>
+      <p key={code}>
         <a href={tradeURL(code, domain)} target="_blank">
           Trade
         </a>
-      </div>
+      </p>
     ))}
-  </span>
+  </td>
 )
 
-const Anchor = ({ assets, domain, displayName, logo, website }) => {
+const Anchor = ({assets, domain, displayName, logo, website}) => {
   return (
-    <tr className="directoryRow">
+    <tr>
       <td>
         <Link to={`/anchor/${domain}`}>
-          <Logo name={domain} src={logo} />
+          <Logo name={domain} src={logo} width={70} />
         </Link>
       </td>
       <td className="anchorLinkCol">
-        <div>
-          <Link to={`/anchor/${domain}`}>{displayName}</Link>
-        </div>
-        <div>
+        <Link to={`/anchor/${domain}`}>{displayName}</Link>
+        <p>
           <a href={website} target="_blank">
-            {website}
+            {website} {' '}
             <NewWindowIcon />
           </a>
-        </div>
-        <div>
-          <StellarTomlBadge domain={domain} />
-        </div>
+        </p>
+        <StellarTomlBadge domain={domain} />
       </td>
-      <td>
-        <AssetCodeColumn assets={assets} />
-      </td>
-      <td>
-        <IssuerColumn assets={assets} />
-      </td>
-      <td>
-        <TradeColumn assets={assets} domain={domain} />
-      </td>
+      <AssetCodeColumn assets={assets} />
+      <IssuerColumn assets={assets} />
+      <TradeColumn assets={assets} domain={domain} />
     </tr>
   )
 }
@@ -101,16 +89,18 @@ Anchor.propTypes = {
 class Anchors extends React.Component {
   render() {
     if (!anchors) return null
-    const { formatMessage } = this.props.intl
+    const {formatMessage} = this.props.intl
     const header = titleWithJSONButton(
-      formatMessage({ id: 'anchors' }),
+      formatMessage({id: 'anchors'}),
       METADATA_PATH
     )
     return (
-      <div className="container-fluid">
-        <Row>
+        <div className="container-fluid">
           <Panel header={header}>
-            <Table>
+          <Table className="table-striped table-hover">
+              <colgroup>
+                <col width="100" />
+              </colgroup>
               <thead>
                 <tr>
                   <th />
@@ -141,8 +131,7 @@ class Anchors extends React.Component {
               </tbody>
             </Table>
           </Panel>
-        </Row>
-      </div>
+        </div>
     )
   }
 }

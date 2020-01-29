@@ -19,7 +19,7 @@ const fetch = FetchPonyfill().fetch
  */
 const BackendResourceBadgeButton = ({handleClickFn, label, url}) => (
   <a
-    className="backend-resource-badge-button"
+    className="badge-secondary"
     href={url}
     onClick={handleClickFn}
   >
@@ -67,15 +67,13 @@ ClipboardCopyButton.propTypes = {
 
 const ResourceModalBody = ({handleCloseFn, isJson, show, text, url}) => (
   <div>
-    <div className="break" style={{marginBottom: 15}}>
+    <p className="word-break">
       <a href={url} target="_blank">
-        {url}
+        {url} {' '}
         <NewWindowIcon />
       </a>
-    </div>
-    <div>
-      {isJson ? <JSONPretty id="json-pretty" json={text} /> : <pre>{text}</pre>}
-    </div>
+    </p>
+    {isJson ? <JSONPretty id="json-pretty" json={text} /> : <pre>{text}</pre>}
   </div>
 )
 

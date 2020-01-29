@@ -1,13 +1,12 @@
 import React from 'react'
 import Col from 'react-bootstrap/lib/Col'
-import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
 import Row from 'react-bootstrap/lib/Row'
 import Table from 'react-bootstrap/lib/Table'
 import Tab from 'react-bootstrap/lib/Tab'
 import Tabs from 'react-bootstrap/lib/Tabs'
-import { injectIntl, FormattedMessage } from 'react-intl'
-import { FederationServer, StrKey } from 'stellar-sdk'
+import {injectIntl, FormattedMessage} from 'react-intl'
+import {FederationServer, StrKey} from 'stellar-sdk'
 import has from 'lodash/has'
 
 import knownAccounts from '../data/known_accounts'
@@ -17,9 +16,9 @@ import {
   isPublicKey,
   isStellarAddress,
 } from '../lib/utils'
-import { withServer } from './shared/HOCs'
-import { withSpinner } from './shared/Spinner'
-import { titleWithJSONButton } from './shared/TitleWithJSONButton'
+import {withServer} from './shared/HOCs'
+import {withSpinner} from './shared/Spinner'
+import {titleWithJSONButton} from './shared/TitleWithJSONButton'
 
 import AccountLink from './shared/AccountLink'
 import Asset from './shared/Asset'
@@ -40,11 +39,11 @@ const stellarAddressFromURI = () => {
   return isStellarAddress(lastPath) ? lastPath : undefined
 }
 
-const NameValueTable = ({ data, decodeValue = false }) => {
+const NameValueTable = ({data, decodeValue = false}) => {
   if (!data || Object.keys(data).length === 0)
-    return <div style={{ marginTop: 20, marginBottom: 20 }}>No Data</div>
+    return <div className="m-5 text-center text-muted">No Data</div>
   return (
-    <Table>
+    <Table className="table-striped table-hover">
       <thead>
         <tr>
           <th>
@@ -83,18 +82,16 @@ const balanceRow = bal => (
       />
     </td>
     <td>
-      <span className="break">
-        <FormattedAmount amount={bal.balance} />
-      </span>
+      <FormattedAmount amount={bal.balance} />
     </td>
     <td>
-      <span className="break">{bal.limit}</span>
+      {bal.limit}
     </td>
   </tr>
 )
 
 const Balances = props => (
-  <Table>
+  <Table className="table-striped table-hover">
     <thead>
       <tr>
         <th>
@@ -112,8 +109,11 @@ const Balances = props => (
   </Table>
 )
 
-const Thresholds = ({ thresholds }) => (
-  <Table>
+const Thresholds = ({thresholds}) => (
+  <Table className="table-striped table-hover">
+    <colgroup>
+      <col width="33%" span="3" />
+    </colgroup>
     <thead>
       <tr>
         <th>
@@ -138,7 +138,7 @@ const Thresholds = ({ thresholds }) => (
 )
 
 const Signers = props => (
-  <Table>
+  <Table className="table-striped table-hover">
     <thead>
       <tr>
         <th>
@@ -155,7 +155,7 @@ const Signers = props => (
     <tbody>
       {props.signers.map(signer => (
         <tr key={signer.public_key}>
-          <td>
+          <td className="add-badge-primary">
             {signer.type === 'ed25519_public_key' && (
               <AccountLink account={signer.key} />
             )}
@@ -172,8 +172,8 @@ const Signers = props => (
   </Table>
 )
 
-const Flags = ({ flags }) => <NameValueTable data={flags} />
-const Data = ({ data }) => <NameValueTable data={data} decodeValue />
+const Flags = ({flags}) => <NameValueTable data={flags} />
+const Data = ({data}) => <NameValueTable data={data} decodeValue />
 
 const AccountSummaryPanel = ({
   account: a,
@@ -182,72 +182,82 @@ const AccountSummaryPanel = ({
   knownAccounts,
 }) => {
   const header = titleWithJSONButton(
-    formatMessageFn({ id: 'account' }),
+    formatMessageFn({id: 'account'}),
     accountUrl
   )
   const stellarAddr = stellarAddressFromURI()
   return (
     <Panel header={header}>
-      <Grid style={{ paddingLeft: 0 }}>
-        <Row>
-          <Col md={10}>
-            <Row>
-              <Col md={3}>
-                <FormattedMessage id="key.public" />:
-              </Col>
-              <Col md={9}>
-                <span className="break">{a.id}</span>
-                <ClipboardCopy text={a.id} />
-              </Col>
-            </Row>
-            {stellarAddr && (
-              <Row>
-                <Col md={3}>
-                  <FormattedMessage id="stellar.address" />:
-                </Col>
-                <Col md={9}>{stellarAddr}</Col>
-              </Row>
-            )}
-            <Row>
-              <Col md={3}>
-                <FormattedMessage id="home.domain" />:
-              </Col>
-              <Col md={9}>
-                <a href={`https://${a.home_domain}`} target="_blank">
-                  {a.home_domain}
-                </a>
-              </Col>
-            </Row>
-            <Row>
-              <Col md={3}>
-                <FormattedMessage id="inflation" />:
-              </Col>
-              <Col md={9}>
-                {a.inflation_destination && (
-                  <AccountLink account={a.inflation_destination} />
-                )}
-              </Col>
-            </Row>
-            <Row>
-              <Col md={3}>
-                <FormattedMessage id="subentry.count" />:
-              </Col>
-              <Col md={9}>{a.subentry_count}</Col>
-            </Row>
-          </Col>
-          {has(knownAccounts, a.id) &&
-            knownAccounts[a.id].type !== 'inflation_pools' && (
-              <Col md={2}>
-                <div style={{ marginBottom: 10 }}>
-                  <Logo
-                    src={knownAccounts[a.id].logo}
-                    name={knownAccounts[a.id].name}
-                  />
-                </div>
-              </Col>
-            )}
-        </Row>
-      </Grid>
+      <Table className="table-striped table-hover" id="Account-table">
+        <colgroup>
+          <col width="175" />
+          <col width="10" />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th>
+              <FormattedMessage id="key.public" />
+            </th>
+            <td>:</td>
+            <td>
+              <span className="mr-5">{a.id}</span> {' '}
+              <ClipboardCopy text={a.id} />
+            </td>
+          </tr>
+          {stellarAddr && (
+            <tr>
+              <th>
+                <FormattedMessage id="stellar.address" />:
+              </th>
+              <td>:</td>
+              <td>
+                {stellarAddr}
+              </td>
+            </tr>
+          )}
+          <tr>
+            <th>
+              <FormattedMessage id="home.domain" />:
+            </th>
+            <td>:</td>
+            <td>
+              <a href={`https://${a.home_domain}`} target="_blank">
+                {a.home_domain}
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <FormattedMessage id="inflation" />:
+            </th>
+            <td>:</td>
+            <td className="add-badge-primary">
+              {a.inflation_destination && (
+                <AccountLink account={a.inflation_destination} />
+              )}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <FormattedMessage id="subentry.count" />:
+            </th>
+            <td>:</td>
+            <td>
+              {a.subentry_count}
+            </td>
+          </tr>
+          {has(knownAccounts, a.id) && knownAccounts[a.id].type !== 'inflation_pools' && (
+            <tr>
+              <td colSpan="3">
+                <Logo
+                  src={knownAccounts[a.id].logo}
+                  name={knownAccounts[a.id].name}
+                />
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </Table>
     </Panel>
   )
 }
@@ -274,7 +284,7 @@ class Account extends React.Component {
   }
 
   setNewState(tabKey) {
-    const newState = { key: tabKey }
+    const newState = {key: tabKey}
     if (tabKey === 'effects') newState.renderEffects = true
     this.setState(newState)
   }
@@ -292,29 +302,28 @@ class Account extends React.Component {
   }
 
   render() {
-    const { formatMessage } = this.props.intl
+    const {formatMessage} = this.props.intl
     const a = this.props.account
     return (
-      <div className="container-fluid">
-        <Row>
+        <div className="container-fluid">
           <AccountSummaryPanel
             account={a}
             accountUrl={this.props.urlFn(a.id)}
             formatMessageFn={formatMessage}
             knownAccounts={knownAccounts}
           />
-        </Row>
-        <Row>
           <Tabs
             id="account-tabs"
             activeKey={this.state.key}
             onSelect={this.handleSelect}
-            style={{ border: '1px solid #ddd', borderRadius: 4 }}
           >
-            <Tab eventKey="balances" title={formatMessage({ id: 'balances' })}>
+            <Tab eventKey="balances" title={formatMessage({id: 'balances'})}>
+              <Panel className="top-border-radius-0">
               <Balances balances={a.balances} />
+              </Panel>
             </Tab>
-            <Tab eventKey="payments" title={formatMessage({ id: 'payments' })}>
+            <Tab eventKey="payments" title={formatMessage({id: 'payments'})}>
+              <Panel className="top-border-radius-0">
               <PaymentTable
                 key={a.id}
                 account={a.id}
@@ -322,8 +331,10 @@ class Account extends React.Component {
                 limit={20}
                 usePaging
               />
+              </Panel>
             </Tab>
-            <Tab eventKey="offers" title={formatMessage({ id: 'offers' })}>
+            <Tab eventKey="offers" title={formatMessage({id: 'offers'})}>
+              <Panel className="top-border-radius-0">
               <OfferTable
                 key={a.id}
                 account={a.id}
@@ -332,11 +343,15 @@ class Account extends React.Component {
                 showSeller={false}
                 usePaging
               />
+              </Panel>
             </Tab>
-            <Tab eventKey="trades" title={formatMessage({ id: 'trades' })}>
+            <Tab eventKey="trades" title={formatMessage({id: 'trades'})}>
+              <Panel className="top-border-radius-0">
               <TradeTable key={a.id} account={a.id} limit={20} usePaging />
+              </Panel>
             </Tab>
-            <Tab eventKey="effects" title={formatMessage({ id: 'effects' })}>
+            <Tab eventKey="effects" title={formatMessage({id: 'effects'})}>
+              <Panel className="top-border-radius-0">
               {// OPTIMISATION: render on focus only as it hits the server for every effect
                 this.state.renderEffects === true && (
                   <EffectTable
@@ -346,12 +361,14 @@ class Account extends React.Component {
                     showAccount={false}
                     usePaging
                   />
-                )}
+              )}
+              </Panel>
             </Tab>
             <Tab
               eventKey="operations"
-              title={formatMessage({ id: 'operations' })}
+              title={formatMessage({id: 'operations'})}
             >
+              <Panel className="top-border-radius-0">
               <OperationTable
                 key={a.id}
                 account={a.id}
@@ -359,11 +376,13 @@ class Account extends React.Component {
                 limit={20}
                 usePaging
               />
+              </Panel>
             </Tab>
             <Tab
               eventKey="transactions"
-              title={formatMessage({ id: 'transactions' })}
+              title={formatMessage({id: 'transactions'})}
             >
+              <Panel className="top-border-radius-0">
               <TransactionTable
                 key={a.id}
                 account={a.id}
@@ -372,33 +391,37 @@ class Account extends React.Component {
                 showSource={false}
                 usePaging
               />
+              </Panel>
             </Tab>
-            <Tab eventKey="signing" title={formatMessage({ id: 'signing' })}>
-              <Row>
-                <Col md={7}>
+            <Tab eventKey="signing" title={formatMessage({id: 'signing'})}>
+              <Panel className="top-border-radius-0">
+              <Row className="m-0">
+                <Col md={8}>
                   <Signers signers={a.signers} />
                 </Col>
-                <Col
-                  md={3}
-                  mdOffset={1}
-                  style={{ border: '1px solid white', marginTop: 30 }}
-                >
-                  <h4>
-                    <FormattedMessage id="thresholds" />
-                  </h4>
-                  <Thresholds thresholds={a.thresholds} />
+                <Col className="p-0" md={4}>
+                  <div className="bordered m-20">
+                    <h5 className="mx-15">
+                      <FormattedMessage id="thresholds" />
+                    </h5>
+                    <Thresholds thresholds={a.thresholds} />
+                  </div>
                 </Col>
               </Row>
+              </Panel>
             </Tab>
-            <Tab eventKey="flags" title={formatMessage({ id: 'flags' })}>
+            <Tab eventKey="flags" title={formatMessage({id: 'flags'})}>
+              <Panel className="top-border-radius-0">
               <Flags flags={a.flags} />
+              </Panel>
             </Tab>
-            <Tab eventKey="data" title={formatMessage({ id: 'data' })}>
+            <Tab eventKey="data" title={formatMessage({id: 'data'})}>
+              <Panel className="top-border-radius-0">
               <Data data={a.data_attr} />
+              </Panel>
             </Tab>
           </Tabs>
-        </Row>
-      </div>
+        </div>
     )
   }
 }
@@ -442,7 +465,7 @@ class AccountContainer extends React.Component {
       .accountId(accountId)
       .call()
       .then(res => {
-        this.setState({ account: res, isLoading: false })
+        this.setState({account: res, isLoading: false})
         return null
       })
       .catch(handleFetchDataFailure(accountId))

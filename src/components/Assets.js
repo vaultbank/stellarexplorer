@@ -1,10 +1,8 @@
 import React from 'react'
-import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
-import Row from 'react-bootstrap/lib/Row'
 import Table from 'react-bootstrap/lib/Table'
-import { FormattedMessage, injectIntl } from 'react-intl'
-import { Link } from 'react-router-dom'
+import {FormattedMessage, injectIntl} from 'react-intl'
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import has from 'lodash/has'
 
@@ -13,44 +11,40 @@ import BackendResourceBadgeButton from './shared/BackendResourceBadgeButton'
 import ClipboardCopy from './shared/ClipboardCopy'
 import Logo from './shared/Logo'
 import NewWindowIcon from './shared/NewWindowIcon'
-import { titleWithJSONButton } from './shared/TitleWithJSONButton'
+import {titleWithJSONButton} from './shared/TitleWithJSONButton'
 
 import directory from '../data/directory'
-const { anchors, assets } = directory
+const {anchors, assets} = directory
 
 const METADATA_PATH =
   'https://raw.githubusercontent.com/irisli/stellarterm/master/directory/directory.json'
 
-const Asset = ({ code, domain, issuer }) => {
+const Asset = ({code, domain, issuer}) => {
   const anchor = anchors[domain]
   return (
-    <tr className="directoryRow">
+    <tr>
       <td>
         <a href={anchor.website} target="_blank">
-          <Logo name={domain} src={anchor.logo} />
+          <Logo name={domain} src={anchor.logo} width={70} />
         </a>
       </td>
-      <td style={{ color: 'white' }}>{code}</td>
+      <td>{code}</td>
       <td>
-        <AccountLink account={issuer} hideKnown />
+        <AccountLink account={issuer} hideKnown /> {' '}
         <ClipboardCopy text={issuer} />
       </td>
       <td>
-        <div>
-          <Link to={`/anchor/${domain}`}>{anchor.name}</Link>
-        </div>
-        <div>
+        <Link to={`/anchor/${domain}`}>{anchor.name}</Link>
+        <p>
           <a href={anchor.website} target="_blank">
-            {anchor.website}
+            {anchor.website} {' '}
             <NewWindowIcon />
           </a>
-        </div>
-        <div className="stellarToml">
-          <BackendResourceBadgeButton
-            label="server.toml"
-            url={`https://${domain}/.well-known/stellar.toml`}
-          />
-        </div>
+        </p>
+        <BackendResourceBadgeButton
+          label="server.toml"
+          url={`https://${domain}/.well-known/stellar.toml`}
+        />
       </td>
     </tr>
   )
@@ -63,9 +57,9 @@ Asset.propTypes = {
 
 class Assets extends React.Component {
   render() {
-    const { formatMessage } = this.props.intl
+    const {formatMessage} = this.props.intl
     const header = titleWithJSONButton(
-      formatMessage({ id: 'assets' }),
+      formatMessage({id: 'assets'}),
       METADATA_PATH
     )
 
@@ -79,10 +73,12 @@ class Assets extends React.Component {
       : allAssetKeys
 
     return (
-      <div className="container-fluid">
-        <Row>
+        <div className="container-fluid">
           <Panel header={header}>
-            <Table>
+            <Table className="table-striped table-hover">
+              <colgroup>
+                <col width="60" />
+              </colgroup>
               <thead>
                 <tr>
                   <th />
@@ -105,8 +101,7 @@ class Assets extends React.Component {
               </tbody>
             </Table>
           </Panel>
-        </Row>
-      </div>
+        </div>
     )
   }
 }

@@ -1,0 +1,17 @@
+:root {
+  --shade: 100%;
+  --shade-inverse: 0%;
+
+  --bg-color: #e0f3ff;
+  --body-bg: #171d2e;
+  --body-color: #ccc;
+  --border-color: hsla(0, 0%, var(--shade), 0.25);
+  --box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.25);
+  --form-control-bg: hsla(0, 0%, var(--shade), 0.1);
+  --nav-tabs-active-bg: #272f40;
+  --navbar-bg: var(--panel-bg);
+  --panel-bg: #272f40;
+  --panel-heading-color: hsl(0, 0%, var(--shade));
+  --table-hover: hsla(0, 0%, var(--shade), 0.2);
+  --thead-bg: #272f40;
+}

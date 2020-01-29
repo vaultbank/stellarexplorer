@@ -7,7 +7,8 @@ const PagingControls = ({handleClickNext, handleClickPrev, hidePrev}) =>
     {!hidePrev &&
       <Pager.Item previous onClick={handleClickPrev} href="#">
         &larr; <FormattedMessage id="paging.prev" />
-      </Pager.Item>}
+      </Pager.Item>
+    }
     <Pager.Item next onClick={handleClickNext} href="#">
       <FormattedMessage id="paging.next" /> &rarr;
     </Pager.Item>

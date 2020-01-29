@@ -1,32 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-// 2 supported logo forms
-const squareDimensions = {height: 75, width: 75}
-const rectangleDimensions = {height: 40, width: 150}
-
-const Logo = ({name, src}) => {
+const Logo = ({name, src, height, width}) => {
   const imgSrc = src
     ? src
     : `${process.env.PUBLIC_URL}/img/${name.toLowerCase()}.png`
-  const isDirectoryLogo = imgSrc.startsWith('data:image')
-  const dimen = isDirectoryLogo ? squareDimensions : rectangleDimensions
   return (
-    <span>
       <img
         src={imgSrc}
         alt={name}
         title={name}
-        height={dimen.height}
-        width={dimen.width}
+        style={{maxHeight: height, maxWidth: width}}
       />
-    </span>
   )
 }
 
 Logo.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
   name: PropTypes.string.isRequired,
   src: PropTypes.string,
+}
+
+Logo.defaultProps = {
+  width: 24,
+  height: 150,
 }
 
 export default Logo

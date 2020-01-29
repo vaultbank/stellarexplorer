@@ -4,10 +4,12 @@ import JSONButton from './JSONButton'
 
 const TitleWithJSONButton = ({title, url}) => (
   <div>
-    <span>{title}</span>
     <span className="pull-right">
       <JSONButton url={url} />
     </span>
+    <h5 className="m-0">
+      {title}
+    </h5>
   </div>
 )
 

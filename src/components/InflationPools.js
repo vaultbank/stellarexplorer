@@ -1,27 +1,25 @@
 import React from 'react'
-import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
-import Row from 'react-bootstrap/lib/Row'
 import Table from 'react-bootstrap/lib/Table'
-import { FormattedMessage, injectIntl } from 'react-intl'
+import {FormattedMessage, injectIntl} from 'react-intl'
 import PropTypes from 'prop-types'
 
 import AccountLink from './shared/AccountLink'
 import NewWindowIcon from './shared/NewWindowIcon'
-import { titleWithJSONButton } from './shared/TitleWithJSONButton'
+import {titleWithJSONButton} from './shared/TitleWithJSONButton'
 
 import pools from '../data/inflation_pools.json'
 
 const METADATA_PATH =
   'https://raw.githubusercontent.com/chatch/stellarexplorer/master/src/data/inflation_pools.json'
 
-const Pool = ({ account, name, website }) => {
+const Pool = ({account, name, website}) => {
   return (
-    <tr className="directoryRow">
+    <tr>
       <td>{name}</td>
       <td>
         <a href={website} target="_blank">
-          {website}
+          {website} {' '}
           <NewWindowIcon />
         </a>
       </td>
@@ -40,16 +38,20 @@ Pool.propTypes = {
 
 class Pools extends React.Component {
   render() {
-    const { formatMessage } = this.props.intl
+    const {formatMessage} = this.props.intl
     const header = titleWithJSONButton(
-      formatMessage({ id: 'inflation.pools' }),
+      formatMessage({id: 'inflation.pools'}),
       METADATA_PATH
     )
     return (
-      <div className="container-fluid">
-        <Row>
+        <div className="container-fluid">
           <Panel header={header}>
-            <Table>
+            <Table className="table-striped table-hover">
+              <colgroup>
+                <col width="200" />
+                <col />
+                <col width="150" />
+              </colgroup>
               <thead>
                 <tr>
                   <th>
@@ -71,8 +73,7 @@ class Pools extends React.Component {
               </tbody>
             </Table>
           </Panel>
-        </Row>
-      </div>
+        </div>
     )
   }
 }

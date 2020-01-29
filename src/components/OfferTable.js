@@ -29,13 +29,13 @@ class OfferTable extends React.Component {
     const {records, showSeller} = this.props
 
     if (records.length === 0)
-      return <div style={{marginTop: 20, marginBottom: 20}}>No Offers</div>
+      return <div className="m-5 text-center text-muted">No Offers</div>
 
     return (
       <div>
       <Table
         id="offer-table"
-        className="table-striped table-hover table-condensed"
+        className="table-striped table-hover"
       >
         <thead>
           <tr>
@@ -77,7 +77,7 @@ class OfferTable extends React.Component {
           ))}
         </tbody>
       </Table>
-      <div className="text-center" id="csv-export">
+      <div className="text-center m-20" id="csv-export">
         <ExportToCSVComponent {...this.props} />
       </div>
     </div>

@@ -43,7 +43,7 @@ class AccountTable extends React.Component {
 
   render() {
     return (
-      <Table id="Account-table">
+      <Table className="table-striped table-hover" id="Account-table">
         <thead>
           <tr>
             <th>#</th>

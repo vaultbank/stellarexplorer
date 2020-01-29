@@ -28,7 +28,7 @@ class TransactionRow extends React.Component {
           <TransactionHash hash={hash} compact={compact} />
         </td>
         {showSource === true && (
-          <td className="account-badge">
+          <td className="add-badge-primary">
             <AccountLink account={sourceAccount} />
           </td>
         )}
@@ -77,8 +77,19 @@ class TransactionTable extends React.Component {
     return (
       <Table
         id="transaction-table"
-        className="table-striped table-hover table-condensed"
+        className="table-striped table-hover"
       >
+        <colgroup>
+          <col />
+          {showSource === true && (
+            <col width="100" />
+          )}
+          {showLedger === true && (
+            <col width="100" />
+          )}
+          <col width="100" />
+          <col width="150" />
+        </colgroup>
         <thead>
           <tr>
             <th>#</th>

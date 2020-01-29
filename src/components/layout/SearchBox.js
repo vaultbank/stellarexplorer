@@ -12,12 +12,12 @@ import {isSecretKey} from '../../lib/utils'
 const HelpModal = props => (
   <Modal id="help-modal" show={props.show} onHide={props.handleCloseFn}>
     <Modal.Header closeButton>
-      <Modal.Title id="contained-modal-title-lg" style={{color: '#dce2ec'}}>
+      <Modal.Title id="contained-modal-title-lg">
         Search Help
       </Modal.Title>
     </Modal.Header>
-    <Modal.Body style={{color: '#96a2b4'}}>
-      <h4>Search By:</h4>
+    <Modal.Body>
+      <h5>Search By:</h5>
       <br />
       <div>
         <h5>Stellar Address</h5>
@@ -63,7 +63,7 @@ const HelpModal = props => (
             alt="search by anchor full name"
           />
         </div>
-        <div style={{marginTop: 20}}>
+        <div className="mt-20">
           Partial name:<br />
           <img
             src={`${
@@ -96,7 +96,7 @@ const HelpModal = props => (
         />
       </div>
       <hr />
-      <h4>OpenSearch:</h4>
+      <h5>OpenSearch:</h5>
       <div>
         Stellar Explorer supports{' '}
         <a
@@ -154,14 +154,16 @@ class SearchBox extends React.Component {
   render() {
     const {formatMessage} = this.props.intl
     return (
-      <div id="Search-Container">
+      <div className="container-fluid" id="Search-Container">
+        <div className="row m-0">
+        <div className="col-md-6 p-0 mb-20">
         <form onSubmit={this.searchHandler}>
-          <InputGroup>
             <FormControl
               type="text"
               onChange={e => this.setState({searchStr: e.target.value})}
               placeholder={formatMessage({id: 'search.placeHolder'})}
               value={this.state.searchStr}
+              className="w-100"
             />
             <InputGroup.Addon>
               <Glyphicon glyph="search" onClick={this.searchHandler} />
@@ -173,8 +175,9 @@ class SearchBox extends React.Component {
                 onClick={this.handleClick}
               />
             </InputGroup.Addon>
-          </InputGroup>
         </form>
+        </div>
+        </div>
         {this.state.show && (
           <HelpModal handleCloseFn={this.handleClose} show={this.state.show} />
         )}

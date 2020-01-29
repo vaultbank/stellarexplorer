@@ -1,0 +1,20 @@
+:root {
+  --shade: 0%;
+  --shade-inverse: 100%;
+
+  --bg-color: #e0f3ff;
+  --body-bg: #f1f4f6;
+  --body-color: #495057;
+  --table-hover: var(--bg-color);
+  --panel-bg: hsl(0, 0%, var(--shade-inverse));
+  --panel-heading-color: hsla(223, 65%, 15%, 0.7);
+  --border-color: hsla(0, 0%, var(--shade), 0.15);
+  --box-shadow: 0 0.46875rem 2.1875rem hsla(0, 0%, var(--shade), 0.03),
+    0 0.9375rem 1.40625rem hsla(0, 0%, var(--shade), 0.03),
+    0 0.25rem 0.53125rem hsla(0, 0%, var(--shade), 0.05),
+    0 0.125rem 0.1875rem hsla(0, 0%, var(--shade), 0.03);
+  --navbar-bg: hsl(0, 0%, var(--shade-inverse));
+  --thead-bg: hsla(0, 0%, hsla(0, 0%, var(--shade), 0.1));
+  --form-control-bg: hsl(0, 0%, var(--shade-inverse));
+  --nav-tabs-active-bg: hsl(0, 0%, var(--shade-inverse));
+}

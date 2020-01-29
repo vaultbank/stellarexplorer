@@ -1,7 +1,6 @@
 import React from 'react'
 import Grid from 'react-bootstrap/lib/Grid'
 import Panel from 'react-bootstrap/lib/Panel'
-import Row from 'react-bootstrap/lib/Row'
 import Table from 'react-bootstrap/lib/Table'
 import {Link} from 'react-router-dom'
 import {
@@ -38,71 +37,82 @@ class Transaction extends React.Component {
 
     if (!id) return null
     return (
-      <Grid>
-        <Row>
+        <Grid fluid>
           <Panel
             header={titleWithJSONButton(
               <span>
-                {formatMessage({id: 'transaction'})}{' '}
-                <span className="secondary-heading">{id}</span>
+                {formatMessage({id: 'transaction'})}
+                <span className="text-muted mx-5">
+                  ({id})
+                </span>
                 <ClipboardCopy text={id} />
               </span>,
               urlFn(id)
             )}
           >
-            <Table>
+            <Table className="table-striped table-hover">
+              <colgroup>
+                <col width="150" />
+                <col width="10" />
+              </colgroup>
               <tbody>
                 <tr>
-                  <td>
+                  <th>
                     <FormattedMessage id="time" />
-                  </td>
+                  </th>
+                  <td>:</td>
                   <td>
                     <FormattedDate value={time} />&nbsp;
                     <FormattedTime value={time} />
                   </td>
                 </tr>
                 <tr>
-                  <td>
+                  <th>
                     <FormattedMessage id="fee" />
-                  </td>
+                  </th>
+                  <td>:</td>
                   <td>{fee} stroops</td>
                 </tr>
                 <tr>
-                  <td>
+                  <th>
                     <FormattedMessage id="ledger" />
-                  </td>
+                  </th>
+                  <td>:</td>
                   <td>
                     <Link to={`/ledger/${ledger}`}>{ledger}</Link>
                   </td>
                 </tr>
                 <tr>
-                  <td>
+                  <th>
                     <FormattedMessage id="memo" />{' '}
-                    <span className="secondary-heading">
+                    <span className="text-muted">
                       ({memoTypeToLabel[memoType]})
                     </span>
-                  </td>
+                  </th>
+                  <td>:</td>
                   <td>
                     {memoType === MemoHash || memoType === MemoReturn
                       ? base64DecodeToHex(memo)
-                      : memo}
+                      : memo
+                    }
                   </td>
                 </tr>
               </tbody>
             </Table>
           </Panel>
-        </Row>
-        <Row>
-          <h3>
-            <a id="operations-table" aria-hidden="true" />
-            <FormattedMessage id="operations" />
-            {` (${opCount})`}
-          </h3>
-          <Grid>
+          <Panel
+            header={
+              <h5 id="operations-table">
+                <FormattedMessage id="operations" />
+                <span className="text-muted">
+                  {` (${opCount})`}
+                </span>
+              </h5>
+            }
+          >
             <OperationTable limit={opCount} tx={id} />
-          </Grid>
-        </Row>
-      </Grid>
+          </Panel>
+        </Grid>
     )
   }
 }
