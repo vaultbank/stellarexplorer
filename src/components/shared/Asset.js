@@ -9,7 +9,7 @@ const Asset = ({code, issuer, type}) => {
     <span>
       {propCode}{' '}
       {!isLumens && (
-        [<AccountLink account={issuer} />]
+        [<AccountLink key={code} account={issuer} />]
       )}
     </span>
   )

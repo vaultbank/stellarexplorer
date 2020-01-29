@@ -7,7 +7,6 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="search" href="%PUBLIC_URL%/search.xml" title="Stellar Explorer" type="application/opensearchdescription+xml">
     <title>Tokenvault</title>
-    <link id="theme_css" type="text/css" rel="stylesheet" media="all" href="/dark.css" />
   </head>
   <body>
     <div id="root">
@@ -26,13 +25,6 @@
         count++;
         indicator.innerHTML = new Array(count % 10).join('.');
       }, 100);
-    </script>
-    <script>
-      (function () {
-        if (window.location.hash === '#light') {
-          document.getElementById('theme_css').href = '/light.css';
-        }
-      })();
     </script>
   </body>
 </html>

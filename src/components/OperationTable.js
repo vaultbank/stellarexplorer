@@ -31,7 +31,7 @@ const OperationTable = props => (
             {' '}
             <select className="form-control w-25 d-inline-block" onChange={filterFn} defaultValue={getOperationTypeFilter()}>
               <option></option>
-              {opTypes.map(type => (<option>{type}</option>))}
+              {opTypes.map((type, index) => (<option key={`op_types_key_${index}`}>{type}</option>))}
             </select>
           </div>
 
