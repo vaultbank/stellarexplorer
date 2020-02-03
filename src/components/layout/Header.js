@@ -9,7 +9,6 @@ import {LinkContainer} from 'react-router-bootstrap'
 import {FormattedMessage, injectIntl} from 'react-intl'
 
 // import LanguageSelector from './LanguageSelector'
-import NetworkSelector from './NetworkSelector'
 
 class Header extends React.Component {
   render() {
