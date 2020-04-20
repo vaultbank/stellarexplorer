@@ -42,7 +42,7 @@ class Transaction extends React.Component {
             header={titleWithJSONButton(
               <span>
                 {formatMessage({id: 'transaction'})}
-                <span className="text-muted mx-5">
+                <span className="text-muted mx-5 word-break">
                   ({id})
                 </span>
                 <ClipboardCopy text={id} />
@@ -51,34 +51,30 @@ class Transaction extends React.Component {
             )}
           >
             <Table className="table-striped table-hover">
-              <colgroup>
-                <col width="150" />
-                <col width="10" />
-              </colgroup>
               <tbody>
                 <tr>
-                  <th>
+                  <th width="125">
                     <FormattedMessage id="time" />
                   </th>
-                  <td>:</td>
-                  <td>
+                  <td className="px-0" width="2">:</td>
+                  <td className="pl-5px word-break">
                     <FormattedDate value={time} />&nbsp;
                     <FormattedTime value={time} />
                   </td>
                 </tr>
                 <tr>
-                  <th>
+                  <th width="125">
                     <FormattedMessage id="fee" />
                   </th>
-                  <td>:</td>
-                  <td>{fee} stroops</td>
+                  <td className="px-0" width="2">:</td>
+                  <td className="pl-5px word-break">{fee} stroops</td>
                 </tr>
                 <tr>
-                  <th>
+                  <th width="125">
                     <FormattedMessage id="ledger" />
                   </th>
-                  <td>:</td>
-                  <td>
+                  <td className="px-0" width="2">:</td>
+                  <td className="pl-5px word-break">
                     <Link to={`/ledger/${ledger}`}>{ledger}</Link>
                   </td>
                 </tr>
@@ -89,8 +85,8 @@ class Transaction extends React.Component {
                       ({memoTypeToLabel[memoType]})
                     </span>
                   </th>
-                  <td>:</td>
-                  <td>
+                  <td className="px-0" width="2">:</td>
+                  <td className="pl-5px">
                     {memoType === MemoHash || memoType === MemoReturn
                       ? base64DecodeToHex(memo)
                       : memo
