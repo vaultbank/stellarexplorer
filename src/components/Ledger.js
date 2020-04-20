@@ -53,11 +53,11 @@ const responseToState = rsp => {
 
 const DetailRow = ({label, children}) => (
   <tr>
-    <th>
+    <th width="125">
       <FormattedMessage id={label} />
     </th>
-    <td>:</td>
-    <td>{children}</td>
+    <td className="px-0" width="2">:</td>
+    <td className="pl-5px word-break">{children}</td>
   </tr>
 )
 
