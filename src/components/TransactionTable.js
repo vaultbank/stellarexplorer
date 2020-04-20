@@ -24,23 +24,23 @@ class TransactionRow extends React.Component {
     } = this.props
     return (
       <tr>
-        <td>
+        <td data-title="#">
           <TransactionHash hash={hash} compact={compact} />
         </td>
         {showSource === true && (
-          <td className="add-badge-primary">
+          <td data-title="Source" className="add-badge-primary">
             <AccountLink account={sourceAccount} />
           </td>
         )}
         {showLedger === true && (
-          <td>
+          <td data-title="Ledger">
             <Link to={`/ledger/${ledger}`}>{ledger}</Link>
           </td>
         )}
-        <td>
+        <td data-title="Operations">
           <Link to={`/tx/${hash}#operations-table`}>{opCount}</Link>
         </td>
-        <td>
+        <td data-title="Time">
           <span title={time}>
             <TimeSynchronisedFormattedRelative
               initialNow={parentRenderTimestamp}
@@ -77,7 +77,7 @@ class TransactionTable extends React.Component {
     return (
       <Table
         id="transaction-table"
-        className="table-striped table-hover"
+        className="table-striped table-hover tbl-responsive"
       >
         <colgroup>
           <col />
