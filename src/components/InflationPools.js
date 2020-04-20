@@ -16,14 +16,14 @@ const METADATA_PATH =
 const Pool = ({account, name, website}) => {
   return (
     <tr>
-      <td>{name}</td>
-      <td>
+      <td data-title="Name">{name}</td>
+      <td data-title="Home">
         <a href={website} target="_blank">
           {website} {' '}
           <NewWindowIcon />
         </a>
       </td>
-      <td>
+      <td data-title="Account">
         <AccountLink account={account} hideKnown />
       </td>
     </tr>
@@ -46,7 +46,7 @@ class Pools extends React.Component {
     return (
         <div className="container-fluid">
           <Panel header={header}>
-            <Table className="table-striped table-hover">
+            <Table className="table-striped table-hover tbl-responsive">
               <colgroup>
                 <col width="200" />
                 <col />
