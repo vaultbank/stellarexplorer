@@ -24,7 +24,7 @@ const EffectTable = ({
   <div>
   <Table
     id="effect-table"
-    className="table-striped table-hover"
+    className="table-striped table-hover tbl-responsive"
   >
     <colgroup>
       {showAccount && (

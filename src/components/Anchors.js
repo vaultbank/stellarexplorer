@@ -25,7 +25,7 @@ const tradeURL = (assetCode, issuerDomain) =>
 
 // render list of asset codes, each code on a new line
 const AssetCodeColumn = ({assets}) => (
-  <td title="Asset">{Object.keys(assets).map(code => <p key={code}>{code}</p>)}</td>
+  <td title="Asset">{Object.keys(assets).map(code => <p className="m-0" key={code}>{code}</p>)}</td>
 )
 
 const IssuerColumn = ({assets}) => (
@@ -33,7 +33,7 @@ const IssuerColumn = ({assets}) => (
     {Object.keys(assets).map(code => {
       const issuer = assetKeyToIssuer(assets[code])
       return (
-        <p key={code}>
+        <p className="m-0" key={code}>
           <AccountLink account={issuer} hideKnown /> {' '}
           <ClipboardCopy text={issuer} />
         </p>
@@ -45,7 +45,7 @@ const IssuerColumn = ({assets}) => (
 const TradeColumn = ({assets, domain}) => (
   <td title="StellarTerm">
     {Object.keys(assets).map(code => (
-      <p key={code}>
+      <p className="m-0" key={code}>
         <a href={tradeURL(code, domain)} target="_blank">
           Trade
         </a>
