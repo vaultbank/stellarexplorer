@@ -1,0 +1,79 @@
+/*
+This query will take effect for any screen smaller than 767px
+*/
+
+@media only screen and (max-width: 767px) {
+  .word-break {
+    display: inline-block;
+    word-break: break-all;
+  }
+
+  /* Force table to not be like tables anymore */
+  table.tbl-responsive,
+  table.tbl-responsive th,
+  table.tbl-responsive td,
+  table.tbl-responsive tr,
+  table.tbl-responsive thead,
+  table.tbl-responsive tbody {
+		display: block;
+  }
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	table.tbl-responsive thead tr {
+    top: -9999px;
+		left: -9999px;
+		position: absolute;
+	}
+
+	table.tbl-responsive tr {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+	table.tbl-responsive td {
+		/* Behave  like a "row" */
+    position: relative;
+    pointer-events: none;
+    word-break: break-all;
+    padding: 2px !important;
+    text-align: left !important;
+	}
+
+	table.tbl-responsive td:not(.ignore-responsive) {
+		padding-left: 40% !important;
+	}
+
+  table.tbl-responsive tr td:not(.ignore-responsive):first-child {
+    padding-top: 10px !important;
+  }
+
+  table.tbl-responsive tr td:not(.ignore-responsive):last-child {
+    padding-bottom: 10px !important;
+  }
+
+	table.tbl-responsive td:not(.ignore-responsive):after,
+  table.tbl-responsive td:not(.ignore-responsive):before {
+    top: 0;
+    left: 10px;
+    width: 35%;
+    white-space: nowrap;
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+	}
+
+  table.tbl-responsive td:not(.ignore-responsive):before {
+    padding-right: 10px;
+	}
+
+	table.tbl-responsive td:not(.ignore-responsive):after {
+    content: ":";
+    text-align: right;
+	}
+
+	/*
+	Label the data
+  */
+	table.tbl-responsive td:before {
+    content: attr(title);
+  }
+}

@@ -23,17 +23,17 @@ const Asset = ({code, domain, issuer}) => {
   const anchor = anchors[domain]
   return (
     <tr>
-      <td>
+      <td className="ignore-responsive">
         <a href={anchor.website} target="_blank">
           <Logo name={domain} src={anchor.logo} width={70} />
         </a>
       </td>
-      <td>{code}</td>
-      <td>
+      <td title="Code">{code}</td>
+      <td title="Issuer">
         <AccountLink account={issuer} hideKnown /> {' '}
         <ClipboardCopy text={issuer} />
       </td>
-      <td>
+      <td title="Anchor">
         <Link to={`/anchor/${domain}`}>{anchor.name}</Link>
         <p>
           <a href={anchor.website} target="_blank">
@@ -75,7 +75,7 @@ class Assets extends React.Component {
     return (
         <div className="container-fluid">
           <Panel header={header}>
-            <Table className="table-striped table-hover">
+            <Table className="table-striped table-hover tbl-responsive">
               <colgroup>
                 <col width="60" />
               </colgroup>
