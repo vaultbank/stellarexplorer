@@ -8,17 +8,18 @@ import TimeSynchronisedFormattedRelative from './shared/TimeSynchronizedFormatte
 
 const LedgerRow = props => (
   <tr>
-    <td>
+    <td data-title="#">
       <Link to={`/ledger/${props.sequence}`}>{props.sequence}</Link>
     </td>
-    <td>
+    <td data-title="Transactions">
       {props.txCount > 0 ? (
         <Link to={`/ledger/${props.sequence}#txs-table`}>{props.txCount}</Link>
       ) : (
         props.txCount
       )}
+      &nbsp;
     </td>
-    <td>
+    <td data-title="Time">
       <span title={props.time}>
         <TimeSynchronisedFormattedRelative
           initialNow={props.parentRenderTimestamp}
@@ -41,7 +42,7 @@ class LedgerTable extends React.PureComponent {
     return (
       <Table
         id="ledger-table"
-        className="table-striped table-hover"
+        className="table-striped table-hover tbl-responsive"
       >
         <colgroup>
           <col width="100" />

@@ -33,7 +33,6 @@ This query will take effect for any screen smaller than 767px
   }
 
 	table.tbl-responsive td {
-		/* Behave  like a "row" */
     position: relative;
     /*pointer-events: none;*/
     overflow-wrap: break-word;
@@ -61,10 +60,8 @@ This query will take effect for any screen smaller than 767px
     top: 0;
     left: 10px;
     width: 40%;
-    white-space: nowrap;
-    /* Now like a table header */
     position: absolute;
-    /* Top/left values mimic padding */
+    white-space: nowrap;
 	}
 
   table.tbl-responsive td:not(.ignore-responsive):first-child:after,
