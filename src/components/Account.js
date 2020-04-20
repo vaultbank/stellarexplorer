@@ -74,24 +74,24 @@ const NameValueTable = ({data, decodeValue = false}) => {
 
 const balanceRow = bal => (
   <tr key={bal.asset_code ? `${bal.asset_code}-${bal.asset_issuer}` : 'XLM'}>
-    <td>
+    <td data-title="Asset">
       <Asset
         type={bal.asset_type}
         code={bal.asset_code}
         issuer={bal.asset_issuer}
       />
     </td>
-    <td>
+    <td data-title="Balance">
       <FormattedAmount amount={bal.balance} />
     </td>
-    <td>
-      {bal.limit}
+    <td data-title="Limit">
+      {bal.limit}&nbsp;
     </td>
   </tr>
 )
 
 const Balances = props => (
-  <Table className="table-striped table-hover">
+  <Table className="table-striped table-hover tbl-responsive">
     <thead>
       <tr>
         <th>
@@ -138,7 +138,7 @@ const Thresholds = ({thresholds}) => (
 )
 
 const Signers = props => (
-  <Table className="table-striped table-hover">
+  <Table className="table-striped table-hover tbl-responsive">
     <thead>
       <tr>
         <th>
@@ -155,7 +155,7 @@ const Signers = props => (
     <tbody>
       {props.signers.map(signer => (
         <tr key={signer.public_key}>
-          <td className="add-badge-primary">
+          <td data-title="Key" className="add-badge-primary">
             {signer.type === 'ed25519_public_key' && (
               <AccountLink account={signer.key} />
             )}
@@ -164,8 +164,8 @@ const Signers = props => (
             {signer.type === 'preauth_tx' &&
               StrKey.decodePreAuthTx(signer.key).toString('hex')}
           </td>
-          <td>{signer.weight}</td>
-          <td>{signer.type}</td>
+          <td data-title="Weight">{signer.weight}</td>
+          <td data-title="Type">{signer.type}</td>
         </tr>
       ))}
     </tbody>
@@ -189,17 +189,13 @@ const AccountSummaryPanel = ({
   return (
     <Panel header={header}>
       <Table className="table-striped table-hover" id="Account-table">
-        <colgroup>
-          <col width="175" />
-          <col width="10" />
-        </colgroup>
         <tbody>
           <tr>
-            <th>
+            <th width="125">
               <FormattedMessage id="key.public" />
             </th>
-            <td>:</td>
-            <td>
+            <td className="px-0" width="2">:</td>
+            <td className="pl-5px word-break">
               <span className="mr-5">{a.id}</span> {' '}
               <ClipboardCopy text={a.id} />
             </td>
@@ -207,20 +203,20 @@ const AccountSummaryPanel = ({
           {stellarAddr && (
             <tr>
               <th>
-                <FormattedMessage id="stellar.address" />:
+                <FormattedMessage id="stellar.address" />
               </th>
-              <td>:</td>
-              <td>
+              <td className="px-0">:</td>
+              <td className="pl-5px word-break">
                 {stellarAddr}
               </td>
             </tr>
           )}
           <tr>
             <th>
-              <FormattedMessage id="home.domain" />:
+              <FormattedMessage id="home.domain" />
             </th>
-            <td>:</td>
-            <td>
+            <td className="px-0">:</td>
+            <td className="pl-5px word-break">
               <a href={`https://${a.home_domain}`} target="_blank">
                 {a.home_domain}
               </a>
@@ -228,10 +224,10 @@ const AccountSummaryPanel = ({
           </tr>
           <tr>
             <th>
-              <FormattedMessage id="inflation" />:
+              <FormattedMessage id="inflation" />
             </th>
-            <td>:</td>
-            <td className="add-badge-primary">
+            <td className="px-0">:</td>
+            <td className="pl-5px word-break add-badge-primary">
               {a.inflation_destination && (
                 <AccountLink account={a.inflation_destination} />
               )}
@@ -239,10 +235,10 @@ const AccountSummaryPanel = ({
           </tr>
           <tr>
             <th>
-              <FormattedMessage id="subentry.count" />:
+              <FormattedMessage id="subentry.count" />
             </th>
-            <td>:</td>
-            <td>
+            <td className="px-0">:</td>
+            <td className="pl-5px word-break">
               {a.subentry_count}
             </td>
           </tr>

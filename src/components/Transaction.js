@@ -66,14 +66,14 @@ class Transaction extends React.Component {
                   <th width="125">
                     <FormattedMessage id="fee" />
                   </th>
-                  <td className="px-0" width="2">:</td>
+                  <td className="px-0">:</td>
                   <td className="pl-5px word-break">{fee} stroops</td>
                 </tr>
                 <tr>
                   <th width="125">
                     <FormattedMessage id="ledger" />
                   </th>
-                  <td className="px-0" width="2">:</td>
+                  <td className="px-0">:</td>
                   <td className="pl-5px word-break">
                     <Link to={`/ledger/${ledger}`}>{ledger}</Link>
                   </td>
@@ -85,7 +85,7 @@ class Transaction extends React.Component {
                       ({memoTypeToLabel[memoType]})
                     </span>
                   </th>
-                  <td className="px-0" width="2">:</td>
+                  <td className="px-0">:</td>
                   <td className="pl-5px">
                     {memoType === MemoHash || memoType === MemoReturn
                       ? base64DecodeToHex(memo)

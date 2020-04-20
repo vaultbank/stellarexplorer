@@ -12,21 +12,21 @@ class AccountRow extends React.Component {
     const txHash = this.props.hash
     return (
       <tr>
-        <td>
+        <td data-title="">
           <span title={txHash}>
             <Link to={`/tx/${txHash}`}>
               {shortHash(txHash)}
             </Link>
           </span>
         </td>
-        <td>
+        <td data-title="">
           <FormattedDate value={this.props.time} />
           <FormattedTime value={this.props.time} />
         </td>
-        <td>
+        <td data-title="">
           {this.props.value}
         </td>
-        <td>
+        <td data-title="">
           <Link to={`/ledger/${this.props.ledger}`}>
             {this.props.ledger}
           </Link>
@@ -43,7 +43,7 @@ class AccountTable extends React.Component {
 
   render() {
     return (
-      <Table className="table-striped table-hover" id="Account-table">
+      <Table className="table-striped table-hover tbl-responsive" id="Account-table">
         <thead>
           <tr>
             <th>#</th>
