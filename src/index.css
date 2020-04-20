@@ -39,7 +39,7 @@ This query will take effect for any screen smaller than 767px
 	}
 
 	table.tbl-responsive td:not(.ignore-responsive) {
-		padding-left: 40% !important;
+		padding-left: 30% !important;
 	}
 
   table.tbl-responsive tr td:not(.ignore-responsive):first-child {
@@ -54,7 +54,7 @@ This query will take effect for any screen smaller than 767px
   table.tbl-responsive td:not(.ignore-responsive):before {
     top: 0;
     left: 10px;
-    width: 35%;
+    width: 25%;
     white-space: nowrap;
     /* Now like a table header */
     position: absolute;
@@ -75,5 +75,18 @@ This query will take effect for any screen smaller than 767px
   */
 	table.tbl-responsive td:before {
     content: attr(title);
+  }
+
+  .ignore-responsive img {
+    width: 48px;
+    height: 48px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    background-color: #fff;
+  }
+
+  .ignore-responsive.left img {
+    float: left;
   }
 }
