@@ -51,7 +51,7 @@ const Operation = ({compact, op, opURLFn, parentRenderTimestamp}) => {
 
   return (
     <tr key={op.id} className="operation">
-      <td className="add-badge-primary" title="Account">
+      <td data-title="Account" className="add-badge-primary">
         {acc}
       </td>
       <td data-title="Operation">

@@ -45,7 +45,7 @@ const OperationTable = props => (
     )}
     <Table
       id="operation-table"
-      className="table-striped table-hover"
+      className="table-striped table-hover tbl-responsive"
     >
       <colgroup>
         <col width="100" />
