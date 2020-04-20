@@ -249,27 +249,27 @@ class Effect extends React.Component {
     return (
       <tr key={effect.id} id={effect.id} className="effect">
         {showAccount && (
-          <td title="Account" className="add-badge-primary">
+          <td data-title="Account" className="add-badge-primary">
             &nbsp;<AccountLink account={effect.account} />
           </td>
         )}
-        <td title="Type">{effect.type}</td>
-        <td title="Details">
+        <td data-title="Type">{effect.type}</td>
+        <td data-title="Details">
           <EffectDetails effect={effect} op={this.state.op} />
         </td>
-        <td title="Transaction">
+        <td data-title="Transaction">
           {this.state.txHash != null && (
             <TransactionHash hash={this.state.txHash} compact={true} />
           )}
           &nbsp;
         </td>
-        <td title="Time">
+        <td data-title="Time">
           <TimeSynchronisedFormattedRelative
             initialNow={this.props.parentRenderTimestamp}
             value={effect.createdAt}
           />
         </td>
-        <td title="">
+        <td data-title="">
           <JSONButton
             url={`${effectURLFn(opId)}?limit=200&order=desc`}
             filterFn={this.filterEffectsFn()}

@@ -25,11 +25,11 @@ const tradeURL = (assetCode, issuerDomain) =>
 
 // render list of asset codes, each code on a new line
 const AssetCodeColumn = ({assets}) => (
-  <td title="Asset">{Object.keys(assets).map(code => <p className="m-0" key={code}>{code}</p>)}</td>
+  <td data-title="Asset">{Object.keys(assets).map(code => <p className="m-0" key={code}>{code}</p>)}</td>
 )
 
 const IssuerColumn = ({assets}) => (
-  <td title="Issuer">
+  <td data-title="Issuer">
     {Object.keys(assets).map(code => {
       const issuer = assetKeyToIssuer(assets[code])
       return (
@@ -43,7 +43,7 @@ const IssuerColumn = ({assets}) => (
 )
 
 const TradeColumn = ({assets, domain}) => (
-  <td title="StellarTerm">
+  <td data-title="StellarTerm">
     {Object.keys(assets).map(code => (
       <p className="m-0" key={code}>
         <a href={tradeURL(code, domain)} target="_blank">
@@ -62,7 +62,7 @@ const Anchor = ({assets, domain, displayName, logo, website}) => {
           <Logo name={domain} src={logo} width={70} />
         </Link>
       </td>
-      <td title="" className="anchorLinkCol">
+      <td data-title="" className="anchorLinkCol">
         <Link to={`/anchor/${domain}`}>{displayName}</Link>
         <p>
           <a href={website} target="_blank">

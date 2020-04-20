@@ -22,13 +22,13 @@ const Exchange = ({accounts, home, name, logo, decentralized = false}) => {
           <Logo name={name} src={logo} width={150} />
         </a>
       </td>
-      <td title="Home Domain">
+      <td data-title="Home Domain">
         <a href={homeLink} target="_blank">
           {home} {' '}
           <NewWindowIcon />
         </a>
       </td>
-      <td title="Account">
+      <td data-title="Account">
         {!isEmpty(accounts) &&
           accounts.map(account => (
             <span key={account}>

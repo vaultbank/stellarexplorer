@@ -54,16 +54,16 @@ const Operation = ({compact, op, opURLFn, parentRenderTimestamp}) => {
       <td className="add-badge-primary" title="Account">
         {acc}
       </td>
-      <td title="Operation">
+      <td data-title="Operation">
         <SubOperation op={op} />
       </td>
       {compact === false && (
-        <td title="Transaction">
+        <td data-title="Transaction">
           <TransactionHash hash={op.transactionHash} compact={true} />
         </td>
       )}
       {compact === false && (
-        <td title="Type">
+        <td data-title="Type">
           <OperationType
             account={op.sourceAccount}
             type={op.type}
@@ -71,7 +71,7 @@ const Operation = ({compact, op, opURLFn, parentRenderTimestamp}) => {
           />
         </td>
       )}
-      <td title="Time">
+      <td data-title="Time">
         <span title={op.time}>
           <TimeSynchronisedFormattedRelative
             initialNow={parentRenderTimestamp}
@@ -79,7 +79,7 @@ const Operation = ({compact, op, opURLFn, parentRenderTimestamp}) => {
           />
         </span>
       </td>
-      <td title="" className="text-center">
+      <td data-title="" className="text-center">
         <JSONButton url={opURLFn(op.id)} />
       </td>
     </tr>

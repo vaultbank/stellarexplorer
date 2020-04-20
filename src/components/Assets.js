@@ -28,12 +28,12 @@ const Asset = ({code, domain, issuer}) => {
           <Logo name={domain} src={anchor.logo} width={70} />
         </a>
       </td>
-      <td title="Code">{code}</td>
-      <td title="Issuer">
+      <td data-title="Code">{code}</td>
+      <td data-title="Issuer">
         <AccountLink account={issuer} hideKnown /> {' '}
         <ClipboardCopy text={issuer} />
       </td>
-      <td title="Anchor">
+      <td data-title="Anchor">
         <Link to={`/anchor/${domain}`}>{anchor.name}</Link>
         <p>
           <a href={anchor.website} target="_blank">

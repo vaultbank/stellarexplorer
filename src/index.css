@@ -85,7 +85,7 @@ This query will take effect for any screen smaller than 767px
 	Label the data
   */
 	table.tbl-responsive td:before {
-    content: attr(title);
+    content: attr(data-title);
   }
 
   .ignore-responsive img {
