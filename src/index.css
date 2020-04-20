@@ -5,7 +5,10 @@ This query will take effect for any screen smaller than 767px
 @media only screen and (max-width: 767px) {
   .word-break {
     display: inline-block;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
     word-break: break-all;
+    word-break: break-word;
   }
 
   /* Force table to not be like tables anymore */
@@ -32,8 +35,11 @@ This query will take effect for any screen smaller than 767px
 	table.tbl-responsive td {
 		/* Behave  like a "row" */
     position: relative;
-    pointer-events: none;
+    /*pointer-events: none;*/
+    overflow-wrap: break-word;
+    word-wrap: break-word;
     word-break: break-all;
+    word-break: break-word;
     padding: 2px !important;
     text-align: left !important;
 	}
@@ -60,6 +66,11 @@ This query will take effect for any screen smaller than 767px
     position: absolute;
     /* Top/left values mimic padding */
 	}
+
+  table.tbl-responsive td:not(.ignore-responsive):first-child:after,
+  table.tbl-responsive td:not(.ignore-responsive):first-child:before {
+    top: 10px;
+  }
 
   table.tbl-responsive td:not(.ignore-responsive):before {
     padding-right: 10px;

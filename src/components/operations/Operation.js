@@ -51,19 +51,19 @@ const Operation = ({compact, op, opURLFn, parentRenderTimestamp}) => {
 
   return (
     <tr key={op.id} className="operation">
-      <td className="add-badge-primary">
+      <td className="add-badge-primary" title="Account">
         {acc}
       </td>
-      <td>
+      <td title="Operation">
         <SubOperation op={op} />
       </td>
       {compact === false && (
-        <td>
+        <td title="Transaction">
           <TransactionHash hash={op.transactionHash} compact={true} />
         </td>
       )}
       {compact === false && (
-        <td>
+        <td title="Type">
           <OperationType
             account={op.sourceAccount}
             type={op.type}
@@ -71,7 +71,7 @@ const Operation = ({compact, op, opURLFn, parentRenderTimestamp}) => {
           />
         </td>
       )}
-      <td>
+      <td title="Time">
         <span title={op.time}>
           <TimeSynchronisedFormattedRelative
             initialNow={parentRenderTimestamp}
@@ -79,7 +79,7 @@ const Operation = ({compact, op, opURLFn, parentRenderTimestamp}) => {
           />
         </span>
       </td>
-      <td className="text-center">
+      <td title="" className="text-center">
         <JSONButton url={opURLFn(op.id)} />
       </td>
     </tr>
