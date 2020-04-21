@@ -97,7 +97,6 @@ class Anchors extends React.Component {
       METADATA_PATH
     )
     return (
-        <div className="container-fluid">
           <Panel header={header}>
           <Table className="table-striped table-hover tbl-responsive">
               <colgroup>
@@ -133,7 +132,6 @@ class Anchors extends React.Component {
               </tbody>
             </Table>
           </Panel>
-        </div>
     )
   }
 }

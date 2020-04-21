@@ -28,21 +28,20 @@ class Anchor extends React.Component {
     if (!anchor || anchor == null) return null
 
     return (
-        <Grid>
+        <div className="container-fluid">
           <Panel
             header={
-              <span>
-                { formatMessage({id: 'anchor'}) }{' '}
-                <small>{name}</small>
-              </span>
+              <h5>
+                { formatMessage({id: 'anchor'}) }<span className="text-muted mx-5 word-break">{name}</span>
+              </h5>
             }
           >
             <Table className="table-striped table-hover">
               <tbody>
                 <tr>
-                  <td>
+                  <td width="100">
                     <a href={anchor.website} target="_blank">
-                      <Logo name={domain} src={anchor.logo} />
+                      <Logo name={domain} src={anchor.logo} width={70} />
                     </a>
                   </td>
                   <td>
@@ -62,13 +61,13 @@ class Anchor extends React.Component {
             </Table>
           </Panel>
 
-          <h3>
+          <h5>
             <FormattedMessage id="assets" />
-          </h3>
+          </h5>
           <Table className="table-striped table-hover">
             <thead>
               <tr>
-                <th>
+                <th width="100">
                   <FormattedMessage id="code" />
                 </th>
                 <th>
@@ -84,7 +83,7 @@ class Anchor extends React.Component {
                   return (
                     <tr key={code}>
                       <td>{code}</td>
-                      <td>
+                      <td className="word-break">
                         <AccountLink account={issuer} hideKnown /> {' '}
                         <ClipboardCopy text={issuer} />
                       </td>
@@ -93,7 +92,7 @@ class Anchor extends React.Component {
                 })}
             </tbody>
           </Table>
-        </Grid>
+        </div>
     )
   }
 }
