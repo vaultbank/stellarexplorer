@@ -29,6 +29,7 @@ const opTypeComponentMap = {
   inflation: Inflation,
   manage_data: ManageData,
   manage_offer: Offer,
+  manage_buy_offer: Offer,
   path_payment: PathPayment,
   payment: Payment,
   set_options: SetOptions,
