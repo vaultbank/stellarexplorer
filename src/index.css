@@ -1,0 +1,116 @@
+/*
+This query will take effect for any screen smaller than 767px
+*/
+
+@media only screen and (max-width: 767px) {
+  .word-break {
+    display: inline-block;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+  }
+
+  /* Force table to not be like tables anymore */
+  table.tbl-responsive,
+  table.tbl-responsive th,
+  table.tbl-responsive td,
+  table.tbl-responsive tr,
+  table.tbl-responsive thead,
+  table.tbl-responsive tbody {
+		display: block;
+  }
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	table.tbl-responsive thead tr {
+    top: -9999px;
+		left: -9999px;
+		position: absolute;
+	}
+
+	table.tbl-responsive tr:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+	table.tbl-responsive td {
+    position: relative;
+    /*pointer-events: none;*/
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+    text-align: left !important;
+    padding: 2px 10px 2px 2px !important;
+	}
+
+	table.tbl-responsive td:not(.ignore-responsive) {
+		padding-left: 45% !important;
+	}
+
+  table.tbl-responsive tr td:not(.ignore-responsive):first-child {
+    padding-top: 10px !important;
+  }
+
+  table.tbl-responsive tr td:not(.ignore-responsive):last-child {
+    padding-bottom: 10px !important;
+  }
+
+	table.tbl-responsive td:not(.ignore-responsive):after,
+  table.tbl-responsive td:not(.ignore-responsive):before {
+    top: 0;
+    left: 10px;
+    width: 40%;
+    position: absolute;
+    white-space: nowrap;
+	}
+
+  table.tbl-responsive td:not(.ignore-responsive):first-child:after,
+  table.tbl-responsive td:not(.ignore-responsive):first-child:before {
+    top: 10px;
+  }
+
+  table.tbl-responsive td:not(.ignore-responsive):before {
+    padding-right: 10px;
+	}
+
+	table.tbl-responsive td:not(.ignore-responsive):after {
+    content: ":";
+    text-align: right;
+	}
+
+	/*
+	Label the data
+  */
+	table.tbl-responsive td:before {
+    content: attr(data-title);
+  }
+
+  .ignore-responsive img {
+    width: 48px;
+    height: 48px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    background-color: #fff;
+  }
+
+  .ignore-responsive.left img {
+    float: left;
+    margin-left: 10px;
+    margin-right: auto;
+  }
+
+  .ignore-responsive.none img {
+    float: none;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: auto;
+  }
+  .table > tbody > tr > td.px-0 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .table > tbody > tr > td.pl-5px {
+    padding-left: 5px;
+  }
+}

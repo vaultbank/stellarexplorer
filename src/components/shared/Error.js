@@ -11,7 +11,7 @@ class Error extends React.Component {
     return (
       <Grid fluid>
         <Panel>
-          <h3 className="m-5 text-center text-muted">
+          <h3 className="m-5 text-center text-muted word-break">
             {id && knownErrors.indexOf(id) !== -1 ? (
               <FormattedMessage id={`error.${id}`} />
             ) : (

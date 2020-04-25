@@ -58,15 +58,15 @@ const Trade = ({account, singleAccountView, trade, parentRenderTimestamp}) => {
 
   return (
     <tr key={trade.id} className="trade">
-      <td className="add-badge-primary">
+      <td data-title="Account 1" className="add-badge-primary">
         <AccountLink account={account1} />
       </td>
-      <td>{baseFirst ? Base : Counter}</td>
-      <td className="add-badge-primary">
+      <td data-title="Bought">{baseFirst ? Base : Counter}</td>
+      <td data-title="Account 2" className="add-badge-primary">
         <AccountLink account={account2} />
       </td>
-      <td>{baseFirst ? Counter : Base}</td>
-      <td title={trade.time}>
+      <td data-title="Bought">{baseFirst ? Counter : Base}</td>
+      <td data-title="Time" title={trade.time}>
         <TimeSynchronisedFormattedRelative
           initialNow={parentRenderTimestamp}
           value={trade.time}
@@ -108,7 +108,7 @@ class TradeTable extends React.Component {
       <div>
         <Table
           id="trade-table"
-          className="table-striped table-hover"
+          className="table-striped table-hover tbl-responsive"
         >
           <colgroup>
             <col />

@@ -18,7 +18,7 @@ const PaymentTable = ({compact, server, parentRenderTimestamp, records, account}
   <div>
   <Table
     id="payment-table"
-    className="table-striped table-hover"
+    className="table-striped table-hover tbl-responsive"
   >
     <colgroup>
       <col width="100" />

@@ -25,15 +25,15 @@ const tradeURL = (assetCode, issuerDomain) =>
 
 // render list of asset codes, each code on a new line
 const AssetCodeColumn = ({assets}) => (
-  <td>{Object.keys(assets).map(code => <p key={code}>{code}</p>)}</td>
+  <td data-title="Asset">{Object.keys(assets).map(code => <p className="m-0" key={code}>{code}</p>)}</td>
 )
 
 const IssuerColumn = ({assets}) => (
-  <td>
+  <td data-title="Issuer">
     {Object.keys(assets).map(code => {
       const issuer = assetKeyToIssuer(assets[code])
       return (
-        <p key={code}>
+        <p className="m-0" key={code}>
           <AccountLink account={issuer} hideKnown /> {' '}
           <ClipboardCopy text={issuer} />
         </p>
@@ -43,9 +43,9 @@ const IssuerColumn = ({assets}) => (
 )
 
 const TradeColumn = ({assets, domain}) => (
-  <td>
+  <td data-title="StellarTerm">
     {Object.keys(assets).map(code => (
-      <p key={code}>
+      <p className="m-0" key={code}>
         <a href={tradeURL(code, domain)} target="_blank">
           Trade
         </a>
@@ -57,12 +57,12 @@ const TradeColumn = ({assets, domain}) => (
 const Anchor = ({assets, domain, displayName, logo, website}) => {
   return (
     <tr>
-      <td>
+      <td className="ignore-responsive left">
         <Link to={`/anchor/${domain}`}>
           <Logo name={domain} src={logo} width={70} />
         </Link>
       </td>
-      <td className="anchorLinkCol">
+      <td data-title="" className="anchorLinkCol">
         <Link to={`/anchor/${domain}`}>{displayName}</Link>
         <p>
           <a href={website} target="_blank">
@@ -70,7 +70,9 @@ const Anchor = ({assets, domain, displayName, logo, website}) => {
             <NewWindowIcon />
           </a>
         </p>
-        <StellarTomlBadge domain={domain} />
+        <p>
+          <StellarTomlBadge domain={domain} />
+        </p>
       </td>
       <AssetCodeColumn assets={assets} />
       <IssuerColumn assets={assets} />
@@ -95,9 +97,8 @@ class Anchors extends React.Component {
       METADATA_PATH
     )
     return (
-        <div className="container-fluid">
           <Panel header={header}>
-          <Table className="table-striped table-hover">
+          <Table className="table-striped table-hover tbl-responsive">
               <colgroup>
                 <col width="100" />
               </colgroup>
@@ -131,7 +132,6 @@ class Anchors extends React.Component {
               </tbody>
             </Table>
           </Panel>
-        </div>
     )
   }
 }

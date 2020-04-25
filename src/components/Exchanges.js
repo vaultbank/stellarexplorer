@@ -17,18 +17,18 @@ const Exchange = ({accounts, home, name, logo, decentralized = false}) => {
   const homeLink = `https://${home}`
   return (
     <tr>
-      <td>
+      <td className="ignore-responsive none">
         <a href={homeLink} target="_blank">
           <Logo name={name} src={logo} width={150} />
         </a>
       </td>
-      <td>
+      <td data-title="Home Domain">
         <a href={homeLink} target="_blank">
           {home} {' '}
           <NewWindowIcon />
         </a>
       </td>
-      <td>
+      <td data-title="Account">
         {!isEmpty(accounts) &&
           accounts.map(account => (
             <span key={account}>
@@ -68,7 +68,7 @@ class Exchanges extends React.Component {
             <div className="m-20">
             <h5>Decentralized</h5>
             <div className="bordered">
-            <Table className="table-striped table-hover">
+            <Table className="table-striped table-hover tbl-responsive">
               <TableHeader />
               <tbody>
                 {Object.keys(decentralized).map(id => (
@@ -86,7 +86,7 @@ class Exchanges extends React.Component {
             <div className="m-20">
             <h5>Centralized</h5>
             <div className="bordered">
-            <Table className="table-striped table-hover">
+            <Table className="table-striped table-hover tbl-responsive">
               <TableHeader />
               <tbody>
                 {Object.keys(centralized).map(id => (

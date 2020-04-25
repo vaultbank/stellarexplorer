@@ -9,7 +9,7 @@ class NoMatchError extends React.Component {
     return (
       <Grid fluid>
         <Panel>
-          <h3 className="m-5 text-center text-muted">
+          <h3 className="m-5 text-center text-muted word-break">
             {id ? (
               <FormattedMessage id="error.cant.find" values={{searchStr: id}} />
             ) : (
