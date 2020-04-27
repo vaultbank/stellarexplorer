@@ -4,7 +4,7 @@
 
   --bg-color: #e0f3ff;
   --body-bg: #f1f4f6;
-  --body-color: #495057;
+  --body-color: #333;
   --table-hover: var(--bg-color);
   --panel-bg: hsl(0, 0%, var(--shade-inverse));
   --panel-heading-color: hsla(223, 65%, 15%, 0.7);

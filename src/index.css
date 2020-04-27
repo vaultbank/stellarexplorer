@@ -28,10 +28,6 @@ This query will take effect for any screen smaller than 767px
 		position: absolute;
 	}
 
-	table.tbl-responsive tr:not(:last-child) {
-    border-bottom: 1px solid var(--border-color);
-  }
-
 	table.tbl-responsive td {
     position: relative;
     /*pointer-events: none;*/
