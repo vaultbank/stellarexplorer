@@ -3,8 +3,8 @@ import networks from './networks'
 
 export const defaultNetworkAddresses = {
   public: 'https://horizon.tokenvault.io',
-  test: 'https://horizon.tokenvault.io',
-  local: 'https://horizon.tokenvault.io',
+  test: 'https://horizon-testnet.stellar.org/',
+  local: 'https://horizon-testnet.stellar.org/',
 }
 
 /**
